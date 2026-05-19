@@ -1,0 +1,9 @@
+main {
+  border-top: 4px solid #2563eb;
+}
+
+h1 {
+  color: #1d4ed8;
+}
+
+/* Demonstrates the --css option in the CLI sample. */

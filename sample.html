@@ -1,0 +1,276 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>sample.md</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f7f8fb;
+      --paper: #ffffff;
+      --text: #1f2937;
+      --muted: #5f6b7a;
+      --border: #d8dee8;
+      --accent: #2563eb;
+      --code-bg: #f1f5f9;
+      --code-block-bg: #111827;
+      --code-block-border: #263244;
+      --code-block-text: #d1d5db;
+      --list-guide: #cbd5e1;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.65;
+    }
+
+    main {
+      width: min(860px, calc(100% - 32px));
+      margin: 40px auto;
+      padding: 40px;
+      background: var(--paper);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+      line-height: 1.25;
+      margin: 1.6em 0 0.6em;
+    }
+
+    h1 {
+      margin-top: 0;
+      padding-bottom: 0.35em;
+      border-bottom: 1px solid var(--border);
+    }
+
+    p, pre, blockquote, table {
+      margin: 0 0 1.1em;
+    }
+
+    ul, ol {
+      margin: 0 0 1.1em;
+      padding-left: 1.6rem;
+    }
+
+    li {
+      padding-left: 0.25rem;
+      margin: 0.28em 0;
+    }
+
+    li::marker {
+      color: var(--muted);
+      font-weight: 600;
+    }
+
+    li > ul,
+    li > ol {
+      margin: 0.38em 0 0.55em;
+      padding-left: 1.45rem;
+      border-left: 2px solid var(--list-guide);
+    }
+
+    ul ul {
+      list-style-type: circle;
+    }
+
+    ul ul ul {
+      list-style-type: square;
+    }
+
+    ol ol {
+      list-style-type: lower-alpha;
+    }
+
+    ol ol ol {
+      list-style-type: lower-roman;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration-thickness: 0.08em;
+      text-underline-offset: 0.18em;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 6px;
+    }
+
+    blockquote {
+      padding: 0.2em 1em;
+      color: var(--muted);
+      border-left: 4px solid var(--border);
+    }
+
+    code {
+      padding: 0.15em 0.35em;
+      background: var(--code-bg);
+      border-radius: 4px;
+      font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+      font-size: 0.92em;
+    }
+
+    pre {
+      overflow-x: auto;
+      padding: 18px 20px;
+      background: var(--code-block-bg);
+      border: 1px solid var(--code-block-border);
+      border-radius: 8px;
+      box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.04);
+    }
+
+    pre code {
+      padding: 0;
+      background: transparent;
+      border-radius: 0;
+      color: var(--code-block-text);
+      font-size: 0.9em;
+      line-height: 1.7;
+    }
+
+    .hljs {
+      color: var(--code-block-text);
+      background: transparent;
+    }
+
+    .hljs-keyword,
+    .hljs-selector-tag,
+    .hljs-built_in {
+      color: #c084fc;
+    }
+
+    .hljs-title,
+    .hljs-title.function_,
+    .hljs-function .hljs-title {
+      color: #60a5fa;
+    }
+
+    .hljs-string,
+    .hljs-attr,
+    .hljs-symbol {
+      color: #86efac;
+    }
+
+    .hljs-number,
+    .hljs-literal {
+      color: #fbbf24;
+    }
+
+    .hljs-type,
+    .hljs-class .hljs-title {
+      color: #67e8f9;
+    }
+
+    .hljs-comment,
+    .hljs-quote {
+      color: #94a3b8;
+      font-style: italic;
+    }
+
+    .hljs-variable,
+    .hljs-template-variable {
+      color: #fca5a5;
+    }
+
+    .hljs-punctuation,
+    .hljs-operator {
+      color: #cbd5e1;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    th, td {
+      padding: 8px 10px;
+      border: 1px solid var(--border);
+    }
+
+    th {
+      background: #f8fafc;
+    }
+
+    @media (max-width: 640px) {
+      main {
+        width: 100%;
+        margin: 0;
+        padding: 24px 18px;
+        border-width: 0;
+        border-radius: 0;
+      }
+    }
+  </style>
+  <style>
+    main {
+      border-top: 4px solid #2563eb;
+    }
+    
+    h1 {
+      color: #1d4ed8;
+    }
+    
+    /* Demonstrates the --css option in the CLI sample. */
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Markdown 转 HTML 测试文档</h1>
+    <p>这是一段普通段落，用来测试 Markdown 的段落渲染效果。它包含 <strong>加粗文本</strong>、<em>斜体文本</em>，以及一段 <code>行内代码</code>。</p>
+    <p>下面是另一个段落。Markdown 适合编写说明文档、笔记、博客文章，也可以作为静态页面内容的来源。</p>
+    <h2>无序列表</h2>
+    <ul>
+    <li>支持标题</li>
+    <li>支持段落</li>
+    <li>支持列表<ul>
+    <li>二级列表会有缩进和左侧层<ul>
+    <li>三级列表使用不同的 marke</li>
+    </ul>
+    </li>
+    </ul>
+    </li>
+    <li>支持代码块</li>
+    <li>支持链接和图片</li>
+    </ul>
+    <h2>有序列表</h2>
+    <ol>
+    <li>编写 Markdown 文件<ol>
+    <li>保存为 <code>.md</code> 文件</li>
+    <li>确认文件路径</li>
+    </ol>
+    </li>
+    <li>运行 <code>md2html input.md -o output.html</code></li>
+    <li>打开生成的 HTML 文件查看效果</li>
+    </ol>
+    <h2>代码块</h2>
+    <pre><code class="hljs language-ts"><span class="hljs-keyword">type</span> <span class="hljs-title class_">Use</span> = {
+      <span class="hljs-attr">id</span>: numbe;
+      <span class="hljs-attr">name</span>: <span class="hljs-built_in">string</span>;
+    };
+    
+    <span class="hljs-keyword">function</span> <span class="hljs-title function_">greet</span>(<span class="hljs-params"><span class="hljs-attr">user</span>: <span class="hljs-title class_">User</span></span>): <span class="hljs-built_in">string</span> {
+      <span class="hljs-keyword">return</span> <span class="hljs-string">`Hello, <span class="hljs-subst">${user.name}</span>!`</span>;
+    }
+    
+    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-title function_">greet</span>({ <span class="hljs-attr">id</span>: <span class="hljs-number">1</span>, <span class="hljs-attr">name</span>: <span class="hljs-string">&quot;Ada&quot;</span> }));
+    </code></pre><h2>链接</h2>
+    <p>这是一个链接：<a href="https://openai.com">OpenAI</a>。</p>
+    <h2>图片引用</h2>
+    <p><img src="https://placehold.co/800x360/png?text=Markdown+Image" alt="示例占位图片"></p>
+    <h2>引用</h2>
+    <blockquote>
+    <p>简洁的默认样式可以让生成的 HTML 直接可读。</p>
+    </blockquote>
+  </main>
+</body>
+</html>
