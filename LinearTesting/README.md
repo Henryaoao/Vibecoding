@@ -1,6 +1,7 @@
 # AOA Auth MVP
 
-Local auth MVP with React frontend, Go Gin backend, MySQL, and phpMyAdmin.
+Local auth MVP with a vanilla JavaScript Ajax frontend, Go Gin backend, MySQL,
+and phpMyAdmin.
 
 ## Docker Start
 
@@ -43,7 +44,7 @@ for local testing.
 
 | Service | URL | Notes |
 | --- | --- | --- |
-| Frontend | `http://localhost:5173` | React app |
+| Frontend | `http://localhost:5173` | Vanilla JS Ajax app |
 | Backend health | `http://localhost:8080/api/health` | API smoke test |
 | Backend users API | `http://localhost:8080/api/users` | Register user |
 | Backend session API | `http://localhost:8080/api/sessions` | Login/logout |
