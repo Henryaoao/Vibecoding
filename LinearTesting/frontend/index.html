@@ -3,19 +3,31 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>AOA User MVP</title>
+    <title>Log in | AOA User MVP</title>
     <link rel="stylesheet" href="/src/styles.css" />
   </head>
   <body>
     <main class="auth-shell">
-      <section class="auth-panel" aria-labelledby="home-title">
+      <section class="auth-panel" aria-labelledby="login-title">
         <p class="eyebrow">User MVP</p>
-        <h1 id="home-title">AOA Auth MVP</h1>
-        <div class="form-stack">
-          <a class="button-link" href="/login.html">Log in</a>
-          <a class="button-link button-link-secondary" href="/register.html">Create account</a>
-        </div>
+        <h1 id="login-title">Log in</h1>
+        <form class="form-stack" data-login-form>
+          <label>
+            Email
+            <input name="email" type="email" autocomplete="email" required />
+          </label>
+          <label>
+            Password
+            <input name="password" type="password" autocomplete="current-password" required />
+          </label>
+          <p class="error-message" data-error role="alert" hidden></p>
+          <button type="submit" data-loading-button>Log in</button>
+        </form>
+        <p class="helper-text">
+          Need an account? <a href="/register.html">Register</a>
+        </p>
       </section>
     </main>
+    <script type="module" src="/src/login.js"></script>
   </body>
 </html>
