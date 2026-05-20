@@ -45,9 +45,14 @@ for local testing.
 | --- | --- | --- |
 | Frontend | `http://localhost:5173` | React app |
 | Backend health | `http://localhost:8080/api/health` | API smoke test |
-| Backend auth API | `http://localhost:8080/api/auth/*` | Register/login/me/logout |
+| Backend users API | `http://localhost:8080/api/users` | Register user |
+| Backend session API | `http://localhost:8080/api/sessions` | Login/logout |
+| Backend current user API | `http://localhost:8080/api/users/me` | Current authenticated user |
 | phpMyAdmin | `http://localhost:8081` | MySQL web UI |
 | MySQL | `localhost:3306` | Host port for local DB tools |
+
+Legacy auth paths under `http://localhost:8080/api/auth/*` still work for
+existing clients.
 
 ## phpMyAdmin Login
 

@@ -21,63 +21,59 @@ func RegisterRoutes(router *gin.Engine, service *Service) {
 		response.OK(c, gin.H{"status": "ok"})
 	})
 
+	api := router.Group("/api")
+	api.POST("/users", handler.CreateUser)
+	api.GET("/users/me", handler.CurrentUser)
+	api.POST("/sessions", handler.CreateSession)
+	api.DELETE("/sessions/current", handler.DeleteSession)
+
 	group := router.Group("/api/auth")
-	group.POST("/register", handler.Register)
-	group.POST("/login", handler.Login)
-	group.GET("/me", handler.Me)
-	group.POST("/logout", handler.Logout)
+	group.POST("/register", handler.CreateUser)
+	group.POST("/login", handler.CreateSession)
+	group.GET("/me", handler.CurrentUser)
+	group.POST("/logout", handler.DeleteSession)
 }
 
-func (h *Handler) Register(c *gin.Context) {
+func (h *Handler) CreateUser(c *gin.Context) {
 	var req RegisterRequest
-	if err := c.ShouldBindJSON(&req); err != nil {
-		response.Error(c, http.StatusBadRequest, "VALIDATION_ERROR", "Invalid request", []string{"request body must be valid JSON"})
+	if !bindJSON(c, &req) {
 		return
 	}
 
-	result, details, err := h.service.Register(req)
-	if errors.Is(err, ErrDuplicateEmail) {
+	result, details, err := h.service.Register(c.Request.Context(), req)
+	switch {
+	case errors.Is(err, ErrDuplicateEmail):
 		response.Error(c, http.StatusConflict, "VALIDATION_ERROR", "Email already exists", details)
-		return
-	}
-	if errors.Is(err, ErrValidation) {
+	case errors.Is(err, ErrValidation):
 		response.Error(c, http.StatusBadRequest, "VALIDATION_ERROR", "Invalid registration details", details)
-		return
-	}
-	if err != nil {
+	case err != nil:
 		response.Error(c, http.StatusInternalServerError, "INTERNAL_ERROR", "Could not register user", nil)
-		return
+	default:
+		response.Created(c, result)
 	}
-
-	response.Created(c, result)
 }
 
-func (h *Handler) Login(c *gin.Context) {
+func (h *Handler) CreateSession(c *gin.Context) {
 	var req LoginRequest
-	if err := c.ShouldBindJSON(&req); err != nil {
-		response.Error(c, http.StatusBadRequest, "VALIDATION_ERROR", "Invalid request", []string{"request body must be valid JSON"})
+	if !bindJSON(c, &req) {
 		return
 	}
 
-	result, details, err := h.service.Login(req)
-	if errors.Is(err, ErrValidation) {
+	result, details, err := h.service.Login(c.Request.Context(), req)
+	switch {
+	case errors.Is(err, ErrValidation):
 		response.Error(c, http.StatusBadRequest, "VALIDATION_ERROR", "Invalid login details", details)
-		return
-	}
-	if errors.Is(err, ErrInvalidCredential) {
+	case errors.Is(err, ErrInvalidCredential):
 		response.Error(c, http.StatusUnauthorized, "AUTH_REQUIRED", "Invalid email or password", nil)
-		return
-	}
-	if err != nil {
+	case err != nil:
 		response.Error(c, http.StatusInternalServerError, "INTERNAL_ERROR", "Could not log in", nil)
-		return
+	default:
+		response.OK(c, result)
 	}
-
-	response.OK(c, result)
 }
 
-func (h *Handler) Me(c *gin.Context) {
-	current, err := h.service.CurrentUser(bearerToken(c))
+func (h *Handler) CurrentUser(c *gin.Context) {
+	current, err := h.service.CurrentUser(c.Request.Context(), bearerToken(c))
 	if err != nil {
 		response.Error(c, http.StatusUnauthorized, "AUTH_REQUIRED", "Authentication required", nil)
 		return
@@ -86,13 +82,27 @@ func (h *Handler) Me(c *gin.Context) {
 	response.OK(c, gin.H{"user": current})
 }
 
-func (h *Handler) Logout(c *gin.Context) {
-	if err := h.service.Logout(bearerToken(c)); err != nil {
+func (h *Handler) DeleteSession(c *gin.Context) {
+	if err := h.service.Logout(c.Request.Context(), bearerToken(c)); err != nil {
 		response.Error(c, http.StatusUnauthorized, "AUTH_REQUIRED", "Authentication required", nil)
 		return
 	}
 
 	response.OK(c, gin.H{"logged_out": true})
+}
+
+func bindJSON(c *gin.Context, req any) bool {
+	if err := c.ShouldBindJSON(req); err != nil {
+		response.Error(
+			c,
+			http.StatusBadRequest,
+			"VALIDATION_ERROR",
+			"Invalid request",
+			[]string{"request body must be valid JSON"},
+		)
+		return false
+	}
+	return true
 }
 
 func bearerToken(c *gin.Context) string {

@@ -1,6 +1,7 @@
 package auth
 
 import (
+	"context"
 	"errors"
 	"net/mail"
 	"strings"
@@ -42,7 +43,7 @@ func NewService(repo Repository, tokens TokenConfig) *Service {
 	return &Service{repo: repo, tokens: tokens, revoked: map[string]struct{}{}}
 }
 
-func (s *Service) Register(req RegisterRequest) (AuthResult, []string, error) {
+func (s *Service) Register(ctx context.Context, req RegisterRequest) (AuthResult, []string, error) {
 	if details := validateRegister(req); len(details) > 0 {
 		return AuthResult{}, details, ErrValidation
 	}
@@ -52,7 +53,7 @@ func (s *Service) Register(req RegisterRequest) (AuthResult, []string, error) {
 		return AuthResult{}, []string{err.Error()}, ErrValidation
 	}
 
-	created, err := s.repo.Create(req.Email, req.Username, passwordHash)
+	created, err := s.repo.Create(ctx, req.Email, req.Username, passwordHash)
 	if errors.Is(err, ErrDuplicateEmail) {
 		return AuthResult{}, []string{"email already exists"}, ErrDuplicateEmail
 	}
@@ -66,12 +67,12 @@ func (s *Service) Register(req RegisterRequest) (AuthResult, []string, error) {
 	}, nil, nil
 }
 
-func (s *Service) Login(req LoginRequest) (AuthResult, []string, error) {
+func (s *Service) Login(ctx context.Context, req LoginRequest) (AuthResult, []string, error) {
 	if details := validateLogin(req); len(details) > 0 {
 		return AuthResult{}, details, ErrValidation
 	}
 
-	found, err := s.repo.FindByEmail(req.Email)
+	found, err := s.repo.FindByEmail(ctx, req.Email)
 	if err != nil || !CheckPassword(req.Password, found.PasswordHash) {
 		return AuthResult{}, nil, ErrInvalidCredential
 	}
@@ -82,7 +83,7 @@ func (s *Service) Login(req LoginRequest) (AuthResult, []string, error) {
 	}, nil, nil
 }
 
-func (s *Service) CurrentUser(token string) (user.User, error) {
+func (s *Service) CurrentUser(ctx context.Context, token string) (user.User, error) {
 	if s.isRevoked(token) {
 		return user.User{}, ErrAuthenticationNeed
 	}
@@ -92,7 +93,7 @@ func (s *Service) CurrentUser(token string) (user.User, error) {
 		return user.User{}, ErrAuthenticationNeed
 	}
 
-	found, err := s.repo.FindByID(userID)
+	found, err := s.repo.FindByID(ctx, userID)
 	if err != nil {
 		return user.User{}, ErrAuthenticationNeed
 	}
@@ -100,8 +101,8 @@ func (s *Service) CurrentUser(token string) (user.User, error) {
 	return found, nil
 }
 
-func (s *Service) Logout(token string) error {
-	if _, err := s.CurrentUser(token); err != nil {
+func (s *Service) Logout(ctx context.Context, token string) error {
+	if _, err := s.CurrentUser(ctx, token); err != nil {
 		return err
 	}
 

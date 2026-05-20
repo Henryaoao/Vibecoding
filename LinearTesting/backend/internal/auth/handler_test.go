@@ -20,11 +20,18 @@ func TestAuthFlow(t *testing.T) {
 		"username": "example_user",
 		"password": "secure-password",
 	}
-	registerResponse := performJSON(router, http.MethodPost, "/api/auth/register", registerBody, "")
+	registerResponse := performJSON(router, http.MethodPost, "/api/users", registerBody, "")
 	if registerResponse.Code != http.StatusCreated {
-		t.Fatalf("register status = %d, want %d; body=%s", registerResponse.Code, http.StatusCreated, registerResponse.Body.String())
+		t.Fatalf(
+			"register status = %d, want %d; body=%s",
+			registerResponse.Code,
+			http.StatusCreated,
+			registerResponse.Body.String(),
+		)
 	}
-	if bytes.Contains(registerResponse.Body.Bytes(), []byte("PasswordHash")) || bytes.Contains(registerResponse.Body.Bytes(), []byte("password_hash")) {
+	hasGoField := bytes.Contains(registerResponse.Body.Bytes(), []byte("PasswordHash"))
+	hasJSONField := bytes.Contains(registerResponse.Body.Bytes(), []byte("password_hash"))
+	if hasGoField || hasJSONField {
 		t.Fatal("register response exposed password hash")
 	}
 
@@ -40,12 +47,12 @@ func TestAuthFlow(t *testing.T) {
 		t.Fatal("register did not return token")
 	}
 
-	duplicateResponse := performJSON(router, http.MethodPost, "/api/auth/register", registerBody, "")
+	duplicateResponse := performJSON(router, http.MethodPost, "/api/users", registerBody, "")
 	if duplicateResponse.Code != http.StatusConflict {
 		t.Fatalf("duplicate status = %d, want %d", duplicateResponse.Code, http.StatusConflict)
 	}
 
-	loginResponse := performJSON(router, http.MethodPost, "/api/auth/login", map[string]string{
+	loginResponse := performJSON(router, http.MethodPost, "/api/sessions", map[string]string{
 		"email":    "user@example.com",
 		"password": "secure-password",
 	}, "")
@@ -53,7 +60,7 @@ func TestAuthFlow(t *testing.T) {
 		t.Fatalf("login status = %d, want %d; body=%s", loginResponse.Code, http.StatusOK, loginResponse.Body.String())
 	}
 
-	badLoginResponse := performJSON(router, http.MethodPost, "/api/auth/login", map[string]string{
+	badLoginResponse := performJSON(router, http.MethodPost, "/api/sessions", map[string]string{
 		"email":    "user@example.com",
 		"password": "wrong-password",
 	}, "")
@@ -61,22 +68,22 @@ func TestAuthFlow(t *testing.T) {
 		t.Fatalf("bad login status = %d, want %d", badLoginResponse.Code, http.StatusUnauthorized)
 	}
 
-	meResponse := performJSON(router, http.MethodGet, "/api/auth/me", nil, parsed.Data.Token)
+	meResponse := performJSON(router, http.MethodGet, "/api/users/me", nil, parsed.Data.Token)
 	if meResponse.Code != http.StatusOK {
 		t.Fatalf("me status = %d, want %d; body=%s", meResponse.Code, http.StatusOK, meResponse.Body.String())
 	}
 
-	unauthenticatedMe := performJSON(router, http.MethodGet, "/api/auth/me", nil, "")
+	unauthenticatedMe := performJSON(router, http.MethodGet, "/api/users/me", nil, "")
 	if unauthenticatedMe.Code != http.StatusUnauthorized {
 		t.Fatalf("unauthenticated me status = %d, want %d", unauthenticatedMe.Code, http.StatusUnauthorized)
 	}
 
-	logoutResponse := performJSON(router, http.MethodPost, "/api/auth/logout", nil, parsed.Data.Token)
+	logoutResponse := performJSON(router, http.MethodDelete, "/api/sessions/current", nil, parsed.Data.Token)
 	if logoutResponse.Code != http.StatusOK {
 		t.Fatalf("logout status = %d, want %d", logoutResponse.Code, http.StatusOK)
 	}
 
-	meAfterLogout := performJSON(router, http.MethodGet, "/api/auth/me", nil, parsed.Data.Token)
+	meAfterLogout := performJSON(router, http.MethodGet, "/api/users/me", nil, parsed.Data.Token)
 	if meAfterLogout.Code != http.StatusUnauthorized {
 		t.Fatalf("me after logout status = %d, want %d", meAfterLogout.Code, http.StatusUnauthorized)
 	}
@@ -87,13 +94,36 @@ func TestRegisterValidation(t *testing.T) {
 	router := gin.New()
 	RegisterRoutes(router, NewService(NewMemoryRepository(), TokenConfig{Secret: "test-secret"}))
 
-	response := performJSON(router, http.MethodPost, "/api/auth/register", map[string]string{
+	response := performJSON(router, http.MethodPost, "/api/users", map[string]string{
 		"email":    "not-an-email",
 		"username": "",
 		"password": "short",
 	}, "")
 	if response.Code != http.StatusBadRequest {
 		t.Fatalf("status = %d, want %d", response.Code, http.StatusBadRequest)
+	}
+}
+
+func TestLegacyAuthRoutesRemainAvailable(t *testing.T) {
+	gin.SetMode(gin.TestMode)
+	router := gin.New()
+	RegisterRoutes(router, NewService(NewMemoryRepository(), TokenConfig{Secret: "test-secret"}))
+
+	registerResponse := performJSON(router, http.MethodPost, "/api/auth/register", map[string]string{
+		"email":    "legacy@example.com",
+		"username": "legacy_user",
+		"password": "secure-password",
+	}, "")
+	if registerResponse.Code != http.StatusCreated {
+		t.Fatalf("legacy register status = %d, want %d", registerResponse.Code, http.StatusCreated)
+	}
+
+	loginResponse := performJSON(router, http.MethodPost, "/api/auth/login", map[string]string{
+		"email":    "legacy@example.com",
+		"password": "secure-password",
+	}, "")
+	if loginResponse.Code != http.StatusOK {
+		t.Fatalf("legacy login status = %d, want %d", loginResponse.Code, http.StatusOK)
 	}
 }
 

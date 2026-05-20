@@ -1,6 +1,7 @@
 package auth
 
 import (
+	"context"
 	"crypto/rand"
 	"database/sql"
 	"encoding/hex"
@@ -19,9 +20,9 @@ var (
 )
 
 type Repository interface {
-	Create(email string, username string, passwordHash string) (user.User, error)
-	FindByEmail(email string) (user.User, error)
-	FindByID(id string) (user.User, error)
+	Create(ctx context.Context, email string, username string, passwordHash string) (user.User, error)
+	FindByEmail(ctx context.Context, email string) (user.User, error)
+	FindByID(ctx context.Context, id string) (user.User, error)
 }
 
 type MySQLRepository struct {
@@ -32,7 +33,12 @@ func NewMySQLRepository(db *sql.DB) *MySQLRepository {
 	return &MySQLRepository{db: db}
 }
 
-func (r *MySQLRepository) Create(email string, username string, passwordHash string) (user.User, error) {
+func (r *MySQLRepository) Create(
+	ctx context.Context,
+	email string,
+	username string,
+	passwordHash string,
+) (user.User, error) {
 	now := time.Now().UTC()
 	created := user.User{
 		ID:           makeRandomID(),
@@ -44,7 +50,8 @@ func (r *MySQLRepository) Create(email string, username string, passwordHash str
 		UpdatedAt:    now,
 	}
 
-	_, err := r.db.Exec(
+	_, err := r.db.ExecContext(
+		ctx,
 		`INSERT INTO users (id, email, username, password_hash, role, created_at, updated_at)
 		 VALUES (?, ?, ?, ?, ?, ?, ?)`,
 		created.ID,
@@ -65,8 +72,9 @@ func (r *MySQLRepository) Create(email string, username string, passwordHash str
 	return created, nil
 }
 
-func (r *MySQLRepository) FindByEmail(email string) (user.User, error) {
-	return scanUser(r.db.QueryRow(
+func (r *MySQLRepository) FindByEmail(ctx context.Context, email string) (user.User, error) {
+	return scanUser(r.db.QueryRowContext(
+		ctx,
 		`SELECT id, email, username, password_hash, role, created_at, updated_at
 		 FROM users
 		 WHERE email = ?`,
@@ -74,8 +82,9 @@ func (r *MySQLRepository) FindByEmail(email string) (user.User, error) {
 	))
 }
 
-func (r *MySQLRepository) FindByID(id string) (user.User, error) {
-	return scanUser(r.db.QueryRow(
+func (r *MySQLRepository) FindByID(ctx context.Context, id string) (user.User, error) {
+	return scanUser(r.db.QueryRowContext(
+		ctx,
 		`SELECT id, email, username, password_hash, role, created_at, updated_at
 		 FROM users
 		 WHERE id = ?`,
@@ -98,7 +107,16 @@ func NewMemoryRepository() *MemoryRepository {
 	}
 }
 
-func (r *MemoryRepository) Create(email string, username string, passwordHash string) (user.User, error) {
+func (r *MemoryRepository) Create(
+	ctx context.Context,
+	email string,
+	username string,
+	passwordHash string,
+) (user.User, error) {
+	if err := ctx.Err(); err != nil {
+		return user.User{}, err
+	}
+
 	r.mu.Lock()
 	defer r.mu.Unlock()
 
@@ -124,7 +142,11 @@ func (r *MemoryRepository) Create(email string, username string, passwordHash st
 	return created, nil
 }
 
-func (r *MemoryRepository) FindByEmail(email string) (user.User, error) {
+func (r *MemoryRepository) FindByEmail(ctx context.Context, email string) (user.User, error) {
+	if err := ctx.Err(); err != nil {
+		return user.User{}, err
+	}
+
 	r.mu.RLock()
 	defer r.mu.RUnlock()
 
@@ -135,7 +157,11 @@ func (r *MemoryRepository) FindByEmail(email string) (user.User, error) {
 	return r.byID[id], nil
 }
 
-func (r *MemoryRepository) FindByID(id string) (user.User, error) {
+func (r *MemoryRepository) FindByID(ctx context.Context, id string) (user.User, error) {
+	if err := ctx.Err(); err != nil {
+		return user.User{}, err
+	}
+
 	r.mu.RLock()
 	defer r.mu.RUnlock()
 
