@@ -1,6 +1,9 @@
 package auth
 
 import (
+	"crypto/rand"
+	"database/sql"
+	"encoding/hex"
 	"errors"
 	"fmt"
 	"strings"
@@ -19,6 +22,65 @@ type Repository interface {
 	Create(email string, username string, passwordHash string) (user.User, error)
 	FindByEmail(email string) (user.User, error)
 	FindByID(id string) (user.User, error)
+}
+
+type MySQLRepository struct {
+	db *sql.DB
+}
+
+func NewMySQLRepository(db *sql.DB) *MySQLRepository {
+	return &MySQLRepository{db: db}
+}
+
+func (r *MySQLRepository) Create(email string, username string, passwordHash string) (user.User, error) {
+	now := time.Now().UTC()
+	created := user.User{
+		ID:           makeRandomID(),
+		Email:        normalizeEmail(email),
+		Username:     strings.TrimSpace(username),
+		PasswordHash: passwordHash,
+		Role:         "user",
+		CreatedAt:    now,
+		UpdatedAt:    now,
+	}
+
+	_, err := r.db.Exec(
+		`INSERT INTO users (id, email, username, password_hash, role, created_at, updated_at)
+		 VALUES (?, ?, ?, ?, ?, ?, ?)`,
+		created.ID,
+		created.Email,
+		created.Username,
+		created.PasswordHash,
+		created.Role,
+		created.CreatedAt,
+		created.UpdatedAt,
+	)
+	if isDuplicateMySQLError(err) {
+		return user.User{}, ErrDuplicateEmail
+	}
+	if err != nil {
+		return user.User{}, err
+	}
+
+	return created, nil
+}
+
+func (r *MySQLRepository) FindByEmail(email string) (user.User, error) {
+	return scanUser(r.db.QueryRow(
+		`SELECT id, email, username, password_hash, role, created_at, updated_at
+		 FROM users
+		 WHERE email = ?`,
+		normalizeEmail(email),
+	))
+}
+
+func (r *MySQLRepository) FindByID(id string) (user.User, error) {
+	return scanUser(r.db.QueryRow(
+		`SELECT id, email, username, password_hash, role, created_at, updated_at
+		 FROM users
+		 WHERE id = ?`,
+		id,
+	))
 }
 
 type MemoryRepository struct {
@@ -90,4 +152,36 @@ func normalizeEmail(email string) string {
 
 func makeID(next int) string {
 	return fmt.Sprintf("usr_%06d", next)
+}
+
+func makeRandomID() string {
+	var bytes [8]byte
+	if _, err := rand.Read(bytes[:]); err != nil {
+		return "usr_" + fmt.Sprint(time.Now().UTC().UnixNano())
+	}
+	return "usr_" + hex.EncodeToString(bytes[:])
+}
+
+func scanUser(row *sql.Row) (user.User, error) {
+	var found user.User
+	err := row.Scan(
+		&found.ID,
+		&found.Email,
+		&found.Username,
+		&found.PasswordHash,
+		&found.Role,
+		&found.CreatedAt,
+		&found.UpdatedAt,
+	)
+	if errors.Is(err, sql.ErrNoRows) {
+		return user.User{}, ErrUserNotFound
+	}
+	if err != nil {
+		return user.User{}, err
+	}
+	return found, nil
+}
+
+func isDuplicateMySQLError(err error) bool {
+	return err != nil && strings.Contains(err.Error(), "Duplicate entry")
 }
