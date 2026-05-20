@@ -96,8 +96,8 @@ http://localhost:5173
 Expected user flow:
 
 1. Open frontend.
-2. Register a user.
-3. Land on `/dashboard`.
+2. Register a user at `/register.html`.
+3. Land on `/dashboard.html`.
 4. See current user email and role.
 5. Log out.
 6. Log in again.

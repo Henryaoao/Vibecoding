@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard | AOA User MVP</title>
+    <link rel="stylesheet" href="/src/styles.css" />
+  </head>
+  <body>
+    <main class="page-shell">
+      <p data-loading>Loading account...</p>
+      <div data-dashboard hidden>
+        <section class="dashboard-header">
+          <div>
+            <p class="eyebrow">Dashboard</p>
+            <h1 data-username-title>Welcome</h1>
+          </div>
+          <button type="button" data-logout-button data-loading-button>Log out</button>
+        </section>
+        <section class="summary-panel" aria-label="Current user">
+          <dl>
+            <div>
+              <dt>Email</dt>
+              <dd data-user-email></dd>
+            </div>
+            <div>
+              <dt>Role</dt>
+              <dd data-user-role></dd>
+            </div>
+          </dl>
+        </section>
+      </div>
+    </main>
+    <script type="module" src="/src/dashboard.js"></script>
+  </body>
+</html>

@@ -34,6 +34,24 @@ button {
   padding: 0 18px;
 }
 
+.button-link {
+  align-items: center;
+  background: #17202a;
+  border-radius: 6px;
+  color: #ffffff;
+  display: inline-flex;
+  font-weight: 700;
+  justify-content: center;
+  min-height: 44px;
+  padding: 0 18px;
+  text-decoration: none;
+}
+
+.button-link-secondary {
+  background: #eef3ff;
+  color: #17202a;
+}
+
 button:disabled {
   cursor: not-allowed;
   opacity: 0.62;
@@ -155,4 +173,3 @@ dd {
     flex-direction: column;
   }
 }
-

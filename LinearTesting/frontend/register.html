@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Create account | AOA User MVP</title>
+    <link rel="stylesheet" href="/src/styles.css" />
+  </head>
+  <body>
+    <main class="auth-shell">
+      <section class="auth-panel" aria-labelledby="register-title">
+        <p class="eyebrow">User MVP</p>
+        <h1 id="register-title">Create account</h1>
+        <form class="form-stack" data-register-form>
+          <label>
+            Email
+            <input name="email" type="email" autocomplete="email" required />
+          </label>
+          <label>
+            Username
+            <input name="username" type="text" autocomplete="username" required />
+          </label>
+          <label>
+            Password
+            <input name="password" type="password" autocomplete="new-password" required />
+          </label>
+          <p class="error-message" data-error role="alert" hidden></p>
+          <button type="submit" data-loading-button>Create account</button>
+        </form>
+        <p class="helper-text">
+          Already registered? <a href="/login.html">Log in</a>
+        </p>
+      </section>
+    </main>
+    <script type="module" src="/src/register.js"></script>
+  </body>
+</html>

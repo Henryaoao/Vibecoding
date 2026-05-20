@@ -1,24 +1,13 @@
 import { beforeEach, describe, expect, it, vi } from "vitest";
 
-describe("vanilla Ajax frontend", () => {
+describe("auth Ajax helpers", () => {
   beforeEach(() => {
     vi.resetModules();
     vi.restoreAllMocks();
     mockLocalStorage();
-    window.history.pushState({}, "", "/login");
-    document.body.innerHTML = `<div id="root"></div>`;
   });
 
-  it("renders the vanilla login page", async () => {
-    vi.stubGlobal("fetch", vi.fn());
-    await import("./main.js");
-
-    expect(document.querySelector("h1").textContent).toBe("Log in");
-    expect(document.querySelector("input[name='email']")).not.toBeNull();
-    expect(document.querySelector("input[name='password']")).not.toBeNull();
-  });
-
-  it("logs in through the REST session endpoint", async () => {
+  it("calls the REST session endpoint and stores no page markup", async () => {
     const fetchMock = vi.fn().mockResolvedValue({
       ok: true,
       json: async () => ({
@@ -35,14 +24,12 @@ describe("vanilla Ajax frontend", () => {
     });
     vi.stubGlobal("fetch", fetchMock);
 
-    await import("./main.js");
-    document.querySelector("input[name='email']").value = "user@example.com";
-    document.querySelector("input[name='password']").value = "secure-password";
-    document.querySelector("form").dispatchEvent(new Event("submit", { bubbles: true }));
-
-    await vi.waitFor(() => {
-      expect(document.querySelector("h1").textContent).toBe("Welcome, example_user");
+    const { loginUser, setToken } = await import("./auth-api.js");
+    const data = await loginUser({
+      email: "user@example.com",
+      password: "secure-password",
     });
+    setToken(data.token);
 
     expect(fetchMock).toHaveBeenCalledWith(
       "/api/sessions",
@@ -51,6 +38,16 @@ describe("vanilla Ajax frontend", () => {
       }),
     );
     expect(window.localStorage.getItem("auth_token")).toBe("test-token");
+  });
+
+  it("shows API error details in the page error slot", async () => {
+    document.body.innerHTML = `<p data-error hidden></p>`;
+    const { showError } = await import("./auth-api.js");
+
+    showError("Invalid request");
+
+    expect(document.querySelector("[data-error]").hidden).toBe(false);
+    expect(document.querySelector("[data-error]").textContent).toBe("Invalid request");
   });
 });
 
