@@ -3,10 +3,10 @@ services:
     image: ${MYSQL_IMAGE:-mysql:8.4}
     container_name: ${MYSQL_CONTAINER_NAME:-aoa_auth_mysql}
     environment:
-      MYSQL_DATABASE: "${MYSQL_DATABASE}"
-      MYSQL_USER: "${MYSQL_USER}"
-      MYSQL_PASSWORD: "${MYSQL_PASSWORD}"
-      MYSQL_ROOT_PASSWORD: "${MYSQL_ROOT_PASSWORD}"
+      MYSQL_DATABASE: "${MYSQL_DATABASE:-auth_mvp}"
+      MYSQL_USER: "${MYSQL_USER:-auth_user}"
+      MYSQL_PASSWORD: "${MYSQL_PASSWORD:-auth_password}"
+      MYSQL_ROOT_PASSWORD: "${MYSQL_ROOT_PASSWORD:-root_password}"
     ports:
       - "${MYSQL_HOST_PORT:-3306}:3306"
     volumes:
@@ -25,8 +25,8 @@ services:
     environment:
       APP_ENV: "${APP_ENV:-development}"
       APP_PORT: "${BACKEND_CONTAINER_PORT:-8080}"
-      AUTH_TOKEN_SECRET: "${AUTH_TOKEN_SECRET}"
-      DATABASE_URL: "${DATABASE_URL}"
+      AUTH_TOKEN_SECRET: "${AUTH_TOKEN_SECRET:-local-dev-auth-token-secret-change-before-production}"
+      DATABASE_URL: "${DATABASE_URL:-auth_user:auth_password@tcp(mysql:3306)/auth_mvp?parseTime=true&charset=utf8mb4&collation=utf8mb4_unicode_ci}"
     ports:
       - "${BACKEND_HOST_PORT:-8080}:${BACKEND_CONTAINER_PORT:-8080}"
     depends_on:
@@ -48,7 +48,7 @@ services:
     environment:
       PMA_HOST: mysql
       PMA_PORT: 3306
-      MYSQL_ROOT_PASSWORD: "${MYSQL_ROOT_PASSWORD}"
+      MYSQL_ROOT_PASSWORD: "${MYSQL_ROOT_PASSWORD:-root_password}"
     ports:
       - "${PHPMYADMIN_HOST_PORT:-8081}:80"
     depends_on:

@@ -8,7 +8,36 @@ Local auth MVP with React frontend, Go Gin backend, MySQL, and phpMyAdmin.
 docker compose up --build
 ```
 
-Docker Compose automatically reads `.env`.
+Docker Compose can run without `.env` by using local development defaults. If a
+`.env` file exists, Docker Compose automatically reads it and overrides those
+defaults.
+
+If MySQL previously failed during first start, reset the failed containers and
+empty local volume before starting again:
+
+```bash
+docker compose down -v
+docker compose up --build
+```
+
+## GitHub Codespaces
+
+From the Codespaces terminal:
+
+```bash
+cd LinearTesting
+docker compose up --build
+```
+
+Open the **Ports** panel and use the forwarded URLs for:
+
+- `5173`: frontend
+- `8080`: backend API
+- `8081`: phpMyAdmin
+- `3306`: MySQL
+
+If Codespaces asks about port visibility, keep database/backend ports private
+for local testing.
 
 ## Access URLs
 
