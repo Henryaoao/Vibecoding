@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Skins | AoAo Pet</title>
+    <link rel="stylesheet" href="/src/styles.css" />
+  </head>
+  <body>
+    <main class="page-shell">
+      <div class="app-layout">
+        <section class="dashboard-header">
+          <div class="dashboard-title">
+            <p class="eyebrow">Skins center</p>
+            <h1>Dress Mint Bean</h1>
+          </div>
+          <div class="header-actions">
+            <a class="ghost-link" href="/dashboard.html">Dashboard</a>
+            <a class="ghost-link" href="/tasks.html">Tasks</a>
+            <button class="ghost-button" type="button" data-logout-button data-loading-button>
+              Log out
+            </button>
+          </div>
+        </section>
+
+        <section class="task-page-panel" aria-labelledby="current-skin-title">
+          <div class="task-page-heading">
+            <div>
+              <p class="eyebrow">Current skin</p>
+              <h2 id="current-skin-title" data-current-skin-title>Loading current look...</h2>
+            </div>
+            <span class="status-chip status-available" data-current-skin-rarity>Current</span>
+          </div>
+          <p class="task-meta" data-current-skin-description>
+            Mint Bean's current pilot look will appear here after the skin list loads.
+          </p>
+        </section>
+
+        <section class="task-page-panel" aria-labelledby="unlocked-skins-title">
+          <div class="task-page-heading">
+            <div>
+              <p class="eyebrow">Unlocked</p>
+              <h2 id="unlocked-skins-title">Ready for the team</h2>
+            </div>
+          </div>
+          <p class="inline-loading" data-skins-loading>Loading pet skins...</p>
+          <p class="inline-error" data-skins-error hidden></p>
+          <div class="skin-grid" data-unlocked-skins></div>
+        </section>
+
+        <section class="task-page-panel" aria-labelledby="locked-skins-title">
+          <div class="task-page-heading">
+            <div>
+              <p class="eyebrow">Locked</p>
+              <h2 id="locked-skins-title">Next gentle rewards</h2>
+            </div>
+          </div>
+          <div class="skin-grid" data-locked-skins></div>
+        </section>
+      </div>
+    </main>
+    <script type="module" src="/src/skins.js"></script>
+  </body>
+</html>

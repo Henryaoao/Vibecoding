@@ -49,6 +49,35 @@ describe("auth Ajax helpers", () => {
     expect(document.querySelector("[data-error]").hidden).toBe(false);
     expect(document.querySelector("[data-error]").textContent).toBe("Invalid request");
   });
+
+  it("calls wallet and feed endpoints for dashboard actions", async () => {
+    const fetchMock = vi.fn().mockResolvedValue({
+      ok: true,
+      json: async () => ({
+        success: true,
+        data: {
+          wallet: {
+            feed_balance: 1,
+            energy_balance: 10,
+          },
+        },
+      }),
+    });
+    vi.stubGlobal("fetch", fetchMock);
+
+    const { feedPet, fetchWallet } = await import("./auth-api.js");
+    await fetchWallet();
+    await feedPet(1);
+
+    expect(fetchMock).toHaveBeenCalledWith("/api/wallet/me", expect.any(Object));
+    expect(fetchMock).toHaveBeenCalledWith(
+      "/api/pet/feed",
+      expect.objectContaining({
+        body: JSON.stringify({ amount: 1 }),
+        method: "POST",
+      }),
+    );
+  });
 });
 
 function mockLocalStorage() {

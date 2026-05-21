@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Reports | AoAo Pet</title>
+    <link rel="stylesheet" href="/src/styles.css" />
+  </head>
+  <body>
+    <main class="page-shell">
+      <div class="app-layout">
+        <section class="dashboard-header">
+          <div class="dashboard-title">
+            <p class="eyebrow">Admin reports</p>
+            <h1>Pilot operations</h1>
+          </div>
+          <div class="header-actions">
+            <a class="ghost-link" href="/dashboard.html">Dashboard</a>
+            <button class="ghost-button" type="button" data-logout-button data-loading-button>
+              Log out
+            </button>
+          </div>
+        </section>
+
+        <section class="task-page-panel" aria-labelledby="report-title">
+          <div class="task-page-heading">
+            <div>
+              <p class="eyebrow">Core metrics</p>
+              <h2 id="report-title">Pilot health summary</h2>
+            </div>
+          </div>
+
+          <p class="inline-loading" data-report-loading>Loading admin report...</p>
+          <p class="inline-error" data-report-error hidden></p>
+
+          <div class="report-grid" data-report-content hidden>
+            <div class="stat-box">
+              <p class="stat-label">Daily active users</p>
+              <p class="stat-value" data-report-active-users>--</p>
+            </div>
+            <div class="stat-box">
+              <p class="stat-label">Task completions</p>
+              <p class="stat-value" data-report-task-count>--</p>
+            </div>
+            <div class="stat-box">
+              <p class="stat-label">Feed events</p>
+              <p class="stat-value" data-report-feed-count>--</p>
+            </div>
+            <div class="stat-box">
+              <p class="stat-label">Participation</p>
+              <p class="stat-value" data-report-participation>--</p>
+            </div>
+            <div class="stat-box">
+              <p class="stat-label">Pet growth</p>
+              <p class="stat-value" data-report-growth>--</p>
+            </div>
+            <div class="stat-box">
+              <p class="stat-label">Next level</p>
+              <p class="stat-value" data-report-progress>--</p>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+    <script type="module" src="/src/admin-reports.js"></script>
+  </body>
+</html>

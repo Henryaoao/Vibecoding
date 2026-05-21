@@ -102,6 +102,12 @@ Expected user flow:
 5. Log out.
 6. Log in again.
 
+## Pilot Docs
+
+- `PILOT_QA_CHECKLIST.md`: pilot QA checklist and known blockers.
+- `PILOT_LAUNCH_ROLLBACK_PLAN.md`: pilot launch steps, support process, feedback plan, and rollback steps.
+- `MASCOT_COPY_AND_ASSETS.md`: Mint Bean mascot copy, mood messages, and seed skin placeholders.
+
 ## Local Env Files
 
 - `.env`: local Docker Compose values, ignored by git.

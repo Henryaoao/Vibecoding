@@ -3,32 +3,190 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Dashboard | AOA User MVP</title>
+    <title>Dashboard | AoAo Pet</title>
     <link rel="stylesheet" href="/src/styles.css" />
   </head>
   <body>
     <main class="page-shell">
-      <p data-loading>Loading account...</p>
-      <div data-dashboard hidden>
+      <p class="loading-state" data-loading>
+        <span class="loading-dot" aria-hidden="true"></span>
+        Loading your pet dashboard...
+      </p>
+      <div class="app-layout" data-dashboard hidden>
         <section class="dashboard-header">
-          <div>
-            <p class="eyebrow">Dashboard</p>
+          <div class="dashboard-title">
+            <p class="eyebrow">AoAo Pet</p>
             <h1 data-username-title>Welcome</h1>
           </div>
-          <button type="button" data-logout-button data-loading-button>Log out</button>
+          <div class="header-actions">
+            <span class="mode-pill">Team pet mode</span>
+            <button class="ghost-button" type="button" data-logout-button data-loading-button>
+              Log out
+            </button>
+          </div>
         </section>
-        <section class="summary-panel" aria-label="Current user">
-          <dl>
-            <div>
-              <dt>Email</dt>
-              <dd data-user-email></dd>
-            </div>
-            <div>
-              <dt>Role</dt>
-              <dd data-user-role></dd>
-            </div>
-          </dl>
+
+        <section class="celebration-banner" data-upgrade-celebration hidden aria-live="polite">
+          <p class="eyebrow">Level up</p>
+          <h2 data-upgrade-message>The team pet reached a new level.</h2>
         </section>
+
+        <div class="dashboard-grid">
+          <section class="pet-stage" data-pet-stage aria-labelledby="pet-title">
+            <div class="pet-visual" aria-hidden="true">
+              <span class="pet-shadow"></span>
+              <span class="pet-ear pet-ear-left"></span>
+              <span class="pet-ear pet-ear-right"></span>
+              <span class="pet-body"></span>
+              <span class="pet-face">
+                <span class="pet-eye"></span>
+                <span class="pet-eye"></span>
+              </span>
+              <span class="pet-mouth"></span>
+            </div>
+            <div class="pet-details">
+              <div class="pet-name-row">
+                <div>
+                  <p class="eyebrow">Today's buddy</p>
+                  <h2 id="pet-title" data-pet-title>Loading pet...</h2>
+                </div>
+                <span class="pet-badge" data-pet-skin>Skin: loading</span>
+              </div>
+              <div class="stat-row" aria-label="Pet status">
+                <div class="stat-box">
+                  <p class="stat-label">Level</p>
+                  <p class="stat-value" data-pet-level>--</p>
+                </div>
+                <div class="stat-box">
+                  <p class="stat-label">Energy</p>
+                  <p class="stat-value" data-pet-growth>--</p>
+                </div>
+                <div class="stat-box">
+                  <p class="stat-label">Mood</p>
+                  <p class="stat-value" data-pet-mood>--</p>
+                </div>
+              </div>
+              <div class="progress-block">
+                <div class="progress-label">
+                  <span>Next level</span>
+                  <span data-pet-progress-label>--</span>
+                </div>
+                <div class="progress-track" aria-hidden="true">
+                  <span class="progress-fill" data-pet-progress-fill></span>
+                </div>
+              </div>
+              <div class="feed-panel" aria-live="polite">
+                <div>
+                  <p class="stat-label">Available feed</p>
+                  <p class="feed-balance" data-wallet-feed>--</p>
+                </div>
+                <button type="button" data-feed-pet-button data-loading-button>Feed Mint Bean</button>
+              </div>
+              <p class="inline-error" data-feed-error hidden></p>
+            </div>
+          </section>
+
+          <section class="pet-empty" data-pet-empty hidden aria-label="Create team pet">
+            <p class="eyebrow">No pet yet</p>
+            <h2>Invite Mint Bean in</h2>
+            <p>
+              Create the first shared mascot for this pilot team. It starts tiny, cheerful, and
+              grows through daily wins without ranking anyone.
+            </p>
+            <button type="button" data-create-pet-button data-loading-button>Create Mint Bean</button>
+          </section>
+
+          <section class="pet-error" data-pet-error hidden role="alert" aria-label="Pet error">
+            <p class="eyebrow">Pet dashboard</p>
+            <h2>Mint Bean is taking a tiny break</h2>
+            <p data-pet-error-message>Please try again after the API is available.</p>
+          </section>
+
+          <section class="summary-panel" aria-label="Current user">
+            <p class="eyebrow">Account</p>
+            <dl>
+              <div>
+                <dt>Email</dt>
+                <dd data-user-email></dd>
+              </div>
+              <div>
+                <dt>Role</dt>
+                <dd data-user-role></dd>
+              </div>
+              <div>
+                <dt>Wallet</dt>
+                <dd data-wallet-summary>Loading wallet...</dd>
+              </div>
+            </dl>
+          </section>
+
+          <section class="team-summary-panel" aria-label="Team contribution summary">
+            <div>
+              <p class="eyebrow">Team contribution</p>
+              <h2>Shared care, never a leaderboard</h2>
+            </div>
+            <div class="team-summary-grid">
+              <div class="stat-box">
+                <p class="stat-label">Growth</p>
+                <p class="stat-value" data-team-growth>--</p>
+              </div>
+              <div class="stat-box">
+                <p class="stat-label">Feeds</p>
+                <p class="stat-value" data-team-feeds>--</p>
+              </div>
+              <div class="stat-box">
+                <p class="stat-label">Tasks</p>
+                <p class="stat-value" data-team-tasks>--</p>
+              </div>
+              <div class="stat-box">
+                <p class="stat-label">Participants</p>
+                <p class="stat-value" data-team-participants>--</p>
+              </div>
+            </div>
+          </section>
+
+          <section class="task-strip" aria-labelledby="tasks-title">
+            <div>
+              <p class="eyebrow">Daily tasks</p>
+              <h2 id="tasks-title">Small wins that feed the pet</h2>
+            </div>
+            <div class="task-list">
+              <article class="task-item">
+                <div class="task-topline">
+                  <p class="task-title">Morning check-in</p>
+                  <span class="task-reward">+20</span>
+                </div>
+                <p class="task-meta">A gentle start-of-day snack after attendance sync.</p>
+              </article>
+              <article class="task-item">
+                <div class="task-topline">
+                  <p class="task-title">Daily update</p>
+                  <span class="task-reward">+30</span>
+                </div>
+                <p class="task-meta">A small care boost for sharing progress with the team.</p>
+              </article>
+              <article class="task-item">
+                <div class="task-topline">
+                  <p class="task-title">Training bite</p>
+                  <span class="task-reward">+50</span>
+                </div>
+                <p class="task-meta">A bigger treat when someone completes a learning bite.</p>
+              </article>
+            </div>
+            <div class="task-actions">
+              <a class="primary-link" href="/tasks.html">Open daily tasks</a>
+              <a class="primary-link" href="/skins.html">Browse skins</a>
+            </div>
+          </section>
+
+          <section class="activity-panel" aria-labelledby="activity-title">
+            <p class="eyebrow">Team activity</p>
+            <h2 id="activity-title">Latest care log</h2>
+            <ul class="activity-list" data-activity-list>
+              <li class="activity-empty">Loading team activity...</li>
+            </ul>
+          </section>
+        </div>
       </div>
     </main>
     <script type="module" src="/src/dashboard.js"></script>

@@ -6,7 +6,11 @@ import (
 	"os"
 	"time"
 
+	"aoa-user-mvp/backend/internal/audit"
 	"aoa-user-mvp/backend/internal/auth"
+	"aoa-user-mvp/backend/internal/pet"
+	"aoa-user-mvp/backend/internal/task"
+	"aoa-user-mvp/backend/internal/wallet"
 
 	"github.com/gin-gonic/gin"
 	_ "github.com/go-sql-driver/mysql"
@@ -14,9 +18,19 @@ import (
 
 func main() {
 	router := gin.Default()
-	auth.RegisterRoutes(router, auth.NewService(authRepository(), auth.TokenConfig{
+	authRepo, petRepo, taskRepo, claimRepo, walletRepo, auditRepo := repositories()
+	authService := auth.NewService(authRepo, auth.TokenConfig{
 		Secret: tokenSecret(),
-	}))
+	})
+	auth.RegisterRoutes(router, authService)
+	walletService := wallet.NewService(walletRepo)
+	wallet.RegisterRoutes(router, walletService, authService)
+	pet.RegisterRoutes(router, pet.NewAuditedFeedService(petRepo, walletService, auditRepo), authService)
+	task.RegisterRoutes(
+		router,
+		task.NewAuditedRewardService(taskRepo, claimRepo, walletService, auditRepo),
+		authService,
+	)
 
 	port := os.Getenv("APP_PORT")
 	if port == "" {
@@ -28,17 +42,36 @@ func main() {
 	}
 }
 
-func authRepository() auth.Repository {
+func repositories() (
+	auth.Repository,
+	pet.Repository,
+	task.Repository,
+	task.ClaimRepository,
+	wallet.Repository,
+	audit.Repository,
+) {
 	dsn := os.Getenv("DATABASE_URL")
 	if dsn == "" {
-		return auth.NewMemoryRepository()
+		taskRepo := task.NewMemoryRepository()
+		return auth.NewMemoryRepository(),
+			pet.NewMemoryRepository(),
+			taskRepo,
+			taskRepo,
+			wallet.NewMemoryRepository(),
+			audit.NewMemoryRepository()
 	}
 
 	db, err := openMySQL(dsn)
 	if err != nil {
 		log.Fatal("could not connect to database")
 	}
-	return auth.NewMySQLRepository(db)
+	taskRepo := task.NewMySQLRepository(db)
+	return auth.NewMySQLRepository(db),
+		pet.NewMySQLRepository(db),
+		taskRepo,
+		taskRepo,
+		wallet.NewMySQLRepository(db),
+		audit.NewMySQLRepository(db)
 }
 
 func openMySQL(dsn string) (*sql.DB, error) {

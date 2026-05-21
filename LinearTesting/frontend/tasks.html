@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Daily Tasks | AoAo Pet</title>
+    <link rel="stylesheet" href="/src/styles.css" />
+  </head>
+  <body>
+    <main class="page-shell">
+      <div class="app-layout">
+        <section class="dashboard-header">
+          <div class="dashboard-title">
+            <p class="eyebrow">Daily tasks</p>
+            <h1>Earn care points</h1>
+          </div>
+          <div class="header-actions">
+            <a class="ghost-link" href="/dashboard.html">Dashboard</a>
+            <button class="ghost-button" type="button" data-logout-button data-loading-button>
+              Log out
+            </button>
+          </div>
+        </section>
+
+        <section class="task-page-panel" aria-labelledby="today-tasks-title">
+          <div class="task-page-heading">
+            <div>
+              <p class="eyebrow">Today</p>
+              <h2 id="today-tasks-title">Available team pet tasks</h2>
+            </div>
+            <div class="status-legend" aria-label="Task status legend">
+              <span class="status-chip status-available">Available</span>
+              <span class="status-chip status-claimed">Claimed</span>
+              <span class="status-chip status-completed">Completed</span>
+              <span class="status-chip status-pending">Pending review</span>
+            </div>
+          </div>
+
+          <p class="inline-loading" data-task-loading>Loading today's tasks...</p>
+          <p class="inline-error" data-task-error hidden></p>
+          <div class="daily-task-list" data-task-list></div>
+        </section>
+      </div>
+    </main>
+    <script type="module" src="/src/tasks.js"></script>
+  </body>
+</html>

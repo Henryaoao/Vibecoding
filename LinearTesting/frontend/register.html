@@ -3,33 +3,62 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Create account | AOA User MVP</title>
+    <title>Create account | AoAo Pet</title>
     <link rel="stylesheet" href="/src/styles.css" />
   </head>
   <body>
     <main class="auth-shell">
       <section class="auth-panel" aria-labelledby="register-title">
-        <p class="eyebrow">User MVP</p>
-        <h1 id="register-title">Create account</h1>
-        <form class="form-stack" data-register-form>
-          <label>
-            Email
-            <input name="email" type="email" autocomplete="email" required />
-          </label>
-          <label>
-            Username
-            <input name="username" type="text" autocomplete="username" required />
-          </label>
-          <label>
-            Password
-            <input name="password" type="password" autocomplete="new-password" required />
-          </label>
-          <p class="error-message" data-error role="alert" hidden></p>
-          <button type="submit" data-loading-button>Create account</button>
-        </form>
-        <p class="helper-text">
-          Already registered? <a href="/login.html">Log in</a>
-        </p>
+        <div class="auth-art" aria-hidden="true">
+          <div class="brand-lockup">
+            <span class="brand-mark">AO</span>
+            <div>
+              <p class="brand-name">AoAo Pet</p>
+              <p class="brand-subtitle">Team energy garden</p>
+            </div>
+          </div>
+          <div class="pet-card">
+            <div class="pet-visual">
+              <span class="pet-shadow"></span>
+              <span class="pet-ear pet-ear-left"></span>
+              <span class="pet-ear pet-ear-right"></span>
+              <span class="pet-body"></span>
+              <span class="pet-face">
+                <span class="pet-eye"></span>
+                <span class="pet-eye"></span>
+              </span>
+              <span class="pet-mouth"></span>
+            </div>
+            <span class="pet-badge">New teammates bring fresh energy</span>
+          </div>
+          <p class="auth-copy">
+            Create your account, collect daily energy, and help the shared mascot grow with the team.
+          </p>
+        </div>
+        <div class="auth-content">
+          <p class="eyebrow">Join the team</p>
+          <h1 id="register-title">Create your pet crew account</h1>
+          <p class="lead">A tiny mascot is ready to remember your good work.</p>
+          <form class="form-stack" data-register-form>
+            <label>
+              Email
+              <input name="email" type="email" autocomplete="email" required />
+            </label>
+            <label>
+              Username
+              <input name="username" type="text" autocomplete="username" required />
+            </label>
+            <label>
+              Password
+              <input name="password" type="password" autocomplete="new-password" required />
+            </label>
+            <p class="error-message" data-error role="alert" hidden></p>
+            <button type="submit" data-loading-button>Create account</button>
+          </form>
+          <p class="helper-text">
+            Already registered? <a href="/login.html">Log in</a>
+          </p>
+        </div>
       </section>
     </main>
     <script type="module" src="/src/register.js"></script>
