@@ -1,0 +1,45 @@
+# Paste this whole file into PowerShell / OMX CLI from C:\Project-M.
+# Do not prepend `$team`; this file already launches the real `omx team` runtime.
+$task = @'
+Project-M P01 / D 席位：平台运行基线。
+
+你是 D 席位。你是 P01 第一个必须单独跑的前置基线负责人。只负责 Go 后端骨架、API envelope、配置、Docker Compose、PostgreSQL、pgAdmin、健康检查和环境样例。不要重新规划整个 P01。
+
+开始条件：
+- 可以立即从最新 `origin/main` 开始。
+
+目标分支：
+- `codex/p01-d-platform-runtime-baseline`
+
+先读：
+- `docs/omx-team-stage-packs/D/P01/omx-plan.md`
+- `docs/omx-team-stage-packs/D/P01/read-list.md`
+- `docs/omx-team-stage-packs/D/P01/allowed-scope.md`
+- `docs/omx-team-stage-packs/_central/P01/orchestration.md`
+- `docs/omx-team-stage-packs/_central/P01/baseline-gates.md`
+
+执行：
+1. `git fetch --prune`
+2. 从 `origin/main` 创建 `codex/p01-d-platform-runtime-baseline`
+3. 只在 D 允许范围内做 micro-plan
+4. 校准后端骨架、API envelope、认证会话、健康检查、Docker Compose、PostgreSQL、pgAdmin、环境变量样例
+5. 确认默认端口仍为 Web 3000、Backend 8080、PostgreSQL 5432、pgAdmin 5050
+6. 确认 `projectm_session` 是 Web 登录会话 cookie 名称
+7. 确认 `/api/v1/admin/*` 后续必须由后端 `super_user` 授权保护
+8. 运行 `docker compose config --services`
+9. 运行 `docker compose --profile local-db config --services`
+10. 运行 `cd ProjectM-source-code/backend && go test ./...`
+11. commit，遵守 Lore Commit Protocol
+12. push 到远端
+13. 按 `docs/omx-team-stage-packs/D/P01/completion-report-template.md` 回报，并明确 B 可以开始
+
+硬约束：
+- 不做完整业务模块 API
+- 不做 Admin 写入
+- 不改 Web/App shell
+- 不改变默认端口
+- 不引入第三种角色
+- 不实现浏览历史、recent_views 或访问轨迹
+- 不提交真实 `.env`、真实 Teams / Entra 凭据或生产密钥
+'@
+omx team 3:executor $task

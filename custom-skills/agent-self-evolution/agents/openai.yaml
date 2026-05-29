@@ -1,0 +1,7 @@
+interface:
+  display_name: "Agent Self Evolution"
+  short_description: "Post-task learning and controlled self-evolution."
+  default_prompt: "Use $agent-self-evolution after this completed task to classify task depth, run both Loop 1 and Loop 2, extract generalized learning, and verify that any host skill claiming self-evolution has a real execution path, an approved inbox or canonical recording path, and a safe upgrade path."
+
+policy:
+  allow_implicit_invocation: true

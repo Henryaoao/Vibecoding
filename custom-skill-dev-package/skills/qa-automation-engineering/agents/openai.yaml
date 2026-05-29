@@ -1,0 +1,4 @@
+interface:
+  display_name: "QA Automation Engineering"
+  short_description: "Route-first QA engineer with reports and safe web access"
+  default_prompt: "Use $qa-automation-engineering as a route-first professional test engineer. Select the correct QA route, load the matching standards pack, use Bitwarden-style local prompts for credentialed website access, load project HTML report templates when report work is requested, grade evidence explicitly, classify failure ownership, and run the post-task evolution gate after meaningful work."

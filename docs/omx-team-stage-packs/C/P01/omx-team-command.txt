@@ -1,0 +1,44 @@
+# Paste this whole file into PowerShell / OMX CLI from C:\Project-M.
+# Do not prepend `$team`; this file already launches the real `omx team` runtime.
+$task = @'
+Project-M P01 / C 席位：App shell 与社区/新人/财经合规基础边界。
+
+你是 C 席位。只负责 P01 的 App shell 状态边界，以及热帖/新人/财经轻资讯的基础字段、mock 边界和合规展示约束。不要重新规划整个 P01。
+
+开始条件：
+- 必须等待 B 已 push `codex/p01-b-web-shell-baseline`。
+- 必须从 B 回报的 branch + commit SHA 创建自己的分支。
+- 如果 B 没有 push，停止并回报，不要从 main 直接开始。
+
+目标分支：
+- `codex/p01-c-app-community-finance-foundation`
+
+先读：
+- `docs/omx-team-stage-packs/C/P01/omx-plan.md`
+- `docs/omx-team-stage-packs/C/P01/read-list.md`
+- `docs/omx-team-stage-packs/C/P01/allowed-scope.md`
+- `docs/omx-team-stage-packs/_central/P01/orchestration.md`
+- `docs/omx-team-stage-packs/_central/P01/baseline-gates.md`
+
+执行：
+1. `git fetch --prune`
+2. 从 B 已推送基线创建 `codex/p01-c-app-community-finance-foundation`
+3. 只在 C 允许范围内做 micro-plan
+4. 校准 App shell 的登录、会话过期、无权限、离线、弱网、空状态、错误和重试边界
+5. 校准热帖/新人/财经的基础 mock 字段和合规展示边界
+6. 不做移动端 Admin Console，不做移动端管理写入，不做完整模块
+7. 运行 `npm --prefix mobile run typecheck`
+8. 运行 `npm --prefix mobile test -- --runInBand`
+9. commit，遵守 Lore Commit Protocol
+10. push 到远端
+11. 按 `docs/omx-team-stage-packs/C/P01/completion-report-template.md` 回报 branch + commit SHA + 验证结果
+
+硬约束：
+- App 不包含管理写入
+- 不改后端 API 合同
+- 不改数据库
+- 不实现浏览历史、recent_views 或访问轨迹
+- 财经轻资讯不得包含投资建议、买卖建议、个股预测或收益承诺
+- 不提交真实 `.env` 或密钥
+'@
+omx team 2:executor $task

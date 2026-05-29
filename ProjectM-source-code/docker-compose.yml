@@ -1,0 +1,86 @@
+services:
+  backend:
+    build:
+      context: ./backend
+    container_name: ${BACKEND_CONTAINER_NAME:-projectm_backend}
+    environment:
+      PORT: "8080"
+      DATABASE_URL: "${DATABASE_URL:?Set Railway DATABASE_URL in ../.env first}"
+      FRONTEND_URL: "${FRONTEND_URL:-http://localhost:3000/}"
+      SESSION_SECRET: "${SESSION_SECRET:-projectm-local-dev-session-secret-change-me}"
+      TEAMS_CLIENT_ID: "${TEAMS_CLIENT_ID:-}"
+      TEAMS_CLIENT_SECRET: "${TEAMS_CLIENT_SECRET:-}"
+      TEAMS_TENANT_ID: "${TEAMS_TENANT_ID:-common}"
+      TEAMS_REDIRECT_URI: "${TEAMS_REDIRECT_URI:-http://localhost:8080/api/v1/auth/teams/callback}"
+      TEAMS_AUTH_URL: "${TEAMS_AUTH_URL:-}"
+      TEAMS_TOKEN_URL: "${TEAMS_TOKEN_URL:-}"
+      TEAMS_USERINFO_URL: "${TEAMS_USERINFO_URL:-}"
+      TEAMS_SCOPES: "${TEAMS_SCOPES:-}"
+    ports:
+      - "${BACKEND_HOST_PORT:-8080}:8080"
+
+  frontend:
+    build:
+      context: ./frontend
+    container_name: ${FRONTEND_CONTAINER_NAME:-projectm_frontend}
+    ports:
+      - "${FRONTEND_HOST_PORT:-3000}:80"
+    depends_on:
+      - backend
+
+  postgres:
+    profiles:
+      - local-db
+    image: ${POSTGRES_IMAGE:-postgres:16}
+    container_name: ${POSTGRES_CONTAINER_NAME:-projectm_postgres}
+    environment:
+      POSTGRES_DB: "${POSTGRES_DB:-projectm}"
+      POSTGRES_USER: "${POSTGRES_USER:-projectm_user}"
+      POSTGRES_PASSWORD: "${POSTGRES_PASSWORD:-projectm_password}"
+    ports:
+      - "${POSTGRES_HOST_PORT:-5432}:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./database/init:/docker-entrypoint-initdb.d:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $${POSTGRES_USER} -d $${POSTGRES_DB}"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+
+  pgadmin:
+    profiles:
+      - local-db
+    image: ${PGADMIN_IMAGE:-dpage/pgadmin4:8}
+    container_name: ${PGADMIN_CONTAINER_NAME:-projectm_pgadmin}
+    environment:
+      PGADMIN_DEFAULT_EMAIL: "${PGADMIN_DEFAULT_EMAIL:-admin@projectm.test}"
+      PGADMIN_DEFAULT_PASSWORD: "${PGADMIN_DEFAULT_PASSWORD:-pgadmin_password}"
+      PGADMIN_CONFIG_ENHANCED_COOKIE_PROTECTION: "True"
+    ports:
+      - "${PGADMIN_HOST_PORT:-5050}:80"
+    depends_on:
+      postgres:
+        condition: service_healthy
+
+  db-init:
+    profiles:
+      - railway-init
+    image: ${POSTGRES_IMAGE:-postgres:16}
+    container_name: projectm_db_init
+    environment:
+      DATABASE_URL: "${DATABASE_URL:-}"
+    volumes:
+      - ./database:/database:ro
+    restart: "no"
+    command:
+      - sh
+      - -c
+      - |
+        test -n "$$DATABASE_URL" || (echo "Set Railway DATABASE_URL in ../.env first" && exit 1)
+        psql "$$DATABASE_URL" -v ON_ERROR_STOP=1 -f /database/init/001_projectm_schema.sql
+        psql "$$DATABASE_URL" -v ON_ERROR_STOP=1 -f /database/migrations/006_postgresql_optimization.sql
+        psql "$$DATABASE_URL" -v ON_ERROR_STOP=1 -f /database/migrations/007_add_teams_identity_to_users.sql
+
+volumes:
+  postgres_data:

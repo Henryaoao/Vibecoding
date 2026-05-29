@@ -1,0 +1,386 @@
+# Evolution Memory
+
+Track durable QA skill learnings that survive generalization.
+
+Use this file for human-readable local memory. Pair it with `references/evolution-log.jsonl` for structured records.
+
+- Date: 2026-05-12
+- Source task: qa-skill-adaptive-architecture-upgrade-2026-05-12
+- Target artifact: qa-automation-engineering/references/common-checklist.md + qa-automation-engineering/references/route-registry.md
+- Target type: checklist
+- Domain key: mixed
+- Standard family: cross-route-quality
+- Standard area: routing
+- Task class: substantial
+- Task type: skill-upgrade
+- Loop: both
+- Meta focus: host-skill-governance
+- Category: governance
+- Impact: high
+- Confidence: high
+- Failure mode: skill lacked explicit routing, evidence-grading contract, and post-task evolution execution path
+- Pattern key: qa-route-first-governance
+- Principle key: qa-route-first-governance
+- Principle: Reusable QA skills should route requests first, grade evidence explicitly, and provide a concrete post-task evolution wrapper plus an approved inbox or central governance path.
+- Abstraction level: principle
+- Summary: Added route-first QA governance, explicit evidence grading, and a real local evolution wrapper so the skill can operate as a reusable professional test-engineering agent instead of a loose guidance pack.
+- Recommended action: release the route-first governance upgrade and keep future route and evidence learning in the approved inbox or central governance path
+- Status: released
+
+- Date: 2026-05-13
+- Source task: credentialed-admin-login-case-pack
+- Target artifact: qa-automation-engineering/references/test-design-and-artifact-quality.md
+- Target type: checklist
+- Domain key: testcase-artifact
+- Standard family: test-quality
+- Standard area: execution-readiness
+- Task class: substantial
+- Task type: testcase-pack
+- Loop: both
+- Abstraction level: principle
+- Summary: Created a 54-row credentialed admin login automation testcase pack with credential-dependent rows explicitly marked confirmation-needed and no hidden credential assumptions.
+- Recommended action: no_change
+- Status: no_change
+
+- Date: 2026-05-14
+- Source task: credentialed-admin navigation-permission-visibility fragment B testcase artifact
+- Target artifact: qa-automation-engineering/references/test-design-and-artifact-quality.md
+- Target type: checklist
+- Domain key: testcase-artifact
+- Standard family: test-quality
+- Standard area: executable-schema
+- Task class: standard
+- Task type: testcase-fragment
+- Loop: both
+- Abstraction level: principle
+- Summary: Wrote 7 Chinese Markdown testcase rows for authenticated menu hierarchy visibility, preserving current-account snapshot boundaries, local authorization gate, and confirmation-needed route/page unknowns.
+- Recommended action: no standard change; existing testcase-artifact rules covered the work
+- Status: no_change
+
+- Date: 2026-05-14
+- Source task: admin-navigation-permission-visibility fragment C action boundary safety testcase artifact
+- Target artifact: qa-automation-engineering/references/test-design-and-artifact-quality.md
+- Target type: checklist
+- Domain key: testcase-artifact
+- Standard family: test-quality
+- Standard area: boundary-cases
+- Task class: standard
+- Task type: testcase-artifact
+- Loop: both
+- Abstraction level: principle
+- Summary: Created Chinese Markdown testcase fragment C with 6 action-boundary and safety-negative cases using Verified/Pending/Inferred evidence labels and log-bound oracles.
+- Recommended action: no change
+- Status: no_change
+
+- Date: 2026-05-14
+- Source task: credentialed-admin navigation-permission-visibility fragment D testcase artifact
+- Target artifact: qa-automation-engineering/references/test-design-and-artifact-quality.md
+- Target type: checklist
+- Domain key: testcase-artifact
+- Standard family: test-quality
+- Standard area: executable-schema
+- Task class: standard
+- Task type: testcase-artifact
+- Loop: both
+- Abstraction level: principle
+- Summary: Created Chinese testcase fragment D for credentialed admin navigation permission visibility, covering safe network metadata, field whitelist, mock loading/failure boundaries, route confirmation gate, and unauthenticated dashboard guard.
+- Recommended action: no_change: existing testcase-artifact rules already cover evidence labels, safe metadata, mock boundaries, confirmation-needed, and secret-safety constraints.
+- Status: no_change
+
+- Date: 2026-05-15
+- Source task: credentialed-admin Report Full L2 testcase-artifact pack
+- Target artifact: qa-automation-engineering/references/test-design-and-artifact-quality.md
+- Target type: checklist
+- Domain key: testcase-artifact
+- Standard family: test-quality
+- Standard area: execution-readiness
+- Task class: substantial
+- Task type: testcase-artifact
+- Loop: both
+- Abstraction level: principle
+- Summary: Created a Report module Full L2 testcase pack from safe live evidence, preserving verified 200 pages, Rebate 500 confirmation-needed, route-map gaps, export/config/screenshot/data/permission boundaries, and structural preflight high=0 medium=0.
+- Recommended action: log only; no standards change needed because existing testcase-artifact and evidence-boundary rules covered the task
+- Status: logged
+
+- Date: 2026-05-15
+- Source task: credentialed-admin Account Full L2 testcase artifact v0.2.1
+- Target artifact: qa-automation-engineering/references/test-design-and-artifact-quality.md
+- Target type: checklist
+- Domain key: testcase-artifact
+- Standard family: test-quality
+- Standard area: test-quality
+- Task class: substantial
+- Task type: testcase-artifact
+- Loop: both
+- Abstraction level: principle
+- Summary: Generated a 45-case Account module Full L2 testcase package from sanitized live evidence, preserving route gaps, mutation blocks, screenshot_count=0, and path/status-only automation boundaries.
+- Recommended action: no_change
+- Status: no_change
+
+- Date: 2026-05-15
+- Source task: credentialed-admin System L2 Full automation-framework implementation worker
+- Target artifact: qa-automation-engineering/references/automation-framework-and-web.md
+- Target type: checklist
+- Domain key: automation-framework
+- Standard family: automation-quality
+- Task class: standard
+- Task type: qa-task
+- Loop: both
+- Abstraction level: principle
+- Summary: Implemented System L2 Full builder/spec/runner by mirroring existing full-L2 local-evidence pattern; no new reusable QA standard needed.
+- Recommended action: no change; existing automation-framework evidence-boundary rules were sufficient
+- Status: no_change
+
+- Date: 2026-05-15
+- Source task: evidence-only-ui-playwright-report-chain
+- Target artifact: qa-automation-engineering/references/automation-framework-and-web.md
+- Target type: checklist
+- Domain key: automation-framework
+- Standard family: automation-quality
+- Standard area: evidence-only-playwright
+- Task class: substantial
+- Task type: implementation
+- Loop: both
+- Category: evidence-discipline
+- Impact: medium
+- Confidence: high
+- Failure mode: negated-positive-claim-false-positive
+- Pattern key: evidence-only-negated-claim-scan
+- Principle key: evidence-only-negated-governance-phrasing
+- Principle: When scanning audited QA artifacts for prohibited positive business claims, strip explicit negation/governance phrases before applying broad positive-claim regexes so bounded Pending/Prohibited statements do not fail automation.
+- Abstraction level: principle
+- Summary: Implemented an evidence-only L2 Playwright/report chain from an audited testcase pack; fixed positive-claim scanning to preserve negated governance wording such as 不继承...展示正确的结论.
+- Recommended action: Log route-specific lesson for evidence-only specs and positive-claim scanners.
+- Status: logged
+
+- Date: 2026-05-18
+- Source task: qa-skill-html-report-template-generalization-and-evolution-gate
+- Target artifact: qa-automation-engineering/references/common-checklist.md + qa-automation-engineering/references/reporting-and-diagnosis.md
+- Target type: checklist
+- Domain key: report-diagnosis
+- Standard family: execution-analysis-quality
+- Standard area: governance
+- Task class: substantial
+- Task type: skill-upgrade
+- Loop: both
+- Meta focus: evolution-release-sync
+- Category: governance
+- Impact: high
+- Confidence: high
+- Failure mode: release-updated-without-evolution-record
+- Pattern key: evolution-release-sync-gate
+- Principle key: evolution-release-sync-gate
+- Principle: When a skill release or version state changes, require a matching evolution-log entry for the release date before handoff or push.
+- Abstraction level: rule
+- Summary: Added shareable HTML report template capability, generalized project template discovery, removed hardcoded local paths, white-labeled prior project-specific evolution history, and identified the missing release-to-evolution ledger gate.
+- Recommended action: Release the capability and add an evolution-release sync gate so version or release updates cannot ship without a matching evolution record.
+- Status: released
+
+- Date: 2026-05-19
+- Source task: credentialed-admin-l5-no-secret-smoke-runner
+- Target artifact: qa-automation-engineering/references/automation-framework-and-web.md
+- Target type: checklist
+- Domain key: automation-framework
+- Standard family: automation-quality
+- Standard area: admin-monitoring-readiness
+- Task class: standard
+- Task type: no-secret-smoke-runner
+- Loop: both
+- Abstraction level: principle
+- Summary: Closed an L5 no-secret smoke runner with project-specific governance and no reusable QA skill rule change needed.
+- Recommended action: no_change; project prompt, report template, runner audit and ledgers already capture the rule
+- Status: no_change
+
+- Date: 2026-05-19
+- Source task: credentialed-admin-l5-no-secret-scheduled-check
+- Target artifact: qa-automation-engineering/references/automation-framework-and-web.md
+- Target type: checklist
+- Domain key: automation-framework
+- Standard family: automation-quality
+- Standard area: admin-monitoring-readiness
+- Task class: standard
+- Task type: no-secret-scheduled-smoke
+- Loop: both
+- Abstraction level: principle
+- Summary: Activated project-specific L5 no-secret Codex app schedule with policy/audit files; no reusable QA skill rule change needed.
+- Recommended action: no_change; project manager prompt, report template, policy, audit and ledgers capture the scheduling boundary
+- Status: no_change
+
+- Date: 2026-05-21
+- Source task: credentialed-admin-tab-overflow-modal-discovery-correction
+- Target artifact: qa-automation-engineering/references/high-risk-admin-layering.md + qa-automation-engineering/references/automation-framework-and-web.md
+- Target type: checklist
+- Domain key: automation-framework
+- Standard family: automation-quality
+- Standard area: layered-ui-admin-discovery
+- Task class: standard
+- Task type: skill-upgrade
+- Loop: both
+- Category: evidence-discipline
+- Impact: medium
+- Confidence: high
+- Failure mode: modal-layer-missed-after-background-route-change
+- Pattern key: layered-ui-modal-tab-overflow-oracle
+- Principle key: admin-layered-ui-first-oracle
+- Principle: In credentialed admin shells, after navigation or boundary actions, inspect modal/dialog/overlay/toast and tab-strip state before using URL or main-content changes as the behavior oracle.
+- Abstraction level: rule
+- Summary: A credentialed admin tab-overflow case showed the background page changed while an overflow modal remained the controlling user decision; added reusable rules to verify layered UI state and FIFO-style tab replacement only after repeated observation.
+- Recommended action: Release patch 1.4.1 and sync bundled project skill copies.
+- Status: released
+
+- Date: 2026-05-21
+- Source task: credentialed-admin-safe-unknown-control-exploration
+- Target artifact: qa-automation-engineering/references/high-risk-admin-layering.md + qa-automation-engineering/references/test-design-and-artifact-quality.md + qa-automation-engineering/references/automation-framework-and-web.md
+- Target type: checklist
+- Domain key: testcase-artifact
+- Standard family: test-quality
+- Standard area: safe-exploratory-modeling
+- Task class: standard
+- Task type: skill-upgrade
+- Loop: both
+- Category: evidence-discipline
+- Impact: medium
+- Confidence: high
+- Failure mode: safe-ui-indicator-left-as-pending
+- Pattern key: safe-before-after-ui-rule-discovery
+- Principle key: non-destructive-ui-controls-must-be-explored
+- Principle: Visible non-destructive admin UI controls must be investigated with bounded before/after observations and converted into testcase rows instead of being left as vague Pending or confirmation-needed items.
+- Abstraction level: rule
+- Summary: A credentialed admin tab counter showed that terse header indicators can encode important behavior; added reusable safe-exploration rules for counters, badges, tab indicators, compact icon buttons, pagination widgets, and header utilities.
+- Recommended action: Release patch 1.4.2 and sync bundled project skill copies.
+- Status: released
+
+- Date: 2026-05-21
+- Source task: admin-testcase-repair-report-data-freshness
+- Target artifact: qa-automation-engineering/references/reporting-and-diagnosis.md + qa-automation-engineering/references/html-report-template-capability.md + qa-automation-engineering/references/automation-framework-and-web.md
+- Target type: checklist
+- Domain key: report-diagnosis
+- Standard family: execution-analysis-quality
+- Standard area: report-data-freshness
+- Task class: standard
+- Task type: skill-upgrade
+- Loop: both
+- Category: report-governance
+- Impact: high
+- Confidence: high
+- Failure mode: testcase-markdown-repaired-but-html-report-reads-stale-generated-json
+- Pattern key: repaired-case-report-data-sync
+- Principle key: testcase-repair-must-refresh-report-data
+- Principle: After testcase repairs that affect report-facing fields, generated approved-case and normalized report inputs must be refreshed or explicitly marked stale before claiming the HTML report reflects the repair.
+- Abstraction level: rule
+- Summary: Admin testcase repair work showed that Markdown testcase fixes can leave `approved_cases*.json`, `normalized_results.json`, and HTML reports stale; added reusable freshness gates and verification of changed case IDs across source, JSON, normalized data, and HTML.
+- Recommended action: Release patch 1.4.3 and sync bundled project skill copies.
+- Status: released
+
+- Date: 2026-05-21
+- Source task: admin-report-screenshot-evidence-mapping-repair
+- Target artifact: qa-automation-engineering/references/reporting-and-diagnosis.md
+- Target type: checklist
+- Domain key: report-diagnosis
+- Standard family: execution-analysis-quality
+- Standard area: html-report-screenshot-policy
+- Task class: substantial
+- Task type: report-screenshot-governance
+- Loop: both
+- Category: evidence-discipline
+- Impact: high
+- Confidence: high
+- Failure mode: generic-screenshot-substituted-for-case-evidence
+- Pattern key: case-runtime-screenshot-required
+- Principle key: screenshot-evidence-must-match-case-state
+- Principle: A report screenshot only supports a testcase when it was captured at that testcase's verified page or state; generic admin overview screenshots belong to module inventory, not case rows.
+- Abstraction level: rule
+- Summary: Generic authorized Admin dashboard/menu screenshots were being mapped to many concrete case rows. Updated report and screenshot rules so case rows only use runtime or explicitly case-specific safe screenshots.
+- Recommended action: Promote case-level runtime screenshot requirement and reject generic module overview screenshots for individual case rows.
+- Status: logged
+
+- Date: 2026-05-21
+- Source task: admin-report-runtime-screenshot-and-language-display-repair
+- Target artifact: qa-automation-engineering/references/common-checklist.md + qa-automation-engineering/references/reporting-and-diagnosis.md
+- Target type: checklist
+- Domain key: report-diagnosis
+- Standard family: execution-analysis-quality
+- Standard area: admin report evidence hygiene
+- Task class: substantial
+- Task type: html-report-repair
+- Loop: both
+- Category: report-data-freshness
+- Impact: prevents metadata-only pass claims and mixed-language report output
+- Confidence: high
+- Failure mode: generic dashboard screenshots and metadata-only scripts were over-counted as pass evidence
+- Pattern key: case-specific-runtime-screenshot-pass-gate
+- Principle key: admin-report-visible-language-and-evidence-freshness
+- Principle: For credentialed admin reports, a case-level pass must be tied to the page state observed during the case; generated reports must refresh normalized JSON and HTML after testcase/script repairs.
+- Abstraction level: rule
+- Summary: Authorized admin pass status must be backed by case-specific runtime screenshot evidence; report visible language should be Chinese-first while preserving technical paths and product labels only as evidence.
+- Recommended action: Logged the runtime screenshot evidence gate and Chinese display normalization as reusable QA/reporting practice; no immediate skill file edit required because the project prompt/template and generator were updated.
+- Status: logged
+
+- Date: 2026-05-22
+- Source task: credentialed-admin-final-qa-report-handoff
+- Target artifact: qa-automation-engineering/references/common-checklist.md
+- Target type: checklist
+- Domain key: report-diagnosis
+- Standard family: execution-analysis-quality
+- Standard area: report freshness, branch handoff, tracker status
+- Task class: substantial
+- Task type: credentialed admin QA handoff
+- Loop: target
+- Category: handoff-readiness
+- Impact: Prevents stale report or secret-scan evidence after last-minute validation writes.
+- Confidence: 0.90
+- Pattern key: final-report-branch-main-tracker-sync
+- Principle key: qa-handoff-final-gate
+- Principle: A QA handoff is not complete until Git branch/main, report artifacts, secret scan evidence, and tracker status all reference the same final state.
+- Abstraction level: principle
+- Summary: For final handoff, verify branch and main point to same commit, rerun secret scan after any generated evidence refresh, keep local browser profile ignored, and update tracker issues with exact counts and residual risks.
+- Recommended action: logged reusable handoff checklist
+- Status: logged
+
+
+- Date: 2026-05-25
+- Source task: runtime-inbox-overlay-and-white-label-evolution-governance
+- Target artifact: qa-automation-engineering/SKILL.md + qa-automation-engineering/references/post-task-evolution.md + qa-automation-engineering/scripts/run_post_task_evolution.py
+- Target type: governance
+- Domain key: mixed
+- Standard family: cross-route-quality
+- Standard area: self-evolution-shareability
+- Task class: substantial
+- Task type: skill-governance-upgrade
+- Loop: both
+- Meta focus: runtime-inbox-overlay-and-white-labeling
+- Category: shareability-governance
+- Impact: high
+- Confidence: high
+- Failure mode: collaborator-local skill edits and project-named evolution records make shared cross-project skill synchronization brittle
+- Pattern key: runtime-inbox-overlay-white-label-governance
+- Principle key: cross-project-skill-learning-lives-in-white-labeled-inbox-overlay
+- Principle: Cross-project QA skills should keep collaborator-local unmerged learning in a white-labeled sibling inbox overlay and merge selected records into central canonical history during releases.
+- Abstraction level: rule
+- Summary: QA skill evolution now uses sibling runtime inbox records for collaborator-local unmerged learning, replaces duplicate installed skill folders during central updates, and requires cross-project white-label submission records.
+- Recommended action: released 1.5.0 with runtime inbox overlay, inbox-only collaborator recording, and white-label submission governance
+- Status: released
+
+
+- Date: 2026-05-26
+- Source task: qa-collaborator-inbox-only-canonical-tool-boundary
+- Target artifact: qa-automation-engineering/SKILL.md
+- Target type: governance
+- Domain key: mixed
+- Standard family: cross-route-quality
+- Standard area: self-evolution-shareability
+- Task class: standard
+- Task type: skill-governance-upgrade
+- Loop: both
+- Meta focus: collaborator-inbox-only-recording
+- Category: release-governance
+- Impact: high
+- Confidence: high
+- Failure mode: QA collaborators could interpret canonical evolution scripts as ordinary local recording tools
+- Pattern key: qa-canonical-tool-boundary
+- Principle key: qa-collaborator-evolution-uses-inbox-only
+- Principle: QA collaborator evolution must be recorded through inbox-only wrappers; canonical history and release tools are reserved for maintainer consolidation.
+- Abstraction level: rule
+- Summary: QA collaborators must use the post-task wrapper that writes inbox records only; direct canonical evolution and release tools are maintainer-only.
+- Recommended action: released 1.5.1 with explicit collaborator inbox-only and maintainer-only canonical tool boundary
+- Status: released

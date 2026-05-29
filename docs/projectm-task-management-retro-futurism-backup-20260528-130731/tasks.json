@@ -1,0 +1,3077 @@
+{
+  "project": "ProjectM",
+  "linearProject": "Project-M",
+  "generatedAt": "2026-05-27",
+  "source": "Linear Project-M milestones + ProjectM PRD + local 05 frontend breakdown",
+  "statusLegend": {
+    "created": "已创建到 Linear 或已经在 Linear milestone 中形成明确任务",
+    "planned": "来自 milestone 描述或本地规划，尚未创建为独立 Linear issue",
+    "pending": "需要继续拆分或后续同步到 Linear"
+  },
+  "milestones": [
+    {
+      "id": "3b154d97-b0b7-4be1-9ff7-c631b358dc12",
+      "code": "01",
+      "name": "01 项目规划与范围冻结",
+      "goal": "冻结 ProjectM MVP 范围、模块边界、角色权限、禁止项、页面/API 映射、mock/seed 覆盖和验收口径。",
+      "progress": "0%",
+      "groups": [
+        {
+          "id": "phase-01-scope",
+          "code": "01",
+          "title": "项目规划与范围冻结任务",
+          "goal": "把 PRD 和范围确认沉淀为可执行开发边界。",
+          "children": [
+            {
+              "linearId": "AOA-118",
+              "status": "created",
+              "code": "01.1",
+              "title": "登录界面 / 登录认证范围确认",
+              "goal": "确认 /login、登录态、角色识别、登录后跳转、退出登录和认证 API 范围。",
+              "scope": [
+                "确认 /login、登录态、角色识别、登录后跳转、退出登录和认证 API 范围。"
+              ],
+              "boundary": "按 ProjectM PRD、权限矩阵和当前 milestone 边界执行；不引入 PRD 外能力。",
+              "acceptance": [
+                "目标、范围、权限边界清楚。",
+                "可被文档、截图、命令输出或 Linear 状态验证。"
+              ],
+              "evidence": [
+                "Linear issue 或 milestone 描述。",
+                "对应文档或验收记录。"
+              ]
+            },
+            {
+              "linearId": "AOA-119",
+              "status": "created",
+              "code": "01.2",
+              "title": "首页门户聚合与导航框架范围确认",
+              "goal": "确认首页聚合 7 个核心栏目、今日公司简报置顶、栏目排序/配置和导航方式。",
+              "scope": [
+                "确认首页聚合 7 个核心栏目、今日公司简报置顶、栏目排序/配置和导航方式。"
+              ],
+              "boundary": "按 ProjectM PRD、权限矩阵和当前 milestone 边界执行；不引入 PRD 外能力。",
+              "acceptance": [
+                "目标、范围、权限边界清楚。",
+                "可被文档、截图、命令输出或 Linear 状态验证。"
+              ],
+              "evidence": [
+                "Linear issue 或 milestone 描述。",
+                "对应文档或验收记录。"
+              ]
+            },
+            {
+              "linearId": "AOA-120",
+              "status": "created",
+              "code": "01.3",
+              "title": "今日公司简报模块范围确认",
+              "goal": "确认今日公司简报展示、管理、数据字段、状态和验收边界。",
+              "scope": [
+                "确认今日公司简报展示、管理、数据字段、状态和验收边界。"
+              ],
+              "boundary": "按 ProjectM PRD、权限矩阵和当前 milestone 边界执行；不引入 PRD 外能力。",
+              "acceptance": [
+                "目标、范围、权限边界清楚。",
+                "可被文档、截图、命令输出或 Linear 状态验证。"
+              ],
+              "evidence": [
+                "Linear issue 或 milestone 描述。",
+                "对应文档或验收记录。"
+              ]
+            },
+            {
+              "linearId": "AOA-121",
+              "status": "created",
+              "code": "01.4",
+              "title": "公司公告墙模块范围确认",
+              "goal": "确认公告类型、筛选、详情、置顶、有效期、附件、后台发布和审计要求。",
+              "scope": [
+                "确认公告类型、筛选、详情、置顶、有效期、附件、后台发布和审计要求。"
+              ],
+              "boundary": "按 ProjectM PRD、权限矩阵和当前 milestone 边界执行；不引入 PRD 外能力。",
+              "acceptance": [
+                "目标、范围、权限边界清楚。",
+                "可被文档、截图、命令输出或 Linear 状态验证。"
+              ],
+              "evidence": [
+                "Linear issue 或 milestone 描述。",
+                "对应文档或验收记录。"
+              ]
+            },
+            {
+              "linearId": "AOA-122",
+              "status": "created",
+              "code": "01.5",
+              "title": "员工论坛热帖模块范围确认",
+              "goal": "确认论坛热帖 MVP 只做热帖摘要展示和人工维护，不建设完整论坛。",
+              "scope": [
+                "确认论坛热帖 MVP 只做热帖摘要展示和人工维护，不建设完整论坛。"
+              ],
+              "boundary": "按 ProjectM PRD、权限矩阵和当前 milestone 边界执行；不引入 PRD 外能力。",
+              "acceptance": [
+                "目标、范围、权限边界清楚。",
+                "可被文档、截图、命令输出或 Linear 状态验证。"
+              ],
+              "evidence": [
+                "Linear issue 或 milestone 描述。",
+                "对应文档或验收记录。"
+              ]
+            },
+            {
+              "linearId": "AOA-123",
+              "status": "created",
+              "code": "01.6",
+              "title": "新人专区模块范围确认",
+              "goal": "确认新人内容、新人任务、首页偏好、老员工隐藏规则、任务完成状态和后台模板管理。",
+              "scope": [
+                "确认新人内容、新人任务、首页偏好、老员工隐藏规则、任务完成状态和后台模板管理。"
+              ],
+              "boundary": "按 ProjectM PRD、权限矩阵和当前 milestone 边界执行；不引入 PRD 外能力。",
+              "acceptance": [
+                "目标、范围、权限边界清楚。",
+                "可被文档、截图、命令输出或 Linear 状态验证。"
+              ],
+              "evidence": [
+                "Linear issue 或 milestone 描述。",
+                "对应文档或验收记录。"
+              ]
+            },
+            {
+              "linearId": "AOA-124",
+              "status": "created",
+              "code": "01.7",
+              "title": "财经轻资讯模块范围确认",
+              "goal": "确认财经轻资讯栏目、标签筛选、来源、免责声明、后台人工发布和合规边界。",
+              "scope": [
+                "确认财经轻资讯栏目、标签筛选、来源、免责声明、后台人工发布和合规边界。"
+              ],
+              "boundary": "按 ProjectM PRD、权限矩阵和当前 milestone 边界执行；不引入 PRD 外能力。",
+              "acceptance": [
+                "目标、范围、权限边界清楚。",
+                "可被文档、截图、命令输出或 Linear 状态验证。"
+              ],
+              "evidence": [
+                "Linear issue 或 milestone 描述。",
+                "对应文档或验收记录。"
+              ]
+            },
+            {
+              "linearId": "AOA-125",
+              "status": "created",
+              "code": "01.8",
+              "title": "文档中心模块范围确认",
+              "goal": "确认文档搜索、筛选、下载、收藏、文件类型、权限可见、下载记录和后台管理范围。",
+              "scope": [
+                "确认文档搜索、筛选、下载、收藏、文件类型、权限可见、下载记录和后台管理范围。"
+              ],
+              "boundary": "按 ProjectM PRD、权限矩阵和当前 milestone 边界执行；不引入 PRD 外能力。",
+              "acceptance": [
+                "目标、范围、权限边界清楚。",
+                "可被文档、截图、命令输出或 Linear 状态验证。"
+              ],
+              "evidence": [
+                "Linear issue 或 milestone 描述。",
+                "对应文档或验收记录。"
+              ]
+            },
+            {
+              "linearId": "AOA-126",
+              "status": "created",
+              "code": "01.9",
+              "title": "培训中心模块范围确认",
+              "goal": "确认课程列表/详情、必修/选修、课件或外链、学习进度、完成状态和后台课程管理。",
+              "scope": [
+                "确认课程列表/详情、必修/选修、课件或外链、学习进度、完成状态和后台课程管理。"
+              ],
+              "boundary": "按 ProjectM PRD、权限矩阵和当前 milestone 边界执行；不引入 PRD 外能力。",
+              "acceptance": [
+                "目标、范围、权限边界清楚。",
+                "可被文档、截图、命令输出或 Linear 状态验证。"
+              ],
+              "evidence": [
+                "Linear issue 或 milestone 描述。",
+                "对应文档或验收记录。"
+              ]
+            },
+            {
+              "linearId": "AOA-127",
+              "status": "created",
+              "code": "01.10",
+              "title": "个人中心模块范围确认",
+              "goal": "确认个人中心用户资料、收藏、下载记录、培训进度、新人任务和首页偏好范围。",
+              "scope": [
+                "确认个人中心用户资料、收藏、下载记录、培训进度、新人任务和首页偏好范围。"
+              ],
+              "boundary": "按 ProjectM PRD、权限矩阵和当前 milestone 边界执行；不引入 PRD 外能力。",
+              "acceptance": [
+                "目标、范围、权限边界清楚。",
+                "可被文档、截图、命令输出或 Linear 状态验证。"
+              ],
+              "evidence": [
+                "Linear issue 或 milestone 描述。",
+                "对应文档或验收记录。"
+              ]
+            },
+            {
+              "linearId": "AOA-128",
+              "status": "created",
+              "code": "01.11",
+              "title": "Admin 后台范围确认",
+              "goal": "确认 Admin Console 模块范围和关键管理动作。",
+              "scope": [
+                "确认 Admin Console 模块范围和关键管理动作。"
+              ],
+              "boundary": "按 ProjectM PRD、权限矩阵和当前 milestone 边界执行；不引入 PRD 外能力。",
+              "acceptance": [
+                "目标、范围、权限边界清楚。",
+                "可被文档、截图、命令输出或 Linear 状态验证。"
+              ],
+              "evidence": [
+                "Linear issue 或 milestone 描述。",
+                "对应文档或验收记录。"
+              ]
+            },
+            {
+              "linearId": "AOA-129",
+              "status": "created",
+              "code": "01.12",
+              "title": "系统基础能力与权限框架范围确认",
+              "goal": "确认 User Portal/Admin Console 分区、角色模型、路由守卫、403 和后端鉴权。",
+              "scope": [
+                "确认 User Portal/Admin Console 分区、角色模型、路由守卫、403 和后端鉴权。"
+              ],
+              "boundary": "按 ProjectM PRD、权限矩阵和当前 milestone 边界执行；不引入 PRD 外能力。",
+              "acceptance": [
+                "目标、范围、权限边界清楚。",
+                "可被文档、截图、命令输出或 Linear 状态验证。"
+              ],
+              "evidence": [
+                "Linear issue 或 milestone 描述。",
+                "对应文档或验收记录。"
+              ]
+            },
+            {
+              "linearId": "AOA-130",
+              "status": "created",
+              "code": "01.13",
+              "title": "页面路由、API 与模块映射确认",
+              "goal": "确认前台页面、Admin 页面、前台 API、后台 API 与模块之间的映射。",
+              "scope": [
+                "确认前台页面、Admin 页面、前台 API、后台 API 与模块之间的映射。"
+              ],
+              "boundary": "按 ProjectM PRD、权限矩阵和当前 milestone 边界执行；不引入 PRD 外能力。",
+              "acceptance": [
+                "目标、范围、权限边界清楚。",
+                "可被文档、截图、命令输出或 Linear 状态验证。"
+              ],
+              "evidence": [
+                "Linear issue 或 milestone 描述。",
+                "对应文档或验收记录。"
+              ]
+            },
+            {
+              "linearId": null,
+              "status": "planned",
+              "code": "01.14",
+              "title": "Mock / Seed 数据覆盖确认",
+              "goal": "确认前端 mock 与后端 seed 数据覆盖范围。",
+              "scope": [
+                "确认前端 mock 与后端 seed 数据覆盖范围。"
+              ],
+              "boundary": "按 ProjectM PRD、权限矩阵和当前 milestone 边界执行；不引入 PRD 外能力。",
+              "acceptance": [
+                "目标、范围、权限边界清楚。",
+                "可被文档、截图、命令输出或 Linear 状态验证。"
+              ],
+              "evidence": [
+                "Linear issue 或 milestone 描述。",
+                "对应文档或验收记录。"
+              ]
+            },
+            {
+              "linearId": null,
+              "status": "planned",
+              "code": "01.15",
+              "title": "整理并冻结项目规划文档",
+              "goal": "汇总范围确认结果，对齐 PRD、权限说明、样例数据和验证规则。",
+              "scope": [
+                "汇总范围确认结果，对齐 PRD、权限说明、样例数据和验证规则。"
+              ],
+              "boundary": "按 ProjectM PRD、权限矩阵和当前 milestone 边界执行；不引入 PRD 外能力。",
+              "acceptance": [
+                "目标、范围、权限边界清楚。",
+                "可被文档、截图、命令输出或 Linear 状态验证。"
+              ],
+              "evidence": [
+                "Linear issue 或 milestone 描述。",
+                "对应文档或验收记录。"
+              ]
+            }
+          ],
+          "statusSummary": {
+            "created": 13,
+            "planned": 2,
+            "pending": 0,
+            "total": 15
+          }
+        }
+      ],
+      "statusSummary": {
+        "created": 13,
+        "planned": 2,
+        "pending": 0,
+        "total": 15
+      }
+    },
+    {
+      "id": "01b0eb40-74e3-45dc-8787-745ba37d0c2c",
+      "code": "02",
+      "name": "02 Agent / Skill / 工作流准备",
+      "goal": "完成 Project-M 的 Agent / Skill / 工作流准备，明确角色责任、workflow 路由、agent 映射、skill 链路和质量门禁。",
+      "progress": "0%",
+      "groups": [
+        {
+          "id": "phase-02-agent-workflow",
+          "code": "02",
+          "title": "Agent / Skill / 工作流准备任务",
+          "goal": "把多 Agent 工作方式沉淀为后续阶段可复用的执行合同。",
+          "children": [
+            {
+              "linearId": null,
+              "status": "planned",
+              "code": "02.1",
+              "title": "建立第二阶段执行合同",
+              "goal": "明确第二阶段只做 Agent / Skill / 工作流准备，不进入实现。",
+              "scope": [
+                "明确第二阶段只做 Agent / Skill / 工作流准备，不进入实现。"
+              ],
+              "boundary": "按 ProjectM PRD、权限矩阵和当前 milestone 边界执行；不引入 PRD 外能力。",
+              "acceptance": [
+                "目标、范围、权限边界清楚。",
+                "可被文档、截图、命令输出或 Linear 状态验证。"
+              ],
+              "evidence": [
+                "Linear issue 或 milestone 描述。",
+                "对应文档或验收记录。"
+              ]
+            },
+            {
+              "linearId": null,
+              "status": "planned",
+              "code": "02.2",
+              "title": "产出 ProjectM 角色责任矩阵",
+              "goal": "明确项目工作角色、应用权限角色和后续 milestone 分工。",
+              "scope": [
+                "明确项目工作角色、应用权限角色和后续 milestone 分工。"
+              ],
+              "boundary": "按 ProjectM PRD、权限矩阵和当前 milestone 边界执行；不引入 PRD 外能力。",
+              "acceptance": [
+                "目标、范围、权限边界清楚。",
+                "可被文档、截图、命令输出或 Linear 状态验证。"
+              ],
+              "evidence": [
+                "Linear issue 或 milestone 描述。",
+                "对应文档或验收记录。"
+              ]
+            },
+            {
+              "linearId": null,
+              "status": "planned",
+              "code": "02.3",
+              "title": "产出完整 OMX workflow 路由表",
+              "goal": "定义不同任务类型使用哪个 workflow、agent、role、skill 和 fallback。",
+              "scope": [
+                "定义不同任务类型使用哪个 workflow、agent、role、skill 和 fallback。"
+              ],
+              "boundary": "按 ProjectM PRD、权限矩阵和当前 milestone 边界执行；不引入 PRD 外能力。",
+              "acceptance": [
+                "目标、范围、权限边界清楚。",
+                "可被文档、截图、命令输出或 Linear 状态验证。"
+              ],
+              "evidence": [
+                "Linear issue 或 milestone 描述。",
+                "对应文档或验收记录。"
+              ]
+            },
+            {
+              "linearId": null,
+              "status": "planned",
+              "code": "02.4",
+              "title": "产出 Codex App / OMX Runtime 边界规则",
+              "goal": "防止后续任务错误假设 tmux、team panes 或 runtime workflow 可用。",
+              "scope": [
+                "防止后续任务错误假设 tmux、team panes 或 runtime workflow 可用。"
+              ],
+              "boundary": "按 ProjectM PRD、权限矩阵和当前 milestone 边界执行；不引入 PRD 外能力。",
+              "acceptance": [
+                "目标、范围、权限边界清楚。",
+                "可被文档、截图、命令输出或 Linear 状态验证。"
+              ],
+              "evidence": [
+                "Linear issue 或 milestone 描述。",
+                "对应文档或验收记录。"
+              ]
+            },
+            {
+              "linearId": null,
+              "status": "planned",
+              "code": "02.5",
+              "title": "产出 active agents 与替代映射表",
+              "goal": "明确后续任务可用 agent、用途、协作关系和替代规则。",
+              "scope": [
+                "明确后续任务可用 agent、用途、协作关系和替代规则。"
+              ],
+              "boundary": "按 ProjectM PRD、权限矩阵和当前 milestone 边界执行；不引入 PRD 外能力。",
+              "acceptance": [
+                "目标、范围、权限边界清楚。",
+                "可被文档、截图、命令输出或 Linear 状态验证。"
+              ],
+              "evidence": [
+                "Linear issue 或 milestone 描述。",
+                "对应文档或验收记录。"
+              ]
+            },
+            {
+              "linearId": null,
+              "status": "planned",
+              "code": "02.6",
+              "title": "产出产品与文档 skill 链路表",
+              "goal": "定义 PRD、规格、实施计划、冻结文档的创建、审查和验证路径。",
+              "scope": [
+                "定义 PRD、规格、实施计划、冻结文档的创建、审查和验证路径。"
+              ],
+              "boundary": "按 ProjectM PRD、权限矩阵和当前 milestone 边界执行；不引入 PRD 外能力。",
+              "acceptance": [
+                "目标、范围、权限边界清楚。",
+                "可被文档、截图、命令输出或 Linear 状态验证。"
+              ],
+              "evidence": [
+                "Linear issue 或 milestone 描述。",
+                "对应文档或验收记录。"
+              ]
+            },
+            {
+              "linearId": null,
+              "status": "planned",
+              "code": "02.7",
+              "title": "产出前端 / 视觉 / 浏览器验证 skill 链路表",
+              "goal": "为前端、视觉设计、Browser smoke、Playwright 验证定义路由。",
+              "scope": [
+                "为前端、视觉设计、Browser smoke、Playwright 验证定义路由。"
+              ],
+              "boundary": "按 ProjectM PRD、权限矩阵和当前 milestone 边界执行；不引入 PRD 外能力。",
+              "acceptance": [
+                "目标、范围、权限边界清楚。",
+                "可被文档、截图、命令输出或 Linear 状态验证。"
+              ],
+              "evidence": [
+                "Linear issue 或 milestone 描述。",
+                "对应文档或验收记录。"
+              ]
+            },
+            {
+              "linearId": null,
+              "status": "planned",
+              "code": "02.8",
+              "title": "产出后端 / 数据库 skill 链路表",
+              "goal": "为 Go API、Auth/RBAC、PostgreSQL schema/migration/seed 定义路由。",
+              "scope": [
+                "为 Go API、Auth/RBAC、PostgreSQL schema/migration/seed 定义路由。"
+              ],
+              "boundary": "按 ProjectM PRD、权限矩阵和当前 milestone 边界执行；不引入 PRD 外能力。",
+              "acceptance": [
+                "目标、范围、权限边界清楚。",
+                "可被文档、截图、命令输出或 Linear 状态验证。"
+              ],
+              "evidence": [
+                "Linear issue 或 milestone 描述。",
+                "对应文档或验收记录。"
+              ]
+            },
+            {
+              "linearId": null,
+              "status": "planned",
+              "code": "02.9",
+              "title": "产出 Docker / DevOps / Git skill 链路表",
+              "goal": "为 Docker、pgAdmin、env、secret、Git 提交和交付定义路由。",
+              "scope": [
+                "为 Docker、pgAdmin、env、secret、Git 提交和交付定义路由。"
+              ],
+              "boundary": "按 ProjectM PRD、权限矩阵和当前 milestone 边界执行；不引入 PRD 外能力。",
+              "acceptance": [
+                "目标、范围、权限边界清楚。",
+                "可被文档、截图、命令输出或 Linear 状态验证。"
+              ],
+              "evidence": [
+                "Linear issue 或 milestone 描述。",
+                "对应文档或验收记录。"
+              ]
+            },
+            {
+              "linearId": null,
+              "status": "planned",
+              "code": "02.10",
+              "title": "产出 QA / Security / 验收 skill 链路表",
+              "goal": "定义测试、安全、权限、财经合规和验收证据路径。",
+              "scope": [
+                "定义测试、安全、权限、财经合规和验收证据路径。"
+              ],
+              "boundary": "按 ProjectM PRD、权限矩阵和当前 milestone 边界执行；不引入 PRD 外能力。",
+              "acceptance": [
+                "目标、范围、权限边界清楚。",
+                "可被文档、截图、命令输出或 Linear 状态验证。"
+              ],
+              "evidence": [
+                "Linear issue 或 milestone 描述。",
+                "对应文档或验收记录。"
+              ]
+            },
+            {
+              "linearId": null,
+              "status": "planned",
+              "code": "02.11",
+              "title": "核查 project-local portable skills 与 fallback 可用性",
+              "goal": "确认 custom skill package、custom-skills 与已安装 skill 的可用性和替代路径。",
+              "scope": [
+                "确认 custom skill package、custom-skills 与已安装 skill 的可用性和替代路径。"
+              ],
+              "boundary": "按 ProjectM PRD、权限矩阵和当前 milestone 边界执行；不引入 PRD 外能力。",
+              "acceptance": [
+                "目标、范围、权限边界清楚。",
+                "可被文档、截图、命令输出或 Linear 状态验证。"
+              ],
+              "evidence": [
+                "Linear issue 或 milestone 描述。",
+                "对应文档或验收记录。"
+              ]
+            },
+            {
+              "linearId": null,
+              "status": "planned",
+              "code": "02.12",
+              "title": "产出 Milestone 03-10 工作流路由矩阵",
+              "goal": "定义 03-10 每个阶段的角色、workflow、agent、skill、fallback、输入、输出与验证门禁。",
+              "scope": [
+                "定义 03-10 每个阶段的角色、workflow、agent、skill、fallback、输入、输出与验证门禁。"
+              ],
+              "boundary": "按 ProjectM PRD、权限矩阵和当前 milestone 边界执行；不引入 PRD 外能力。",
+              "acceptance": [
+                "目标、范围、权限边界清楚。",
+                "可被文档、截图、命令输出或 Linear 状态验证。"
+              ],
+              "evidence": [
+                "Linear issue 或 milestone 描述。",
+                "对应文档或验收记录。"
+              ]
+            },
+            {
+              "linearId": null,
+              "status": "planned",
+              "code": "02.13",
+              "title": "建立 Linear issue / sub-issue 模板与命名标准",
+              "goal": "建立可直接写入 Linear 或 milestone 描述的任务模板。",
+              "scope": [
+                "建立可直接写入 Linear 或 milestone 描述的任务模板。"
+              ],
+              "boundary": "按 ProjectM PRD、权限矩阵和当前 milestone 边界执行；不引入 PRD 外能力。",
+              "acceptance": [
+                "目标、范围、权限边界清楚。",
+                "可被文档、截图、命令输出或 Linear 状态验证。"
+              ],
+              "evidence": [
+                "Linear issue 或 milestone 描述。",
+                "对应文档或验收记录。"
+              ]
+            },
+            {
+              "linearId": null,
+              "status": "planned",
+              "code": "02.14",
+              "title": "建立阶段边界与禁止项硬门禁",
+              "goal": "建立旧角色、recent_views、财经违规、环境暴露或提前实现的硬门禁。",
+              "scope": [
+                "建立旧角色、recent_views、财经违规、环境暴露或提前实现的硬门禁。"
+              ],
+              "boundary": "按 ProjectM PRD、权限矩阵和当前 milestone 边界执行；不引入 PRD 外能力。",
+              "acceptance": [
+                "目标、范围、权限边界清楚。",
+                "可被文档、截图、命令输出或 Linear 状态验证。"
+              ],
+              "evidence": [
+                "Linear issue 或 milestone 描述。",
+                "对应文档或验收记录。"
+              ]
+            },
+            {
+              "linearId": null,
+              "status": "planned",
+              "code": "02.15",
+              "title": "建立失败恢复路径",
+              "goal": "定义 skill 不可用、runtime 不可用、证据冲突、禁止项命中、审计 FAIL 等恢复路径。",
+              "scope": [
+                "定义 skill 不可用、runtime 不可用、证据冲突、禁止项命中、审计 FAIL 等恢复路径。"
+              ],
+              "boundary": "按 ProjectM PRD、权限矩阵和当前 milestone 边界执行；不引入 PRD 外能力。",
+              "acceptance": [
+                "目标、范围、权限边界清楚。",
+                "可被文档、截图、命令输出或 Linear 状态验证。"
+              ],
+              "evidence": [
+                "Linear issue 或 milestone 描述。",
+                "对应文档或验收记录。"
+              ]
+            },
+            {
+              "linearId": null,
+              "status": "planned",
+              "code": "02.16",
+              "title": "整理并冻结 Agent / Skill / 工作流准备文档",
+              "goal": "汇总并冻结第二阶段成果，形成 03 阶段交接。",
+              "scope": [
+                "汇总并冻结第二阶段成果，形成 03 阶段交接。"
+              ],
+              "boundary": "按 ProjectM PRD、权限矩阵和当前 milestone 边界执行；不引入 PRD 外能力。",
+              "acceptance": [
+                "目标、范围、权限边界清楚。",
+                "可被文档、截图、命令输出或 Linear 状态验证。"
+              ],
+              "evidence": [
+                "Linear issue 或 milestone 描述。",
+                "对应文档或验收记录。"
+              ]
+            }
+          ],
+          "statusSummary": {
+            "created": 0,
+            "planned": 16,
+            "pending": 0,
+            "total": 16
+          }
+        }
+      ],
+      "statusSummary": {
+        "created": 0,
+        "planned": 16,
+        "pending": 0,
+        "total": 16
+      }
+    },
+    {
+      "id": "b60a8d64-53bf-4ed1-888b-68b53104384f",
+      "code": "03",
+      "name": "03 约束与质量门禁设计",
+      "goal": "定义权限、安全、财经内容、Docker 端口、测试命令、提交规范和禁止回归项等质量门禁。",
+      "progress": "0%",
+      "groups": [
+        {
+          "id": "phase-03-gates",
+          "code": "03",
+          "title": "约束与质量门禁",
+          "goal": "该 milestone 当前 Linear 显示 0 个 issue，需要后续按 02 路由矩阵继续拆分。",
+          "children": [
+            {
+              "linearId": null,
+              "status": "pending",
+              "code": "03.TODO",
+              "title": "阶段任务待拆分",
+              "goal": "补齐权限、安全、财经合规、Docker 端口、测试命令、提交规范和禁止回归项的任务。",
+              "scope": [
+                "补齐权限、安全、财经合规、Docker 端口、测试命令、提交规范和禁止回归项的任务。"
+              ],
+              "boundary": "按 ProjectM PRD、权限矩阵和当前 milestone 边界执行；不引入 PRD 外能力。",
+              "acceptance": [
+                "目标、范围、权限边界清楚。",
+                "可被文档、截图、命令输出或 Linear 状态验证。"
+              ],
+              "evidence": [
+                "Linear issue 或 milestone 描述。",
+                "对应文档或验收记录。"
+              ]
+            }
+          ],
+          "statusSummary": {
+            "created": 0,
+            "planned": 0,
+            "pending": 1,
+            "total": 1
+          }
+        }
+      ],
+      "statusSummary": {
+        "created": 0,
+        "planned": 0,
+        "pending": 1,
+        "total": 1
+      }
+    },
+    {
+      "id": "ee23fc76-3b64-4e4f-91b1-10d25702727b",
+      "code": "04",
+      "name": "04 数据库与 Docker 基础设施",
+      "goal": "完成 PostgreSQL schema、migration、seed data、Docker Compose、pgAdmin、环境变量和基础运维脚本。",
+      "progress": "0%",
+      "groups": [
+        {
+          "id": "phase-04-db-docker",
+          "code": "04",
+          "title": "数据库与 Docker 基础设施",
+          "goal": "该 milestone 当前 Linear 显示 0 个 issue，但本地已有数据库、Docker、diagram 文档，应继续回填任务。",
+          "children": [
+            {
+              "linearId": null,
+              "status": "pending",
+              "code": "04.TODO",
+              "title": "回填数据库与 Docker 任务",
+              "goal": "把 PostgreSQL schema、seed data、Docker Compose、pgAdmin、diagram 与验证命令拆成可执行任务。",
+              "scope": [
+                "把 PostgreSQL schema、seed data、Docker Compose、pgAdmin、diagram 与验证命令拆成可执行任务。"
+              ],
+              "boundary": "按 ProjectM PRD、权限矩阵和当前 milestone 边界执行；不引入 PRD 外能力。",
+              "acceptance": [
+                "目标、范围、权限边界清楚。",
+                "可被文档、截图、命令输出或 Linear 状态验证。"
+              ],
+              "evidence": [
+                "Linear issue 或 milestone 描述。",
+                "对应文档或验收记录。"
+              ]
+            }
+          ],
+          "statusSummary": {
+            "created": 0,
+            "planned": 0,
+            "pending": 1,
+            "total": 1
+          }
+        }
+      ],
+      "statusSummary": {
+        "created": 0,
+        "planned": 0,
+        "pending": 1,
+        "total": 1
+      }
+    },
+    {
+      "id": "9d67c1dc-ddb6-419c-a972-b15683e68fcf",
+      "code": "05",
+      "name": "05 前端门户与后台开发",
+      "goal": "开发 React + TypeScript + Vite 前台门户、Admin Console、页面路由、角色视图、mock data 和核心交互。",
+      "progress": "0%",
+      "groups": [
+        {
+          "id": "AOA-263",
+          "code": "05.A",
+          "title": "前端基础、登录与权限壳",
+          "goal": "完成所有大功能共用的工程、设计系统、API service、mock data、登录、会话、路由、权限守卫、页面壳和基础验收。",
+          "children": [
+            {
+              "linearId": "AOA-373",
+              "status": "created",
+              "code": "05.A1",
+              "title": "前端工程初始化",
+              "goal": "建立 React + TypeScript + Vite 应用骨架。",
+              "scope": [
+                "初始化工程。",
+                "建立 pages、components、services、types、hooks、routes、mocks 目录。",
+                "配置 VITE_API_BASE_URL、本地 mock 开关、基础 scripts。",
+                "提供首页、登录页、403、404 最小路由。"
+              ],
+              "boundary": "不实现真实业务页面；不引入第三种角色；不实现 recent_views。",
+              "acceptance": [
+                "npm install 后可启动。",
+                "npm run build 可执行。",
+                "首页、登录、403、404 可访问。"
+              ],
+              "evidence": [
+                "构建输出。",
+                "基础页面截图。",
+                "目录结构清单。"
+              ]
+            },
+            {
+              "linearId": "AOA-374",
+              "status": "created",
+              "code": "05.A2",
+              "title": "设计系统与通用组件库",
+              "goal": "建立 ProjectM 前端通用 UI 基础。",
+              "scope": [
+                "Button、Input、Select、Tabs、Modal、Toast、Badge、StatusTag。",
+                "DataTable、FilterBar、EmptyState、ErrorState、LoadingState、ConfirmDialog。",
+                "定义颜色、字体、间距、圆角、状态色、焦点态、禁用态。"
+              ],
+              "boundary": "组件不写业务权限逻辑；不做营销式装饰。",
+              "acceptance": [
+                "组件可复用。",
+                "桌面和移动端文字不溢出。"
+              ],
+              "evidence": [
+                "组件截图。",
+                "组件使用示例。"
+              ]
+            },
+            {
+              "linearId": "AOA-375",
+              "status": "created",
+              "code": "05.A3",
+              "title": "API service 与类型层",
+              "goal": "建立前端与 Go REST API 对接的统一 service、类型定义和错误处理层。",
+              "scope": [
+                "定义 code、message、data、request_id。",
+                "建立 Auth、Home、Content、Document、Training、Admin service。",
+                "统一处理 401、403、404、500、网络超时。"
+              ],
+              "boundary": "组件不得直接散落 fetch；后端授权仍是权限真相来源。",
+              "acceptance": [
+                "mock 和真实 API 可切换。",
+                "错误对象能被页面统一识别。"
+              ],
+              "evidence": [
+                "service 文件清单。",
+                "401/403/500 模拟截图。"
+              ]
+            },
+            {
+              "linearId": "AOA-376",
+              "status": "created",
+              "code": "05.A4",
+              "title": "mock data 层",
+              "goal": "建立支撑前端先行开发的 mock data。",
+              "scope": [
+                "准备 user、super_user 两套账号。",
+                "准备首页、简报、公告、热帖、新人、财经、文档、培训、个人中心、Admin 数据。",
+                "准备 empty、error、forbidden、disabled user、expired session。"
+              ],
+              "boundary": "不得包含真实员工敏感信息；不生成浏览历史或 recent_views。",
+              "acceptance": [
+                "主要 UI 状态可用 mock 开发。",
+                "mock 数据和 TS 类型一致。"
+              ],
+              "evidence": [
+                "mock 文件清单。",
+                "角色切换截图。"
+              ]
+            },
+            {
+              "linearId": "AOA-377",
+              "status": "created",
+              "code": "05.A5",
+              "title": "登录与会话",
+              "goal": "实现 /login、登录提交、会话恢复、退出登录和会话过期处理。",
+              "scope": [
+                "字段校验、提交状态、错误提示。",
+                "登录成功保存当前用户和角色。",
+                "刷新恢复会话。",
+                "401 引导重新登录。"
+              ],
+              "boundary": "只支持 user 和 super_user；不做第三方登录。",
+              "acceptance": [
+                "两种角色都能登录。",
+                "账号禁用和登录失败提示清楚。",
+                "退出后不能访问受保护页面。"
+              ],
+              "evidence": [
+                "登录成功截图。",
+                "登录失败截图。",
+                "退出 smoke。"
+              ]
+            },
+            {
+              "linearId": "AOA-378",
+              "status": "created",
+              "code": "05.A6",
+              "title": "角色路由守卫",
+              "goal": "实现 RequireAuth、RequireRole 和 /admin/* 前端权限拦截。",
+              "scope": [
+                "未登录跳 /login。",
+                "user 访问 /admin/* 显示 403。",
+                "super_user 可访问 Admin。",
+                "已登录访问 /login 按角色跳转。"
+              ],
+              "boundary": "前端路由守卫只是 UX，后端 API 必须继续校验。",
+              "acceptance": [
+                "直接输入 Admin URL 仍生效。",
+                "403 不泄露后台细节。"
+              ],
+              "evidence": [
+                "未登录访问截图。",
+                "user 访问 admin 403 截图。",
+                "super_user 进入 Admin 截图。"
+              ]
+            },
+            {
+              "linearId": "AOA-379",
+              "status": "created",
+              "code": "05.A7",
+              "title": "全局页面壳",
+              "goal": "实现 User Portal 与 Admin Console 的全局页面壳。",
+              "scope": [
+                "User Portal 顶部导航、栏目入口、当前用户、退出。",
+                "Admin 侧边栏、顶部栏、面包屑、模块标题。",
+                "403、404、全局错误页。",
+                "移动端导航。"
+              ],
+              "boundary": "user 页面壳不展示 Admin 入口；Admin 壳只对 super_user 可见。",
+              "acceptance": [
+                "后续页面可挂载。",
+                "桌面和移动端不重叠。"
+              ],
+              "evidence": [
+                "User Portal 截图。",
+                "Admin 壳截图。",
+                "403/404 截图。"
+              ]
+            },
+            {
+              "linearId": "AOA-380",
+              "status": "created",
+              "code": "05.A8",
+              "title": "基础验证门禁",
+              "goal": "为前端基础层建立最小验证门禁。",
+              "scope": [
+                "配置 build、typecheck、lint 或等价检查。",
+                "建立登录、权限、路由 smoke 清单。",
+                "记录命令、账号、路径、结果、失败项。"
+              ],
+              "boundary": "验证必须覆盖 user 与 super_user；禁止只凭目测声明完成。",
+              "acceptance": [
+                "build/typecheck 可运行。",
+                "登录、403、404、Admin 入口完成 smoke。"
+              ],
+              "evidence": [
+                "命令输出。",
+                "smoke checklist。",
+                "关键截图。"
+              ]
+            },
+            {
+              "linearId": "AOA-381",
+              "status": "created",
+              "code": "05.A9",
+              "title": "UI 设计基线",
+              "goal": "定义适合内部办公系统的视觉和交互基线。",
+              "scope": [
+                "颜色、字体、字号层级、间距、表格密度、状态色。",
+                "focus、hover、disabled、loading、error。",
+                "卡片、列表、表单、表格、详情页密度。"
+              ],
+              "boundary": "内部系统以信息密度和可扫描为主；不做营销式 hero。",
+              "acceptance": [
+                "页面视觉一致。",
+                "状态色和反馈不混乱。"
+              ],
+              "evidence": [
+                "token 文件。",
+                "基础组件截图。"
+              ]
+            },
+            {
+              "linearId": "AOA-382",
+              "status": "created",
+              "code": "05.A10",
+              "title": "路由权限决策表",
+              "goal": "整理前端登录、跳转和权限拒绝规则为可测试决策表。",
+              "scope": [
+                "未登录访问前台。",
+                "未登录访问 admin。",
+                "user 访问 admin。",
+                "super_user 访问 admin。",
+                "已登录访问 login。",
+                "后端 401/403 处理。"
+              ],
+              "boundary": "只覆盖 user 和 super_user；后端仍是权限真相来源。",
+              "acceptance": [
+                "每个场景有 expected route、UI、API behavior。",
+                "可被 05.I 复用。"
+              ],
+              "evidence": [
+                "路由权限表。",
+                "场景 smoke 截图。"
+              ]
+            }
+          ],
+          "statusSummary": {
+            "created": 10,
+            "planned": 0,
+            "pending": 0,
+            "total": 10
+          }
+        },
+        {
+          "id": "AOA-264",
+          "code": "05.B",
+          "title": "门户首页与信息聚合大功能",
+          "goal": "完成普通用户打开系统后的第一屏和主要信息入口，先让 user 能看、能跳转、能处理空和错。",
+          "children": [
+            {
+              "linearId": "AOA-383",
+              "status": "created",
+              "code": "05.B1",
+              "title": "首页聚合框架",
+              "goal": "实现普通用户登录后的门户首页骨架。",
+              "scope": [
+                "首页顶部展示今日公司简报。",
+                "展示公告、热帖、新人、财经、文档、培训入口。",
+                "每个栏目用摘要卡片或入口区块。"
+              ],
+              "boundary": "只展示 published 且有权限内容；不做推荐算法或 recent_views。",
+              "acceptance": [
+                "首屏看到简报、公告、热帖。",
+                "栏目入口清楚，移动端不重叠。"
+              ],
+              "evidence": [
+                "首页 desktop/mobile 截图。",
+                "栏目跳转 smoke。"
+              ]
+            },
+            {
+              "linearId": "AOA-384",
+              "status": "created",
+              "code": "05.B2",
+              "title": "今日公司简报",
+              "goal": "实现首页和 /briefs 的简报列表、详情与 fallback。",
+              "scope": [
+                "首页顶部简报。",
+                "/briefs 列表和详情。",
+                "置顶最多 3 条。",
+                "无当日简报显示最近 7 天 fallback。"
+              ],
+              "boundary": "只展示 published 简报。",
+              "acceptance": [
+                "首页简报不空白。",
+                "列表和详情可跑通。"
+              ],
+              "evidence": [
+                "当日简报截图。",
+                "fallback 截图。"
+              ]
+            },
+            {
+              "linearId": "AOA-385",
+              "status": "created",
+              "code": "05.B3",
+              "title": "公司公告墙",
+              "goal": "实现公告列表、详情、筛选、附件与归档入口。",
+              "scope": [
+                "分类筛选、时间筛选、置顶/重要标记。",
+                "有效期、附件、发布部门、归档入口。",
+                "首页重要公告摘要。"
+              ],
+              "boundary": "只展示 published 且有效或归档可查公告。",
+              "acceptance": [
+                "用户可筛选并查看详情。",
+                "重要公告视觉清楚。"
+              ],
+              "evidence": [
+                "列表筛选截图。",
+                "详情和附件截图。"
+              ]
+            },
+            {
+              "linearId": "AOA-386",
+              "status": "created",
+              "code": "05.B4",
+              "title": "员工论坛热帖",
+              "goal": "实现热帖 MVP 展示，让首页有近期讨论热点。",
+              "scope": [
+                "首页热帖区块。",
+                "/forum-hot 热帖列表。",
+                "标题、摘要、作者、发布时间、评论数、点赞数、最新回复。"
+              ],
+              "boundary": "MVP 只做热帖聚合展示；不做私信、举报、版主后台。",
+              "acceptance": [
+                "热帖可读可跳转。",
+                "移动端数字不挤压标题。"
+              ],
+              "evidence": [
+                "首页热帖截图。",
+                "外链提示截图。"
+              ]
+            },
+            {
+              "linearId": "AOA-387",
+              "status": "created",
+              "code": "05.B5",
+              "title": "新人专区",
+              "goal": "实现新人专区前台展示和任务入口。",
+              "scope": [
+                "新人指南、办公区地图、常用系统、周边餐饮、FAQ。",
+                "自我介绍入口、任务清单入口。",
+                "首页新人专区卡片。"
+              ],
+              "boundary": "用户只能更新自己的新人任务状态。",
+              "acceptance": [
+                "新人可通过首页进入专区。",
+                "老员工显示策略与 PRD 一致。"
+              ],
+              "evidence": [
+                "新人专区截图。",
+                "任务入口截图。"
+              ]
+            },
+            {
+              "linearId": "AOA-388",
+              "status": "created",
+              "code": "05.B6",
+              "title": "财经轻资讯",
+              "goal": "实现财经轻资讯前台展示并遵守合规边界。",
+              "scope": [
+                "列表和详情。",
+                "标签筛选：市场、行业、政策、公司相关。",
+                "来源、发布日期、正文、免责声明。"
+              ],
+              "boundary": "不做外部自动抓取；不出现股票推荐、买卖建议、个股预测、收益承诺。",
+              "acceptance": [
+                "列表、详情、标签筛选可跑通。",
+                "详情页有来源、日期、免责声明。"
+              ],
+              "evidence": [
+                "详情免责声明截图。",
+                "合规静态检查。"
+              ]
+            },
+            {
+              "linearId": "AOA-389",
+              "status": "created",
+              "code": "05.B7",
+              "title": "首页与栏目联动",
+              "goal": "确保首页摘要卡片进入正确栏目且数据口径一致。",
+              "scope": [
+                "首页卡片进入列表或详情。",
+                "简报、公告、热帖、新人、财经、文档、培训入口联动。",
+                "空、错、无权限状态一致。"
+              ],
+              "boundary": "首页不能暴露无权限内容；不引入行为追踪。",
+              "acceptance": [
+                "首页入口路径正确。",
+                "无权限和归档提示清楚。"
+              ],
+              "evidence": [
+                "入口 smoke。",
+                "错误/无权限截图。"
+              ]
+            },
+            {
+              "linearId": "AOA-390",
+              "status": "created",
+              "code": "05.B8",
+              "title": "移动端与桌面端验收",
+              "goal": "确保首页和前台模块在桌面与移动端可读可点。",
+              "scope": [
+                "检查首页首屏响应式布局。",
+                "检查卡片换行和优先级。",
+                "检查文字、按钮、数字挤压。"
+              ],
+              "boundary": "不通过不可读小字解决布局。",
+              "acceptance": [
+                "首屏不重叠。",
+                "标题、状态、按钮不溢出。"
+              ],
+              "evidence": [
+                "desktop/mobile 截图。",
+                "修复记录。"
+              ]
+            },
+            {
+              "linearId": "AOA-391",
+              "status": "created",
+              "code": "05.B9",
+              "title": "首页信息层级",
+              "goal": "定义首页内容优先级。",
+              "scope": [
+                "第一层今日公司简报。",
+                "第二层重要公告和热帖。",
+                "第三层文档、培训、新人、财经入口。"
+              ],
+              "boundary": "不做个性化推荐；财经不压过公告和简报。",
+              "acceptance": [
+                "首页层级清楚。",
+                "重要信息不被淹没。"
+              ],
+              "evidence": [
+                "不同数据量截图。"
+              ]
+            },
+            {
+              "linearId": "AOA-392",
+              "status": "created",
+              "code": "05.B10",
+              "title": "栏目配置降级",
+              "goal": "确保栏目关闭、无数据、部分失败时首页稳定。",
+              "scope": [
+                "栏目关闭时隐藏。",
+                "栏目无数据时展示空状态或降低权重。",
+                "单栏目失败不导致首页崩溃。"
+              ],
+              "boundary": "关闭栏目不能破坏路由权限；不展示未发布内容做 fallback。",
+              "acceptance": [
+                "首页部分失败仍可使用。",
+                "错误不泄露后台细节。"
+              ],
+              "evidence": [
+                "栏目关闭截图。",
+                "部分失败截图。"
+              ]
+            }
+          ],
+          "statusSummary": {
+            "created": 10,
+            "planned": 0,
+            "pending": 0,
+            "total": 10
+          }
+        },
+        {
+          "id": "AOA-265",
+          "code": "05.C",
+          "title": "文档中心大功能",
+          "goal": "完成普通用户搜索、筛选、查看元信息、下载允许文档，以及 super_user 文档管理闭环。",
+          "children": [
+            {
+              "linearId": "AOA-393",
+              "status": "created",
+              "code": "05.C1",
+              "title": "文档列表 UI",
+              "goal": "实现 /documents 文档列表。",
+              "scope": [
+                "标题、摘要、分类、标签、文件类型、上传部门、更新时间。",
+                "文件类型图标和状态标签。"
+              ],
+              "boundary": "只展示当前用户有权限文档；不暴露无权限元信息。",
+              "acceptance": [
+                "文档列表可读。",
+                "文件类型和更新时间统一。"
+              ],
+              "evidence": [
+                "列表截图。",
+                "无权限不可见截图。"
+              ]
+            },
+            {
+              "linearId": "AOA-394",
+              "status": "created",
+              "code": "05.C2",
+              "title": "文档搜索与筛选",
+              "goal": "实现文档关键词、分类、标签、文件类型、排序。",
+              "scope": [
+                "搜索框。",
+                "分类、标签、类型筛选。",
+                "筛选 chip，可单项清除和全部重置。"
+              ],
+              "boundary": "筛选结果仍遵守文档权限；空结果不和无权限混淆。",
+              "acceptance": [
+                "筛选变化刷新列表。",
+                "用户理解当前筛选条件。"
+              ],
+              "evidence": [
+                "搜索截图。",
+                "chip 截图。"
+              ]
+            },
+            {
+              "linearId": "AOA-395",
+              "status": "created",
+              "code": "05.C3",
+              "title": "文档详情与元信息预览",
+              "goal": "实现文档详情或元信息抽屉。",
+              "scope": [
+                "文件大小、类型、版本、上传部门、更新时间、权限提示。",
+                "下载入口和分类/标签。"
+              ],
+              "boundary": "无权限不暴露下载 URL；不做在线全文预览。",
+              "acceptance": [
+                "可查看允许文档元信息。",
+                "直接路径不泄露信息。"
+              ],
+              "evidence": [
+                "详情截图。",
+                "无权限截图。"
+              ]
+            },
+            {
+              "linearId": "AOA-396",
+              "status": "created",
+              "code": "05.C4",
+              "title": "文档下载交互",
+              "goal": "实现文档下载按钮和反馈。",
+              "scope": [
+                "下载中、防重复点击、成功提示。",
+                "处理 403、404、超时、文件不可用。",
+                "下载成功触发下载记录。"
+              ],
+              "boundary": "只记录下载，不记录浏览历史。",
+              "acceptance": [
+                "允许文档可下载。",
+                "失败反馈可理解。"
+              ],
+              "evidence": [
+                "下载成功截图。",
+                "403/404/超时截图。"
+              ]
+            },
+            {
+              "linearId": "AOA-397",
+              "status": "created",
+              "code": "05.C5",
+              "title": "文档权限可见性",
+              "goal": "确保文档中心不泄露无权限信息。",
+              "scope": [
+                "列表权限过滤。",
+                "详情直接 URL 权限。",
+                "下载 403 展示。"
+              ],
+              "boundary": "不暴露标题、摘要、文件名、下载 URL。",
+              "acceptance": [
+                "user 看不到无权限文档信息。",
+                "直接 URL 不泄露。"
+              ],
+              "evidence": [
+                "无权限列表截图。",
+                "直接 URL 403 截图。"
+              ]
+            },
+            {
+              "linearId": "AOA-398",
+              "status": "created",
+              "code": "05.C6",
+              "title": "Admin 文档管理",
+              "goal": "实现 /admin/documents 文档管理。",
+              "scope": [
+                "文档列表、上传表单、元数据编辑。",
+                "分类、标签、可见范围、文件类型。",
+                "发布、归档、软删除确认。"
+              ],
+              "boundary": "只有 super_user；删除为软删除。",
+              "acceptance": [
+                "Admin 可维护文档并影响可见范围。",
+                "表单校验清晰。"
+              ],
+              "evidence": [
+                "上传截图。",
+                "发布/归档/软删除截图。"
+              ]
+            },
+            {
+              "linearId": "AOA-399",
+              "status": "created",
+              "code": "05.C7",
+              "title": "下载记录联动",
+              "goal": "把文档下载行为写入个人中心下载记录。",
+              "scope": [
+                "下载成功记录文档名、下载时间、必要文件信息。",
+                "个人中心展示下载记录。"
+              ],
+              "boundary": "只记录下载，不记录页面浏览；不展示 IP/User-Agent 给普通用户。",
+              "acceptance": [
+                "下载后个人中心可见记录。",
+                "无 recent_views。"
+              ],
+              "evidence": [
+                "个人中心下载截图。",
+                "静态检查。"
+              ]
+            },
+            {
+              "linearId": "AOA-400",
+              "status": "created",
+              "code": "05.C8",
+              "title": "文档用户端与 Admin 联动验收",
+              "goal": "验证 Admin 到普通用户的文档闭环。",
+              "scope": [
+                "Admin 上传发布。",
+                "user 看到、筛选、下载。",
+                "Admin 改权限后 user 可见范围变化。"
+              ],
+              "boundary": "user 不可访问 Admin；无权限元信息不可泄露。",
+              "acceptance": [
+                "闭环可跑通。",
+                "权限变化正确。"
+              ],
+              "evidence": [
+                "Admin 发布截图。",
+                "user 可见/不可见对比。"
+              ]
+            },
+            {
+              "linearId": "AOA-401",
+              "status": "created",
+              "code": "05.C9",
+              "title": "文档筛选体验",
+              "goal": "增强筛选体验。",
+              "scope": [
+                "筛选 chip。",
+                "单项清除、全部重置。",
+                "空结果提供清除筛选入口。"
+              ],
+              "boundary": "空结果文案不能暗示存在无权限文档。",
+              "acceptance": [
+                "用户可恢复筛选状态。",
+                "移动端筛选不挤压。"
+              ],
+              "evidence": [
+                "chip 截图。",
+                "空结果重置截图。"
+              ]
+            },
+            {
+              "linearId": "AOA-402",
+              "status": "created",
+              "code": "05.C10",
+              "title": "文件类型视觉规则",
+              "goal": "统一文件类型和元信息视觉规则。",
+              "scope": [
+                "PDF、Word、Excel、PPT、图片图标/标签。",
+                "文件大小、更新时间、下载次数格式化。"
+              ],
+              "boundary": "无权限文件不展示元信息；不做全文预览。",
+              "acceptance": [
+                "文件类型一眼可识别。",
+                "元信息统一。"
+              ],
+              "evidence": [
+                "多类型截图。",
+                "长文件名截图。"
+              ]
+            }
+          ],
+          "statusSummary": {
+            "created": 10,
+            "planned": 0,
+            "pending": 0,
+            "total": 10
+          }
+        },
+        {
+          "id": "AOA-266",
+          "code": "05.D",
+          "title": "培训中心大功能",
+          "goal": "完成普通用户课程、课件、学习进度和完成状态，并补齐 super_user 课程管理。",
+          "children": [
+            {
+              "linearId": "AOA-403",
+              "status": "created",
+              "code": "05.D1",
+              "title": "课程列表 UI",
+              "goal": "实现 /training 课程列表。",
+              "scope": [
+                "课程名称、摘要、必修/选修、时长、封面、状态、进度条。",
+                "课程卡片和列表扫描。"
+              ],
+              "boundary": "user 只看已发布课程；不做考试、题库、证书。",
+              "acceptance": [
+                "用户能判断要学和进度。",
+                "移动端不溢出。"
+              ],
+              "evidence": [
+                "课程列表截图。",
+                "进度状态截图。"
+              ]
+            },
+            {
+              "linearId": "AOA-404",
+              "status": "created",
+              "code": "05.D2",
+              "title": "课程详情",
+              "goal": "实现课程详情页。",
+              "scope": [
+                "课程说明、必修/选修、预计时长、状态。",
+                "课件附件、外部课程链接、关联文档。"
+              ],
+              "boundary": "user 只访问已发布课程；不做视频转码平台。",
+              "acceptance": [
+                "详情支撑开始学习。",
+                "异常提示清楚。"
+              ],
+              "evidence": [
+                "详情截图。",
+                "文档无权限截图。"
+              ]
+            },
+            {
+              "linearId": "AOA-405",
+              "status": "created",
+              "code": "05.D3",
+              "title": "学习进度交互",
+              "goal": "实现用户自己的学习进度更新。",
+              "scope": [
+                "开始学习、更新进度、完成课程。",
+                "完成时间和进度条变化。",
+                "提交中、失败、成功反馈。"
+              ],
+              "boundary": "只能更新本人进度。",
+              "acceptance": [
+                "进度更新正确。",
+                "失败不覆盖已有进度。"
+              ],
+              "evidence": [
+                "进度更新截图。",
+                "失败截图。"
+              ]
+            },
+            {
+              "linearId": "AOA-406",
+              "status": "created",
+              "code": "05.D4",
+              "title": "个人中心培训联动",
+              "goal": "让 /me/training 与培训中心进度一致。",
+              "scope": [
+                "个人中心展示课程进度、完成状态、完成时间。",
+                "培训中心更新后同步刷新。"
+              ],
+              "boundary": "只能查看自己的培训进度。",
+              "acceptance": [
+                "两处进度一致。",
+                "不能查看他人进度。"
+              ],
+              "evidence": [
+                "对比截图。",
+                "权限隔离截图。"
+              ]
+            },
+            {
+              "linearId": "AOA-407",
+              "status": "created",
+              "code": "05.D5",
+              "title": "Admin 课程列表",
+              "goal": "实现 /admin/courses 管理列表。",
+              "scope": [
+                "关键词、分类、状态、发布状态筛选。",
+                "类型、时长、更新时间、完成率入口。"
+              ],
+              "boundary": "user 访问 403；未发布仅后台可见。",
+              "acceptance": [
+                "super_user 可筛选课程。",
+                "普通用户无法访问。"
+              ],
+              "evidence": [
+                "Admin 列表截图。",
+                "user 403。"
+              ]
+            },
+            {
+              "linearId": "AOA-408",
+              "status": "created",
+              "code": "05.D6",
+              "title": "Admin 课程表单",
+              "goal": "实现课程新建/编辑表单。",
+              "scope": [
+                "标题、摘要、说明、必修/选修、时长、封面、课件链接、关联文档。",
+                "必填、链接、权限校验。"
+              ],
+              "boundary": "只有 super_user；不做考试/证书字段。",
+              "acceptance": [
+                "表单可创建和编辑课程。",
+                "错误提示定位清楚。"
+              ],
+              "evidence": [
+                "表单截图。",
+                "校验失败截图。"
+              ]
+            },
+            {
+              "linearId": "AOA-409",
+              "status": "created",
+              "code": "05.D7",
+              "title": "课程状态流转",
+              "goal": "实现课程草稿、发布、归档、软删除。",
+              "scope": [
+                "草稿保存、发布、归档、软删除。",
+                "危险操作二次确认。",
+                "防非法状态。"
+              ],
+              "boundary": "只允许 super_user；普通用户默认不看草稿和归档。",
+              "acceptance": [
+                "状态流转清晰。",
+                "状态影响普通用户可见性。"
+              ],
+              "evidence": [
+                "状态操作截图。",
+                "前台对比截图。"
+              ]
+            },
+            {
+              "linearId": null,
+              "status": "pending",
+              "code": "05.D8",
+              "title": "培训用户端与 Admin 联动验收",
+              "goal": "验证 Admin 发布课程到用户学习进度的闭环。",
+              "scope": [
+                "Admin 新建并发布课程。",
+                "user 查看、学习、完成。",
+                "Admin 归档后用户默认列表变化。",
+                "个人中心进度同步。"
+              ],
+              "boundary": "user 不可访问 Admin；进度只能本人更新。",
+              "acceptance": [
+                "培训闭环可跑通。",
+                "权限、课程状态、个人进度一致。"
+              ],
+              "evidence": [
+                "Admin 发布截图。",
+                "user 学习截图。",
+                "/me/training 同步截图。"
+              ]
+            },
+            {
+              "linearId": null,
+              "status": "pending",
+              "code": "05.D9",
+              "title": "课程状态模型",
+              "goal": "统一课程状态模型。",
+              "scope": [
+                "未开始、学习中、已完成、已归档、不可用。",
+                "用户端状态和后台状态映射。",
+                "按钮可用性规则。"
+              ],
+              "boundary": "归档课程不可继续学习，除非 PRD 后续明确。",
+              "acceptance": [
+                "每个状态有明确 UI 和操作。",
+                "页面之间一致。"
+              ],
+              "evidence": [
+                "状态矩阵。",
+                "各状态截图。"
+              ]
+            },
+            {
+              "linearId": null,
+              "status": "pending",
+              "code": "05.D10",
+              "title": "进度更新防错",
+              "goal": "保证进度更新失败时不造成错误数据。",
+              "scope": [
+                "提交中禁用重复点击。",
+                "失败保留原进度或回滚。",
+                "完成课程明确反馈。",
+                "处理超时、403、409。"
+              ],
+              "boundary": "不更新他人进度；不在前端伪造完成状态。",
+              "acceptance": [
+                "失败不污染进度。",
+                "用户理解真实状态。"
+              ],
+              "evidence": [
+                "失败回滚截图。",
+                "完成成功截图。"
+              ]
+            }
+          ],
+          "statusSummary": {
+            "created": 7,
+            "planned": 0,
+            "pending": 3,
+            "total": 10
+          }
+        },
+        {
+          "id": "AOA-267",
+          "code": "05.E",
+          "title": "个人中心大功能",
+          "goal": "完成个人资料、收藏、下载记录、培训进度和新人任务状态；明确不做浏览记录。",
+          "children": [
+            {
+              "linearId": null,
+              "status": "pending",
+              "code": "05.E1",
+              "title": "/me 个人资料",
+              "goal": "展示姓名、邮箱、部门、角色、账号状态、退出入口。",
+              "scope": [
+                "展示姓名、邮箱、部门、角色、账号状态、退出入口。"
+              ],
+              "boundary": "资料只读；不能改角色、部门、账号状态。",
+              "acceptance": [
+                "目标清楚。",
+                "权限边界清楚。",
+                "可被截图或命令验证。"
+              ],
+              "evidence": [
+                "实现截图。",
+                "权限验证。",
+                "验收记录。"
+              ]
+            },
+            {
+              "linearId": null,
+              "status": "pending",
+              "code": "05.E2",
+              "title": "我的收藏",
+              "goal": "展示收藏内容和收藏文档，支持跳转详情。",
+              "scope": [
+                "展示收藏内容和收藏文档，支持跳转详情。"
+              ],
+              "boundary": "对象归档、删除、无权限时显示内容不可用。",
+              "acceptance": [
+                "目标清楚。",
+                "权限边界清楚。",
+                "可被截图或命令验证。"
+              ],
+              "evidence": [
+                "实现截图。",
+                "权限验证。",
+                "验收记录。"
+              ]
+            },
+            {
+              "linearId": null,
+              "status": "pending",
+              "code": "05.E3",
+              "title": "我的培训",
+              "goal": "展示课程进度、完成状态、完成时间。",
+              "scope": [
+                "展示课程进度、完成状态、完成时间。"
+              ],
+              "boundary": "只能看自己的培训进度。",
+              "acceptance": [
+                "目标清楚。",
+                "权限边界清楚。",
+                "可被截图或命令验证。"
+              ],
+              "evidence": [
+                "实现截图。",
+                "权限验证。",
+                "验收记录。"
+              ]
+            },
+            {
+              "linearId": null,
+              "status": "pending",
+              "code": "05.E4",
+              "title": "我的新人任务",
+              "goal": "展示新人任务完成/未完成、更新时间。",
+              "scope": [
+                "展示新人任务完成/未完成、更新时间。"
+              ],
+              "boundary": "只能更新自己的新人任务。",
+              "acceptance": [
+                "目标清楚。",
+                "权限边界清楚。",
+                "可被截图或命令验证。"
+              ],
+              "evidence": [
+                "实现截图。",
+                "权限验证。",
+                "验收记录。"
+              ]
+            },
+            {
+              "linearId": null,
+              "status": "pending",
+              "code": "05.E5",
+              "title": "下载记录",
+              "goal": "展示文档名、下载时间、必要文件信息。",
+              "scope": [
+                "展示文档名、下载时间、必要文件信息。"
+              ],
+              "boundary": "只记录下载，不记录页面浏览。",
+              "acceptance": [
+                "目标清楚。",
+                "权限边界清楚。",
+                "可被截图或命令验证。"
+              ],
+              "evidence": [
+                "实现截图。",
+                "权限验证。",
+                "验收记录。"
+              ]
+            },
+            {
+              "linearId": null,
+              "status": "pending",
+              "code": "05.E6",
+              "title": "业务联动",
+              "goal": "收藏、培训、新人任务状态与业务页面一致。",
+              "scope": [
+                "收藏、培训、新人任务状态与业务页面一致。"
+              ],
+              "boundary": "跨页面状态不能互相打架。",
+              "acceptance": [
+                "目标清楚。",
+                "权限边界清楚。",
+                "可被截图或命令验证。"
+              ],
+              "evidence": [
+                "实现截图。",
+                "权限验证。",
+                "验收记录。"
+              ]
+            },
+            {
+              "linearId": null,
+              "status": "pending",
+              "code": "05.E7",
+              "title": "个人中心验收",
+              "goal": "验收只读资料、权限隔离、无浏览记录入口。",
+              "scope": [
+                "验收只读资料、权限隔离、无浏览记录入口。"
+              ],
+              "boundary": "静态搜索 recent_views / browsing history。",
+              "acceptance": [
+                "目标清楚。",
+                "权限边界清楚。",
+                "可被截图或命令验证。"
+              ],
+              "evidence": [
+                "实现截图。",
+                "权限验证。",
+                "验收记录。"
+              ]
+            },
+            {
+              "linearId": null,
+              "status": "pending",
+              "code": "05.E8",
+              "title": "信息架构防线",
+              "goal": "个人中心只包含资料、收藏、下载、培训、新人任务。",
+              "scope": [
+                "个人中心只包含资料、收藏、下载、培训、新人任务。"
+              ],
+              "boundary": "不加入被动访问轨迹。",
+              "acceptance": [
+                "目标清楚。",
+                "权限边界清楚。",
+                "可被截图或命令验证。"
+              ],
+              "evidence": [
+                "实现截图。",
+                "权限验证。",
+                "验收记录。"
+              ]
+            },
+            {
+              "linearId": null,
+              "status": "pending",
+              "code": "05.E9",
+              "title": "个人数据权限",
+              "goal": "不能通过 URL 或接口错误看到他人数据。",
+              "scope": [
+                "不能通过 URL 或接口错误看到他人数据。"
+              ],
+              "boundary": "失败时返回 403 或安全空状态。",
+              "acceptance": [
+                "目标清楚。",
+                "权限边界清楚。",
+                "可被截图或命令验证。"
+              ],
+              "evidence": [
+                "实现截图。",
+                "权限验证。",
+                "验收记录。"
+              ]
+            }
+          ],
+          "statusSummary": {
+            "created": 0,
+            "planned": 0,
+            "pending": 9,
+            "total": 9
+          }
+        },
+        {
+          "id": "AOA-268",
+          "code": "05.F",
+          "title": "Admin 内容发布与后台入口大功能",
+          "goal": "实现 super_user 的 Admin Console 入口和内容发布管理。",
+          "children": [
+            {
+              "linearId": null,
+              "status": "pending",
+              "code": "05.F1",
+              "title": "Admin Console 框架",
+              "goal": "/admin、Dashboard、后台导航、顶部栏、403。",
+              "scope": [
+                "/admin、Dashboard、后台导航、顶部栏、403。"
+              ],
+              "boundary": "user 访问 /admin/* 必须 403。",
+              "acceptance": [
+                "目标清楚。",
+                "权限边界清楚。",
+                "可被截图或命令验证。"
+              ],
+              "evidence": [
+                "实现截图。",
+                "权限验证。",
+                "验收记录。"
+              ]
+            },
+            {
+              "linearId": null,
+              "status": "pending",
+              "code": "05.F2",
+              "title": "内容管理列表",
+              "goal": "栏目类型、状态、关键词、分页、批量选择、创建人、更新时间。",
+              "scope": [
+                "栏目类型、状态、关键词、分页、批量选择、创建人、更新时间。"
+              ],
+              "boundary": "批量操作只允许安全范围。",
+              "acceptance": [
+                "目标清楚。",
+                "权限边界清楚。",
+                "可被截图或命令验证。"
+              ],
+              "evidence": [
+                "实现截图。",
+                "权限验证。",
+                "验收记录。"
+              ]
+            },
+            {
+              "linearId": null,
+              "status": "pending",
+              "code": "05.F3",
+              "title": "内容类型建模",
+              "goal": "今日简报、公告、新人、财经、热帖摘要。",
+              "scope": [
+                "今日简报、公告、新人、财经、热帖摘要。"
+              ],
+              "boundary": "不同内容类型字段清楚。",
+              "acceptance": [
+                "目标清楚。",
+                "权限边界清楚。",
+                "可被截图或命令验证。"
+              ],
+              "evidence": [
+                "实现截图。",
+                "权限验证。",
+                "验收记录。"
+              ]
+            },
+            {
+              "linearId": null,
+              "status": "pending",
+              "code": "05.F4",
+              "title": "内容新建/编辑",
+              "goal": "标题、摘要、正文、图片链接、分类、标签、发布时间、有效期。",
+              "scope": [
+                "标题、摘要、正文、图片链接、分类、标签、发布时间、有效期。"
+              ],
+              "boundary": "表单校验和保存反馈完整。",
+              "acceptance": [
+                "目标清楚。",
+                "权限边界清楚。",
+                "可被截图或命令验证。"
+              ],
+              "evidence": [
+                "实现截图。",
+                "权限验证。",
+                "验收记录。"
+              ]
+            },
+            {
+              "linearId": null,
+              "status": "pending",
+              "code": "05.F5",
+              "title": "状态流转",
+              "goal": "草稿、发布、归档、置顶、排序、软删除。",
+              "scope": [
+                "草稿、发布、归档、置顶、排序、软删除。"
+              ],
+              "boundary": "已删除内容不能发布。",
+              "acceptance": [
+                "目标清楚。",
+                "权限边界清楚。",
+                "可被截图或命令验证。"
+              ],
+              "evidence": [
+                "实现截图。",
+                "权限验证。",
+                "验收记录。"
+              ]
+            },
+            {
+              "linearId": null,
+              "status": "pending",
+              "code": "05.F6",
+              "title": "财经合规",
+              "goal": "来源、免责声明、禁止推荐和收益承诺提示。",
+              "scope": [
+                "来源、免责声明、禁止推荐和收益承诺提示。"
+              ],
+              "boundary": "不得出现投资建议表达。",
+              "acceptance": [
+                "目标清楚。",
+                "权限边界清楚。",
+                "可被截图或命令验证。"
+              ],
+              "evidence": [
+                "实现截图。",
+                "权限验证。",
+                "验收记录。"
+              ]
+            },
+            {
+              "linearId": null,
+              "status": "pending",
+              "code": "05.F7",
+              "title": "前台联动",
+              "goal": "后台发布后出现在普通用户栏目。",
+              "scope": [
+                "后台发布后出现在普通用户栏目。"
+              ],
+              "boundary": "前台只返回已发布且有权限内容。",
+              "acceptance": [
+                "目标清楚。",
+                "权限边界清楚。",
+                "可被截图或命令验证。"
+              ],
+              "evidence": [
+                "实现截图。",
+                "权限验证。",
+                "验收记录。"
+              ]
+            },
+            {
+              "linearId": null,
+              "status": "pending",
+              "code": "05.F8",
+              "title": "Admin 内容验收",
+              "goal": "权限、状态、错误处理、审计触发点。",
+              "scope": [
+                "权限、状态、错误处理、审计触发点。"
+              ],
+              "boundary": "发布、归档、删除等写操作需可审计。",
+              "acceptance": [
+                "目标清楚。",
+                "权限边界清楚。",
+                "可被截图或命令验证。"
+              ],
+              "evidence": [
+                "实现截图。",
+                "权限验证。",
+                "验收记录。"
+              ]
+            },
+            {
+              "linearId": null,
+              "status": "pending",
+              "code": "05.F9",
+              "title": "内容类型差异表单",
+              "goal": "不同类型字段、必填、预览规则分开定义。",
+              "scope": [
+                "不同类型字段、必填、预览规则分开定义。"
+              ],
+              "boundary": "避免一张表单混乱。",
+              "acceptance": [
+                "目标清楚。",
+                "权限边界清楚。",
+                "可被截图或命令验证。"
+              ],
+              "evidence": [
+                "实现截图。",
+                "权限验证。",
+                "验收记录。"
+              ]
+            },
+            {
+              "linearId": null,
+              "status": "pending",
+              "code": "05.F10",
+              "title": "发布前预览",
+              "goal": "预览前台卡片和详情效果。",
+              "scope": [
+                "预览前台卡片和详情效果。"
+              ],
+              "boundary": "防止标题和正文溢出。",
+              "acceptance": [
+                "目标清楚。",
+                "权限边界清楚。",
+                "可被截图或命令验证。"
+              ],
+              "evidence": [
+                "实现截图。",
+                "权限验证。",
+                "验收记录。"
+              ]
+            }
+          ],
+          "statusSummary": {
+            "created": 0,
+            "planned": 0,
+            "pending": 10,
+            "total": 10
+          }
+        },
+        {
+          "id": "AOA-269",
+          "code": "05.G",
+          "title": "Admin 配置中心大功能",
+          "goal": "实现门户配置类数据的后台能力，让系统可配置而不是硬编码。",
+          "children": [
+            {
+              "linearId": null,
+              "status": "pending",
+              "code": "05.G1",
+              "title": "新人任务模板管理",
+              "goal": "任务标题、说明、排序、关联链接、启用/停用。",
+              "scope": [
+                "任务标题、说明、排序、关联链接、启用/停用。"
+              ],
+              "boundary": "已完成历史不要被误删。",
+              "acceptance": [
+                "目标清楚。",
+                "权限边界清楚。",
+                "可被截图或命令验证。"
+              ],
+              "evidence": [
+                "实现截图。",
+                "权限验证。",
+                "验收记录。"
+              ]
+            },
+            {
+              "linearId": null,
+              "status": "pending",
+              "code": "05.G2",
+              "title": "分类管理",
+              "goal": "内容、文档、培训分类创建、编辑、禁用。",
+              "scope": [
+                "内容、文档、培训分类创建、编辑、禁用。"
+              ],
+              "boundary": "被引用分类不可硬删除。",
+              "acceptance": [
+                "目标清楚。",
+                "权限边界清楚。",
+                "可被截图或命令验证。"
+              ],
+              "evidence": [
+                "实现截图。",
+                "权限验证。",
+                "验收记录。"
+              ]
+            },
+            {
+              "linearId": null,
+              "status": "pending",
+              "code": "05.G3",
+              "title": "标签管理",
+              "goal": "财经、公告、文档、培训标签创建、编辑、禁用。",
+              "scope": [
+                "财经、公告、文档、培训标签创建、编辑、禁用。"
+              ],
+              "boundary": "禁用后前台筛选不再展示。",
+              "acceptance": [
+                "目标清楚。",
+                "权限边界清楚。",
+                "可被截图或命令验证。"
+              ],
+              "evidence": [
+                "实现截图。",
+                "权限验证。",
+                "验收记录。"
+              ]
+            },
+            {
+              "linearId": null,
+              "status": "pending",
+              "code": "05.G4",
+              "title": "首页栏目配置",
+              "goal": "模块显示/隐藏、排序、展示条数、推荐位。",
+              "scope": [
+                "模块显示/隐藏、排序、展示条数、推荐位。"
+              ],
+              "boundary": "配置影响首页展示。",
+              "acceptance": [
+                "目标清楚。",
+                "权限边界清楚。",
+                "可被截图或命令验证。"
+              ],
+              "evidence": [
+                "实现截图。",
+                "权限验证。",
+                "验收记录。"
+              ]
+            },
+            {
+              "linearId": null,
+              "status": "pending",
+              "code": "05.G5",
+              "title": "配置预览与保存",
+              "goal": "保存前提示影响范围，保存后刷新前台。",
+              "scope": [
+                "保存前提示影响范围，保存后刷新前台。"
+              ],
+              "boundary": "失败不破坏已有配置。",
+              "acceptance": [
+                "目标清楚。",
+                "权限边界清楚。",
+                "可被截图或命令验证。"
+              ],
+              "evidence": [
+                "实现截图。",
+                "权限验证。",
+                "验收记录。"
+              ]
+            },
+            {
+              "linearId": null,
+              "status": "pending",
+              "code": "05.G6",
+              "title": "引用保护",
+              "goal": "已被引用的分类/标签不可硬删除。",
+              "scope": [
+                "已被引用的分类/标签不可硬删除。"
+              ],
+              "boundary": "提示可禁用。",
+              "acceptance": [
+                "目标清楚。",
+                "权限边界清楚。",
+                "可被截图或命令验证。"
+              ],
+              "evidence": [
+                "实现截图。",
+                "权限验证。",
+                "验收记录。"
+              ]
+            },
+            {
+              "linearId": null,
+              "status": "pending",
+              "code": "05.G7",
+              "title": "前台联动验收",
+              "goal": "配置变更后首页、筛选、新人任务展示正确。",
+              "scope": [
+                "配置变更后首页、筛选、新人任务展示正确。"
+              ],
+              "boundary": "前后台一致。",
+              "acceptance": [
+                "目标清楚。",
+                "权限边界清楚。",
+                "可被截图或命令验证。"
+              ],
+              "evidence": [
+                "实现截图。",
+                "权限验证。",
+                "验收记录。"
+              ]
+            },
+            {
+              "linearId": null,
+              "status": "pending",
+              "code": "05.G8",
+              "title": "审计联动",
+              "goal": "记录操作者、动作、资源类型、资源 ID、时间。",
+              "scope": [
+                "记录操作者、动作、资源类型、资源 ID、时间。"
+              ],
+              "boundary": "包含 request_id。",
+              "acceptance": [
+                "目标清楚。",
+                "权限边界清楚。",
+                "可被截图或命令验证。"
+              ],
+              "evidence": [
+                "实现截图。",
+                "权限验证。",
+                "验收记录。"
+              ]
+            },
+            {
+              "linearId": null,
+              "status": "pending",
+              "code": "05.G9",
+              "title": "配置影响预览",
+              "goal": "栏目启停、排序、展示条数保存前展示影响。",
+              "scope": [
+                "栏目启停、排序、展示条数保存前展示影响。"
+              ],
+              "boundary": "减少误操作。",
+              "acceptance": [
+                "目标清楚。",
+                "权限边界清楚。",
+                "可被截图或命令验证。"
+              ],
+              "evidence": [
+                "实现截图。",
+                "权限验证。",
+                "验收记录。"
+              ]
+            },
+            {
+              "linearId": null,
+              "status": "pending",
+              "code": "05.G10",
+              "title": "极端配置保护",
+              "goal": "防止全部栏目关闭；处理 item_limit 0、超大值、重复排序。",
+              "scope": [
+                "防止全部栏目关闭；处理 item_limit 0、超大值、重复排序。"
+              ],
+              "boundary": "首页不能被配置坏。",
+              "acceptance": [
+                "目标清楚。",
+                "权限边界清楚。",
+                "可被截图或命令验证。"
+              ],
+              "evidence": [
+                "实现截图。",
+                "权限验证。",
+                "验收记录。"
+              ]
+            }
+          ],
+          "statusSummary": {
+            "created": 0,
+            "planned": 0,
+            "pending": 10,
+            "total": 10
+          }
+        },
+        {
+          "id": "AOA-270",
+          "code": "05.H",
+          "title": "Admin 用户、角色与审计大功能",
+          "goal": "实现用户管理、user/super_user 角色分配和审计日志；只保留两种业务角色。",
+          "children": [
+            {
+              "linearId": null,
+              "status": "pending",
+              "code": "05.H1",
+              "title": "用户列表",
+              "goal": "关键词、部门、状态、角色筛选和分页。",
+              "scope": [
+                "关键词、部门、状态、角色筛选和分页。"
+              ],
+              "boundary": "user 不可访问。",
+              "acceptance": [
+                "目标清楚。",
+                "权限边界清楚。",
+                "可被截图或命令验证。"
+              ],
+              "evidence": [
+                "实现截图。",
+                "权限验证。",
+                "验收记录。"
+              ]
+            },
+            {
+              "linearId": null,
+              "status": "pending",
+              "code": "05.H2",
+              "title": "用户详情/编辑",
+              "goal": "用户名、显示名、邮箱、部门、账号状态、角色。",
+              "scope": [
+                "用户名、显示名、邮箱、部门、账号状态、角色。"
+              ],
+              "boundary": "敏感字段不展示。",
+              "acceptance": [
+                "目标清楚。",
+                "权限边界清楚。",
+                "可被截图或命令验证。"
+              ],
+              "evidence": [
+                "实现截图。",
+                "权限验证。",
+                "验收记录。"
+              ]
+            },
+            {
+              "linearId": null,
+              "status": "pending",
+              "code": "05.H3",
+              "title": "用户新建",
+              "goal": "创建基础用户，分配 user 或 super_user。",
+              "scope": [
+                "创建基础用户，分配 user 或 super_user。"
+              ],
+              "boundary": "不允许第三种角色。",
+              "acceptance": [
+                "目标清楚。",
+                "权限边界清楚。",
+                "可被截图或命令验证。"
+              ],
+              "evidence": [
+                "实现截图。",
+                "权限验证。",
+                "验收记录。"
+              ]
+            },
+            {
+              "linearId": null,
+              "status": "pending",
+              "code": "05.H4",
+              "title": "启用/禁用用户",
+              "goal": "二次确认、反馈、禁用后登录限制提示。",
+              "scope": [
+                "二次确认、反馈、禁用后登录限制提示。"
+              ],
+              "boundary": "不能禁用当前登录或最后 super_user。",
+              "acceptance": [
+                "目标清楚。",
+                "权限边界清楚。",
+                "可被截图或命令验证。"
+              ],
+              "evidence": [
+                "实现截图。",
+                "权限验证。",
+                "验收记录。"
+              ]
+            },
+            {
+              "linearId": null,
+              "status": "pending",
+              "code": "05.H5",
+              "title": "最后 super_user 保护",
+              "goal": "禁止禁用或降级最后一个启用 super_user。",
+              "scope": [
+                "禁止禁用或降级最后一个启用 super_user。"
+              ],
+              "boundary": "覆盖批量操作。",
+              "acceptance": [
+                "目标清楚。",
+                "权限边界清楚。",
+                "可被截图或命令验证。"
+              ],
+              "evidence": [
+                "实现截图。",
+                "权限验证。",
+                "验收记录。"
+              ]
+            },
+            {
+              "linearId": null,
+              "status": "pending",
+              "code": "05.H6",
+              "title": "角色权限矩阵",
+              "goal": "展示 user 与 super_user 可用功能。",
+              "scope": [
+                "展示 user 与 super_user 可用功能。"
+              ],
+              "boundary": "不提供新增角色入口。",
+              "acceptance": [
+                "目标清楚。",
+                "权限边界清楚。",
+                "可被截图或命令验证。"
+              ],
+              "evidence": [
+                "实现截图。",
+                "权限验证。",
+                "验收记录。"
+              ]
+            },
+            {
+              "linearId": null,
+              "status": "pending",
+              "code": "05.H7",
+              "title": "审计日志列表",
+              "goal": "登录、创建、更新、发布、归档、删除、下载等动作。",
+              "scope": [
+                "登录、创建、更新、发布、归档、删除、下载等动作。"
+              ],
+              "boundary": "只 super_user 可看。",
+              "acceptance": [
+                "目标清楚。",
+                "权限边界清楚。",
+                "可被截图或命令验证。"
+              ],
+              "evidence": [
+                "实现截图。",
+                "权限验证。",
+                "验收记录。"
+              ]
+            },
+            {
+              "linearId": null,
+              "status": "pending",
+              "code": "05.H8",
+              "title": "审计日志筛选",
+              "goal": "操作者、动作、资源类型、时间范围、request_id。",
+              "scope": [
+                "操作者、动作、资源类型、时间范围、request_id。"
+              ],
+              "boundary": "支持无结果状态。",
+              "acceptance": [
+                "目标清楚。",
+                "权限边界清楚。",
+                "可被截图或命令验证。"
+              ],
+              "evidence": [
+                "实现截图。",
+                "权限验证。",
+                "验收记录。"
+              ]
+            },
+            {
+              "linearId": null,
+              "status": "pending",
+              "code": "05.H9",
+              "title": "敏感信息保护",
+              "goal": "不展示密码、令牌、数据库密钥、上传正文。",
+              "scope": [
+                "不展示密码、令牌、数据库密钥、上传正文。"
+              ],
+              "boundary": "metadata 必须脱敏。",
+              "acceptance": [
+                "目标清楚。",
+                "权限边界清楚。",
+                "可被截图或命令验证。"
+              ],
+              "evidence": [
+                "实现截图。",
+                "权限验证。",
+                "验收记录。"
+              ]
+            },
+            {
+              "linearId": null,
+              "status": "pending",
+              "code": "05.H10",
+              "title": "角色变更风险提示",
+              "goal": "升为 super_user 或降为 user 二次确认。",
+              "scope": [
+                "升为 super_user 或降为 user 二次确认。"
+              ],
+              "boundary": "说明影响。",
+              "acceptance": [
+                "目标清楚。",
+                "权限边界清楚。",
+                "可被截图或命令验证。"
+              ],
+              "evidence": [
+                "实现截图。",
+                "权限验证。",
+                "验收记录。"
+              ]
+            },
+            {
+              "linearId": null,
+              "status": "pending",
+              "code": "05.H11",
+              "title": "审计详情抽屉",
+              "goal": "动作、操作者、资源、时间、request_id、脱敏 metadata。",
+              "scope": [
+                "动作、操作者、资源、时间、request_id、脱敏 metadata。"
+              ],
+              "boundary": "不可泄露正文和密钥。",
+              "acceptance": [
+                "目标清楚。",
+                "权限边界清楚。",
+                "可被截图或命令验证。"
+              ],
+              "evidence": [
+                "实现截图。",
+                "权限验证。",
+                "验收记录。"
+              ]
+            }
+          ],
+          "statusSummary": {
+            "created": 0,
+            "planned": 0,
+            "pending": 11,
+            "total": 11
+          }
+        },
+        {
+          "id": "AOA-271",
+          "code": "05.I",
+          "title": "前端验收、权限矩阵与发布门禁大功能",
+          "goal": "统一验收普通用户门户、Admin Console、权限矩阵、构建、浏览器验证、Docker 联动和交付资料。",
+          "children": [
+            {
+              "linearId": null,
+              "status": "pending",
+              "code": "05.I1",
+              "title": "构建验收",
+              "goal": "install、build、typecheck、lint 或等价检查。",
+              "scope": [
+                "install、build、typecheck、lint 或等价检查。"
+              ],
+              "boundary": "必须有输出。",
+              "acceptance": [
+                "目标清楚。",
+                "权限边界清楚。",
+                "可被截图或命令验证。"
+              ],
+              "evidence": [
+                "实现截图。",
+                "权限验证。",
+                "验收记录。"
+              ]
+            },
+            {
+              "linearId": null,
+              "status": "pending",
+              "code": "05.I2",
+              "title": "普通用户路径验收",
+              "goal": "登录、首页、简报、公告、热帖、新人、财经、文档、培训、个人中心。",
+              "scope": [
+                "登录、首页、简报、公告、热帖、新人、财经、文档、培训、个人中心。"
+              ],
+              "boundary": "全部可跑通。",
+              "acceptance": [
+                "目标清楚。",
+                "权限边界清楚。",
+                "可被截图或命令验证。"
+              ],
+              "evidence": [
+                "实现截图。",
+                "权限验证。",
+                "验收记录。"
+              ]
+            },
+            {
+              "linearId": null,
+              "status": "pending",
+              "code": "05.I3",
+              "title": "Admin 路径验收",
+              "goal": "后台首页、内容、文档、课程、配置、用户角色、审计。",
+              "scope": [
+                "后台首页、内容、文档、课程、配置、用户角色、审计。"
+              ],
+              "boundary": "全部可跑通。",
+              "acceptance": [
+                "目标清楚。",
+                "权限边界清楚。",
+                "可被截图或命令验证。"
+              ],
+              "evidence": [
+                "实现截图。",
+                "权限验证。",
+                "验收记录。"
+              ]
+            },
+            {
+              "linearId": null,
+              "status": "pending",
+              "code": "05.I4",
+              "title": "权限矩阵验收",
+              "goal": "user 不可访问 admin；super_user 可访问后台并有普通用户能力。",
+              "scope": [
+                "user 不可访问 admin；super_user 可访问后台并有普通用户能力。"
+              ],
+              "boundary": "直接 URL 和后端 403 都要测。",
+              "acceptance": [
+                "目标清楚。",
+                "权限边界清楚。",
+                "可被截图或命令验证。"
+              ],
+              "evidence": [
+                "实现截图。",
+                "权限验证。",
+                "验收记录。"
+              ]
+            },
+            {
+              "linearId": null,
+              "status": "pending",
+              "code": "05.I5",
+              "title": "禁止项验收",
+              "goal": "无浏览记录、recent_views、被动访问轨迹；财经无投资建议。",
+              "scope": [
+                "无浏览记录、recent_views、被动访问轨迹；财经无投资建议。"
+              ],
+              "boundary": "静态扫描。",
+              "acceptance": [
+                "目标清楚。",
+                "权限边界清楚。",
+                "可被截图或命令验证。"
+              ],
+              "evidence": [
+                "实现截图。",
+                "权限验证。",
+                "验收记录。"
+              ]
+            },
+            {
+              "linearId": null,
+              "status": "pending",
+              "code": "05.I6",
+              "title": "状态验收",
+              "goal": "核心页面 loading、empty、error、forbidden。",
+              "scope": [
+                "核心页面 loading、empty、error、forbidden。"
+              ],
+              "boundary": "不能只测一个页面。",
+              "acceptance": [
+                "目标清楚。",
+                "权限边界清楚。",
+                "可被截图或命令验证。"
+              ],
+              "evidence": [
+                "实现截图。",
+                "权限验证。",
+                "验收记录。"
+              ]
+            },
+            {
+              "linearId": null,
+              "status": "pending",
+              "code": "05.I7",
+              "title": "Docker 联动验收",
+              "goal": "Docker 环境启动后前端能访问后端 API 或 mock API。",
+              "scope": [
+                "Docker 环境启动后前端能访问后端 API 或 mock API。"
+              ],
+              "boundary": "记录启动和访问结果。",
+              "acceptance": [
+                "目标清楚。",
+                "权限边界清楚。",
+                "可被截图或命令验证。"
+              ],
+              "evidence": [
+                "实现截图。",
+                "权限验证。",
+                "验收记录。"
+              ]
+            },
+            {
+              "linearId": null,
+              "status": "pending",
+              "code": "05.I8",
+              "title": "文档同步验收",
+              "goal": "README、PRD、diagram、PostgreSQL SQL 与实现一致。",
+              "scope": [
+                "README、PRD、diagram、PostgreSQL SQL 与实现一致。"
+              ],
+              "boundary": "变更时同步更新。",
+              "acceptance": [
+                "目标清楚。",
+                "权限边界清楚。",
+                "可被截图或命令验证。"
+              ],
+              "evidence": [
+                "实现截图。",
+                "权限验证。",
+                "验收记录。"
+              ]
+            },
+            {
+              "linearId": null,
+              "status": "pending",
+              "code": "05.I9",
+              "title": "证据归档",
+              "goal": "截图、命令输出、失败项、风险项集中记录。",
+              "scope": [
+                "截图、命令输出、失败项、风险项集中记录。"
+              ],
+              "boundary": "不接受无证据完成。",
+              "acceptance": [
+                "目标清楚。",
+                "权限边界清楚。",
+                "可被截图或命令验证。"
+              ],
+              "evidence": [
+                "实现截图。",
+                "权限验证。",
+                "验收记录。"
+              ]
+            },
+            {
+              "linearId": null,
+              "status": "pending",
+              "code": "05.I10",
+              "title": "截图证据矩阵",
+              "goal": "每个大功能桌面、移动、空、错、权限截图。",
+              "scope": [
+                "每个大功能桌面、移动、空、错、权限截图。"
+              ],
+              "boundary": "方便 review。",
+              "acceptance": [
+                "目标清楚。",
+                "权限边界清楚。",
+                "可被截图或命令验证。"
+              ],
+              "evidence": [
+                "实现截图。",
+                "权限验证。",
+                "验收记录。"
+              ]
+            },
+            {
+              "linearId": null,
+              "status": "pending",
+              "code": "05.I11",
+              "title": "控制台与网络错误门禁",
+              "goal": "核心路径 smoke 不得有未处理 console error 或明显失败请求。",
+              "scope": [
+                "核心路径 smoke 不得有未处理 console error 或明显失败请求。"
+              ],
+              "boundary": "浏览器证据。",
+              "acceptance": [
+                "目标清楚。",
+                "权限边界清楚。",
+                "可被截图或命令验证。"
+              ],
+              "evidence": [
+                "实现截图。",
+                "权限验证。",
+                "验收记录。"
+              ]
+            },
+            {
+              "linearId": null,
+              "status": "pending",
+              "code": "05.I12",
+              "title": "文案合规门禁",
+              "goal": "扫描财经违规词、浏览历史相关词、第三角色名。",
+              "scope": [
+                "扫描财经违规词、浏览历史相关词、第三角色名。"
+              ],
+              "boundary": "不让禁止项混入。",
+              "acceptance": [
+                "目标清楚。",
+                "权限边界清楚。",
+                "可被截图或命令验证。"
+              ],
+              "evidence": [
+                "实现截图。",
+                "权限验证。",
+                "验收记录。"
+              ]
+            }
+          ],
+          "statusSummary": {
+            "created": 0,
+            "planned": 0,
+            "pending": 12,
+            "total": 12
+          }
+        }
+      ],
+      "statusSummary": {
+        "created": 37,
+        "planned": 0,
+        "pending": 55,
+        "total": 92
+      }
+    },
+    {
+      "id": "0ba686c1-d46b-4790-8f96-ead22e647ccc",
+      "code": "06",
+      "name": "06 后端 API 开发",
+      "goal": "开发 Go REST API、认证授权、前台接口、后台管理接口、数据库读写、审计日志和文件相关能力。",
+      "progress": "0%",
+      "groups": [
+        {
+          "id": "phase-06-backend",
+          "code": "06",
+          "title": "后端 API 开发",
+          "goal": "该 milestone 当前 Linear 显示 0 个 issue，需要按 PRD 与数据库设计继续拆分。",
+          "children": [
+            {
+              "linearId": null,
+              "status": "pending",
+              "code": "06.TODO",
+              "title": "阶段任务待拆分",
+              "goal": "补齐 Go REST API、Auth/RBAC、Admin API、审计、文件下载和数据库读写任务。",
+              "scope": [
+                "补齐 Go REST API、Auth/RBAC、Admin API、审计、文件下载和数据库读写任务。"
+              ],
+              "boundary": "按 ProjectM PRD、权限矩阵和当前 milestone 边界执行；不引入 PRD 外能力。",
+              "acceptance": [
+                "目标、范围、权限边界清楚。",
+                "可被文档、截图、命令输出或 Linear 状态验证。"
+              ],
+              "evidence": [
+                "Linear issue 或 milestone 描述。",
+                "对应文档或验收记录。"
+              ]
+            }
+          ],
+          "statusSummary": {
+            "created": 0,
+            "planned": 0,
+            "pending": 1,
+            "total": 1
+          }
+        }
+      ],
+      "statusSummary": {
+        "created": 0,
+        "planned": 0,
+        "pending": 1,
+        "total": 1
+      }
+    },
+    {
+      "id": "c9b0833a-1cad-4296-b468-f2427ddf446e",
+      "code": "07",
+      "name": "07 测试体系建设",
+      "goal": "建立单元测试、API 测试、前端构建检查、E2E 测试、权限矩阵测试和 Docker smoke test 的测试基础。",
+      "progress": "0%",
+      "groups": [
+        {
+          "id": "phase-07-testing",
+          "code": "07",
+          "title": "测试体系建设",
+          "goal": "该 milestone 当前 Linear 显示 0 个 issue，需要按 QA 门禁继续拆分。",
+          "children": [
+            {
+              "linearId": null,
+              "status": "pending",
+              "code": "07.TODO",
+              "title": "阶段任务待拆分",
+              "goal": "补齐单元测试、API 测试、前端构建检查、E2E、权限矩阵和 Docker smoke 任务。",
+              "scope": [
+                "补齐单元测试、API 测试、前端构建检查、E2E、权限矩阵和 Docker smoke 任务。"
+              ],
+              "boundary": "按 ProjectM PRD、权限矩阵和当前 milestone 边界执行；不引入 PRD 外能力。",
+              "acceptance": [
+                "目标、范围、权限边界清楚。",
+                "可被文档、截图、命令输出或 Linear 状态验证。"
+              ],
+              "evidence": [
+                "Linear issue 或 milestone 描述。",
+                "对应文档或验收记录。"
+              ]
+            }
+          ],
+          "statusSummary": {
+            "created": 0,
+            "planned": 0,
+            "pending": 1,
+            "total": 1
+          }
+        }
+      ],
+      "statusSummary": {
+        "created": 0,
+        "planned": 0,
+        "pending": 1,
+        "total": 1
+      }
+    },
+    {
+      "id": "faf801a8-ffb2-4cfd-9734-031964c1a4f1",
+      "code": "08",
+      "name": "08 整体联调、测试与修改",
+      "goal": "完成前后端联调、业务流程验证、权限拒绝路径、搜索下载、培训进度、审计日志和缺陷修复闭环。",
+      "progress": "0%",
+      "groups": [
+        {
+          "id": "phase-08-integration",
+          "code": "08",
+          "title": "整体联调、测试与修改",
+          "goal": "该 milestone 当前 Linear 显示 0 个 issue，需要等 05/06/07 后继续拆分。",
+          "children": [
+            {
+              "linearId": null,
+              "status": "pending",
+              "code": "08.TODO",
+              "title": "阶段任务待拆分",
+              "goal": "补齐前后端联调、业务流程验证、权限拒绝路径、搜索下载、培训进度、审计日志和缺陷修复任务。",
+              "scope": [
+                "补齐前后端联调、业务流程验证、权限拒绝路径、搜索下载、培训进度、审计日志和缺陷修复任务。"
+              ],
+              "boundary": "按 ProjectM PRD、权限矩阵和当前 milestone 边界执行；不引入 PRD 外能力。",
+              "acceptance": [
+                "目标、范围、权限边界清楚。",
+                "可被文档、截图、命令输出或 Linear 状态验证。"
+              ],
+              "evidence": [
+                "Linear issue 或 milestone 描述。",
+                "对应文档或验收记录。"
+              ]
+            }
+          ],
+          "statusSummary": {
+            "created": 0,
+            "planned": 0,
+            "pending": 1,
+            "total": 1
+          }
+        }
+      ],
+      "statusSummary": {
+        "created": 0,
+        "planned": 0,
+        "pending": 1,
+        "total": 1
+      }
+    },
+    {
+      "id": "3ba2c480-055b-4471-a57a-c2e7b5861a91",
+      "code": "09",
+      "name": "09 验收",
+      "goal": "按 PRD 成功标准验收 7 个核心栏目、后台管理、Docker 一键启动、权限边界、性能目标和禁止项回归。",
+      "progress": "0%",
+      "groups": [
+        {
+          "id": "phase-09-acceptance",
+          "code": "09",
+          "title": "验收",
+          "goal": "该 milestone 当前 Linear 显示 0 个 issue，需要按 PRD 成功标准继续拆分。",
+          "children": [
+            {
+              "linearId": null,
+              "status": "pending",
+              "code": "09.TODO",
+              "title": "阶段任务待拆分",
+              "goal": "补齐 7 个核心栏目、后台管理、Docker、权限边界、性能目标和禁止项回归验收任务。",
+              "scope": [
+                "补齐 7 个核心栏目、后台管理、Docker、权限边界、性能目标和禁止项回归验收任务。"
+              ],
+              "boundary": "按 ProjectM PRD、权限矩阵和当前 milestone 边界执行；不引入 PRD 外能力。",
+              "acceptance": [
+                "目标、范围、权限边界清楚。",
+                "可被文档、截图、命令输出或 Linear 状态验证。"
+              ],
+              "evidence": [
+                "Linear issue 或 milestone 描述。",
+                "对应文档或验收记录。"
+              ]
+            }
+          ],
+          "statusSummary": {
+            "created": 0,
+            "planned": 0,
+            "pending": 1,
+            "total": 1
+          }
+        }
+      ],
+      "statusSummary": {
+        "created": 0,
+        "planned": 0,
+        "pending": 1,
+        "total": 1
+      }
+    },
+    {
+      "id": "ee9dc31d-940c-4f9a-a297-dffe8d25aba8",
+      "code": "10",
+      "name": "10 提交与交付",
+      "goal": "整理最终代码、测试报告、README、运行说明、提交记录、部署说明和已知风险清单，完成交付。",
+      "progress": "0%",
+      "groups": [
+        {
+          "id": "phase-10-delivery",
+          "code": "10",
+          "title": "提交与交付",
+          "goal": "该 milestone 当前 Linear 显示 0 个 issue，需要最后按交付清单继续拆分。",
+          "children": [
+            {
+              "linearId": null,
+              "status": "pending",
+              "code": "10.TODO",
+              "title": "阶段任务待拆分",
+              "goal": "补齐最终代码、测试报告、README、运行说明、提交记录、部署说明和已知风险清单任务。",
+              "scope": [
+                "补齐最终代码、测试报告、README、运行说明、提交记录、部署说明和已知风险清单任务。"
+              ],
+              "boundary": "按 ProjectM PRD、权限矩阵和当前 milestone 边界执行；不引入 PRD 外能力。",
+              "acceptance": [
+                "目标、范围、权限边界清楚。",
+                "可被文档、截图、命令输出或 Linear 状态验证。"
+              ],
+              "evidence": [
+                "Linear issue 或 milestone 描述。",
+                "对应文档或验收记录。"
+              ]
+            }
+          ],
+          "statusSummary": {
+            "created": 0,
+            "planned": 0,
+            "pending": 1,
+            "total": 1
+          }
+        }
+      ],
+      "statusSummary": {
+        "created": 0,
+        "planned": 0,
+        "pending": 1,
+        "total": 1
+      }
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "deny_patterns": [
+    {
+      "label": "source_project_acronym_residue",
+      "pattern": "\\bCBCX\\b|\\bcbcx\\b"
+    },
+    {
+      "label": "source_admin_product_residue",
+      "pattern": "\\bForge Admin\\b|\\bforge-admin\\b"
+    },
+    {
+      "label": "source_application_domain_residue",
+      "pattern": "\\bcredentialed CRM\\b|\\bcredentialed_crm\\b|\\bCRM\\b"
+    },
+    {
+      "label": "source_workflow_codename_residue",
+      "pattern": "\\bHermes\\b|\\bhermes-admin\\b|\\bhermes\\b"
+    },
+    {
+      "label": "source_case_batch_residue",
+      "pattern": "IB首页|signal-source-follow"
+    }
+  ]
+}

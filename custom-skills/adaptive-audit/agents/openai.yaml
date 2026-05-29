@@ -1,0 +1,7 @@
+interface:
+  display_name: "Adaptive Audit"
+  short_description: "Universal audit with domain and skill-release standards."
+  default_prompt: "Use $adaptive-audit to identify the artifact domain, apply the correct standards pack, report findings with evidence discipline, verify skill release/shareability governance when auditing skills, then run the mandatory post-audit closeout; collaborator learning goes to the sibling evolution-inbox, while canonical history is maintainer-only."
+
+policy:
+  allow_implicit_invocation: true

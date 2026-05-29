@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ProjectM UI Reference - Pink Pixel Art</title>
+  <style>
+    :root {
+      color: #3e3547;
+      background: #f4d9e0;
+      font-family: "Microsoft YaHei", "Courier New", monospace;
+      --ink: #4f415b;
+      --outline: #75647f;
+      --shadow: #9a7f94;
+      --panel: #fff0dc;
+      --rose: #ee8fac;
+      --gold: #f6c96f;
+      --muted: #806f89;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background:
+        repeating-linear-gradient(90deg, rgba(79,65,91,.12) 0 2px, transparent 2px 72px),
+        repeating-linear-gradient(0deg, rgba(79,65,91,.08) 0 2px, transparent 2px 64px),
+        linear-gradient(180deg, #f7e9e6 0 22%, #f3d8df 22% 48%, #dfbfd8 48% 64%, #cbbddd 64% 100%);
+    }
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 2;
+      padding: 22px clamp(18px, 4vw, 44px);
+      border-bottom: 4px solid var(--outline);
+      background:
+        linear-gradient(90deg, rgba(255,250,241,.58), transparent 16% 84%, rgba(255,250,241,.42)),
+        repeating-linear-gradient(90deg, #f2c2cf 0 16px, #e6a8bf 16px 18px);
+      box-shadow: 0 5px 0 rgba(117,100,127,.35);
+    }
+    h1 {
+      margin: 0;
+      color: #5b4a71;
+      font-size: clamp(22px, 4vw, 40px);
+      text-shadow: 3px 3px 0 #f6c5d0;
+    }
+    p {
+      max-width: 920px;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+    main {
+      padding: 28px clamp(18px, 4vw, 44px) 56px;
+    }
+    h2 {
+      margin: 34px 0 16px;
+      color: var(--ink);
+      text-shadow: 2px 2px 0 #f6c5d0;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 18px;
+    }
+    .shot {
+      overflow: hidden;
+      border: 4px solid var(--outline);
+      background: var(--panel);
+      box-shadow: 7px 7px 0 rgba(117,100,127,.35);
+    }
+    .shot strong {
+      display: block;
+      padding: 12px 14px;
+      border-bottom: 4px solid var(--outline);
+      background: #f8d6de;
+      color: var(--ink);
+    }
+    img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+    .mobile {
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>ProjectM Pink Pixel Art UI Reference</h1>
+    <p>Soft pink pixel-art portal style with pastel wall panels, checker floor, cream cards, square pixel borders, and cozy RPG-like controls. Source code is in <code>code/projectm-ui-style-03-pink-pixel-art/</code>.</p>
+  </header>
+  <main>
+    <h2>Desktop</h2>
+    <section class="grid">
+      <article class="shot"><strong>01 Home</strong><img src="01-home.png" alt="Desktop home" /></article>
+      <article class="shot"><strong>02 Briefs</strong><img src="02-briefs.png" alt="Desktop briefs" /></article>
+      <article class="shot"><strong>03 Announcements</strong><img src="03-announcements.png" alt="Desktop announcements" /></article>
+      <article class="shot"><strong>04 Forum</strong><img src="04-forum.png" alt="Desktop forum" /></article>
+      <article class="shot"><strong>05 Newcomer</strong><img src="05-newcomer.png" alt="Desktop newcomer" /></article>
+      <article class="shot"><strong>06 Finance</strong><img src="06-finance.png" alt="Desktop finance" /></article>
+      <article class="shot"><strong>07 Documents</strong><img src="07-documents.png" alt="Desktop documents" /></article>
+      <article class="shot"><strong>08 Training</strong><img src="08-training.png" alt="Desktop training" /></article>
+    </section>
+    <h2>Mobile</h2>
+    <section class="grid mobile">
+      <article class="shot"><strong>09 Mobile Home</strong><img src="09-mobile-home.png" alt="Mobile home" /></article>
+      <article class="shot"><strong>10 Mobile Briefs</strong><img src="10-mobile-briefs.png" alt="Mobile briefs" /></article>
+      <article class="shot"><strong>11 Mobile Announcements</strong><img src="11-mobile-announcements.png" alt="Mobile announcements" /></article>
+      <article class="shot"><strong>12 Mobile Forum</strong><img src="12-mobile-forum.png" alt="Mobile forum" /></article>
+      <article class="shot"><strong>13 Mobile Newcomer</strong><img src="13-mobile-newcomer.png" alt="Mobile newcomer" /></article>
+      <article class="shot"><strong>14 Mobile Finance</strong><img src="14-mobile-finance.png" alt="Mobile finance" /></article>
+      <article class="shot"><strong>15 Mobile Documents</strong><img src="15-mobile-documents.png" alt="Mobile documents" /></article>
+      <article class="shot"><strong>16 Mobile Training</strong><img src="16-mobile-training.png" alt="Mobile training" /></article>
+    </section>
+  </main>
+</body>
+</html>

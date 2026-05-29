@@ -1,0 +1,641 @@
+<!doctype html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ProjectM Task Management</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Crect width='16' height='16' fill='%23f2c3d1'/%3E%3Crect x='3' y='4' width='10' height='8' fill='%23fff0dc'/%3E%3Crect x='5' y='7' width='2' height='2' fill='%2354435f'/%3E%3Crect x='9' y='7' width='2' height='2' fill='%2354435f'/%3E%3Crect x='6' y='10' width='4' height='1' fill='%23d7839f'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --ink:#4f415b;
+      --ink-deep:#342b40;
+      --outline:#75647f;
+      --shadow:#9a7f94;
+      --wall:#f3d8df;
+      --wall-2:#dfbfd8;
+      --wall-3:#f2c2cf;
+      --floor:#cbbddd;
+      --floor-2:#f4d5ab;
+      --floor-3:#d1bfd5;
+      --panel:#fff0dc;
+      --panel-2:#f8d6de;
+      --panel-3:#d9c9ee;
+      --field:#fff8ea;
+      --text:#3e3547;
+      --muted:#806f89;
+      --rose:#ee8fac;
+      --rose-deep:#cf6688;
+      --blue:#9fc3df;
+      --mint:#b9ddcf;
+      --gold:#f6c96f;
+      --danger:#f28798;
+      --white:#fffaf1;
+      --font-pixel:"Press Start 2P","Courier New","Microsoft YaHei",monospace;
+      --font-body:"Courier New","Microsoft YaHei",monospace;
+    }
+    *{box-sizing:border-box}
+    html{min-height:100%;background:#f4d9e0}
+    body{
+      position:relative;
+      margin:0;
+      min-height:100%;
+      background:
+        repeating-linear-gradient(90deg,rgba(79,65,91,.12) 0 2px,transparent 2px 72px),
+        repeating-linear-gradient(0deg,rgba(79,65,91,.08) 0 2px,transparent 2px 64px),
+        linear-gradient(180deg,#f7e9e6 0 22%,var(--wall) 22% 48%,var(--wall-2) 48% 64%,var(--floor) 64% 100%);
+      color:var(--text);
+      font-family:var(--font-body);
+      font-size:16px;
+      line-height:1.5;
+      image-rendering:pixelated;
+      overflow-x:hidden;
+    }
+    body::before{
+      content:"";
+      position:fixed;
+      left:0;
+      right:0;
+      bottom:0;
+      height:46vh;
+      z-index:0;
+      pointer-events:none;
+      background:
+        linear-gradient(45deg,var(--floor-2) 25%,transparent 25% 75%,var(--floor-2) 75%),
+        linear-gradient(45deg,var(--floor-2) 25%,transparent 25% 75%,var(--floor-2) 75%),
+        linear-gradient(45deg,var(--floor-3) 25%,transparent 25% 75%,var(--floor-3) 75%),
+        var(--floor);
+      background-position:0 0,16px 16px,0 0,0 0;
+      background-size:32px 32px;
+      opacity:.45;
+    }
+    body::after{
+      content:"";
+      position:fixed;
+      inset:0;
+      z-index:60;
+      pointer-events:none;
+      background:
+        repeating-linear-gradient(to bottom,rgba(255,255,255,.12),rgba(255,255,255,.12) 1px,transparent 1px,transparent 4px),
+        repeating-linear-gradient(90deg,rgba(79,65,91,.035),rgba(79,65,91,.035) 1px,transparent 1px,transparent 4px);
+      opacity:.45;
+    }
+    header,main{position:relative;z-index:1}
+    header{
+      position:sticky;
+      top:0;
+      z-index:20;
+      background:
+        linear-gradient(90deg,rgba(255,250,241,.58),transparent 16% 84%,rgba(255,250,241,.42)),
+        repeating-linear-gradient(90deg,var(--wall-3) 0 16px,#e6a8bf 16px 18px);
+      border-bottom:4px solid var(--outline);
+      box-shadow:0 5px 0 rgba(117,100,127,.35);
+    }
+    .header-inner{
+      max-width:1500px;
+      margin:0 auto;
+      padding:16px 22px;
+      display:grid;
+      grid-template-columns:auto minmax(0,1fr) auto;
+      align-items:center;
+      gap:18px;
+    }
+    .brand-mark{
+      width:56px;
+      height:56px;
+      border:4px solid var(--outline);
+      background:var(--field);
+      box-shadow:5px 5px 0 var(--shadow);
+      display:grid;
+      place-items:center;
+      flex:0 0 auto;
+    }
+    .pixel-sprite{
+      position:relative;
+      width:34px;
+      height:30px;
+      background:var(--white);
+      border:4px solid var(--ink);
+      box-shadow:
+        -8px -8px 0 -4px var(--white),
+        8px -8px 0 -4px var(--white),
+        -10px -10px 0 -4px var(--ink),
+        10px -10px 0 -4px var(--ink),
+        0 8px 0 var(--rose);
+    }
+    .pixel-sprite::before{
+      content:"";
+      position:absolute;
+      left:7px;
+      top:10px;
+      width:4px;
+      height:4px;
+      background:var(--ink);
+      box-shadow:12px 0 0 var(--ink),6px 8px 0 var(--rose-deep);
+    }
+    h1{
+      margin:0;
+      color:#5b4a71;
+      font-family:var(--font-pixel);
+      font-size:clamp(18px,2.1vw,28px);
+      line-height:1.35;
+      text-shadow:3px 3px 0 #f6c5d0;
+    }
+    .subtitle{
+      margin-top:8px;
+      color:var(--ink);
+      font-size:14px;
+      text-shadow:1px 1px 0 rgba(255,250,241,.7);
+    }
+    .toolbar{
+      display:flex;
+      align-items:center;
+      justify-content:flex-end;
+      flex-wrap:wrap;
+      gap:10px;
+    }
+    input,textarea,select,button{font:inherit}
+    input[type="search"],input[type="text"],textarea,select{
+      border:3px solid var(--outline);
+      border-radius:0;
+      background:var(--field);
+      color:var(--text);
+      box-shadow:4px 4px 0 var(--shadow);
+      outline:none;
+    }
+    input[type="search"]{
+      width:min(390px,36vw);
+      min-height:44px;
+      padding:10px 12px;
+    }
+    input::placeholder,textarea::placeholder{color:#9b879b}
+    input:focus,textarea:focus,select:focus,button:focus-visible{
+      outline:3px solid var(--rose);
+      outline-offset:2px;
+    }
+    button{
+      min-height:44px;
+      border:3px solid var(--outline);
+      border-radius:0;
+      background:var(--panel-3);
+      color:var(--ink);
+      padding:10px 12px;
+      cursor:pointer;
+      box-shadow:4px 4px 0 var(--shadow);
+      text-transform:uppercase;
+      transition:transform .12s ease,box-shadow .12s ease,background .12s ease;
+    }
+    button:hover{
+      background:#eadcf5;
+      transform:translate(1px,1px);
+      box-shadow:3px 3px 0 var(--shadow);
+    }
+    button:active{
+      transform:translate(4px,4px);
+      box-shadow:0 0 0 var(--shadow);
+    }
+    button.primary{background:var(--gold)}
+    button.primary:hover{background:#ffe0a1}
+    button.danger{background:var(--danger)}
+    button.danger:hover{background:#ff9eaa}
+    main{
+      max-width:1500px;
+      margin:0 auto;
+      padding:24px 22px 50px;
+      display:grid;
+      grid-template-columns:310px minmax(0,1fr);
+      gap:20px;
+    }
+    aside{
+      position:sticky;
+      top:104px;
+      align-self:start;
+      background:var(--panel);
+      border:4px solid var(--outline);
+      border-radius:0;
+      box-shadow:7px 7px 0 rgba(117,100,127,.38);
+      overflow:hidden;
+    }
+    .side-title{
+      padding:14px 16px;
+      color:var(--ink);
+      font-family:var(--font-pixel);
+      font-size:12px;
+      line-height:1.6;
+      border-bottom:4px solid var(--outline);
+      background:
+        linear-gradient(90deg,rgba(255,255,255,.38),transparent),
+        repeating-linear-gradient(90deg,var(--panel-2) 0 18px,#efc5d0 18px 22px);
+    }
+    .milestone-button{
+      width:100%;
+      display:grid;
+      grid-template-columns:minmax(0,1fr) auto;
+      gap:10px;
+      text-align:left;
+      border:0;
+      border-bottom:3px solid #d3b6c4;
+      border-radius:0;
+      padding:13px 14px;
+      background:var(--panel);
+      color:var(--text);
+      box-shadow:none;
+      text-transform:none;
+    }
+    .milestone-button:nth-child(2n){background:#f9e2dd}
+    .milestone-button:nth-child(3n){background:#eee2f4}
+    .milestone-button:last-child{border-bottom:0}
+    .milestone-button:hover,.milestone-button.active{
+      background:var(--ink);
+      color:var(--white);
+      transform:none;
+      box-shadow:none;
+    }
+    .milestone-button.active span::before{content:"> "}
+    .milestone-button small{
+      color:#725b81;
+      white-space:nowrap;
+      font-weight:700;
+      font-variant-numeric:tabular-nums;
+    }
+    .milestone-button:hover small,.milestone-button.active small{color:var(--gold)}
+    .summary-strip{
+      display:grid;
+      grid-template-columns:repeat(5,minmax(0,1fr));
+      gap:12px;
+      margin-bottom:16px;
+    }
+    .metric,.panel{
+      background:var(--panel);
+      border:4px solid var(--outline);
+      border-radius:0;
+      box-shadow:7px 7px 0 rgba(117,100,127,.35);
+    }
+    .metric{
+      min-height:98px;
+      padding:14px;
+      position:relative;
+      overflow:hidden;
+    }
+    .metric:nth-child(1){background:#fff0dc}
+    .metric:nth-child(2){background:#f6d2dd}
+    .metric:nth-child(3){background:#d8c9ed}
+    .metric:nth-child(4){background:#cfe2e1}
+    .metric:nth-child(5){background:#f8dca8}
+    .metric::after{
+      content:"";
+      position:absolute;
+      left:14px;
+      right:14px;
+      bottom:12px;
+      height:10px;
+      border:2px solid var(--outline);
+      background:linear-gradient(90deg,var(--rose) 0 62%,var(--white) 62%);
+    }
+    .metric strong{
+      display:block;
+      color:#634d72;
+      font-family:var(--font-pixel);
+      font-size:clamp(18px,2vw,26px);
+      line-height:1.25;
+      text-shadow:2px 2px 0 #fff2c7;
+    }
+    .metric span{
+      display:block;
+      margin-top:6px;
+      color:var(--ink);
+      font-size:13px;
+    }
+    .panel{background:#fff6e6}
+    .panel-head{
+      padding:18px;
+      border-bottom:4px solid var(--outline);
+      background:
+        linear-gradient(90deg,rgba(255,250,241,.6),transparent),
+        repeating-linear-gradient(90deg,#f4cfdb 0 18px,#e8bfd1 18px 22px);
+      display:flex;
+      justify-content:space-between;
+      gap:14px;
+      align-items:flex-start;
+    }
+    .panel-head h2{
+      margin:0;
+      color:#5c4b70;
+      font-family:var(--font-pixel);
+      font-size:clamp(14px,1.35vw,18px);
+      line-height:1.7;
+      text-shadow:2px 2px 0 #fff0c6;
+    }
+    .panel-head p{
+      margin:8px 0 0;
+      color:var(--text);
+      font-size:14px;
+    }
+    .badges{
+      display:flex;
+      flex-wrap:wrap;
+      gap:7px;
+      justify-content:flex-end;
+    }
+    .badge{
+      display:inline-flex;
+      align-items:center;
+      min-height:28px;
+      border-radius:0;
+      border:2px solid var(--outline);
+      background:#f0e5f5;
+      color:var(--ink);
+      padding:4px 8px;
+      font-size:12px;
+      line-height:1.3;
+      white-space:nowrap;
+      box-shadow:2px 2px 0 rgba(117,100,127,.38);
+    }
+    .badge.created{background:var(--mint)}
+    .badge.planned{background:var(--blue)}
+    .badge.pending{background:var(--gold)}
+    .task-list{padding:0}
+    details.task{
+      border-bottom:4px solid var(--outline);
+      background:var(--panel);
+    }
+    details.task:nth-child(2n){background:#f9e0de}
+    details.task:nth-child(3n){background:#e9def3}
+    details.task:last-child{border-bottom:0}
+    summary{
+      list-style:none;
+      cursor:pointer;
+      padding:15px 16px;
+      display:grid;
+      grid-template-columns:minmax(0,1fr) auto;
+      gap:12px;
+      align-items:center;
+    }
+    summary::-webkit-details-marker{display:none}
+    summary:hover{background:#fff9ef}
+    .task-title{
+      display:flex;
+      align-items:center;
+      min-width:0;
+      gap:10px;
+      color:var(--text);
+      font-weight:700;
+    }
+    .task-title span:last-child{
+      min-width:0;
+      overflow-wrap:anywhere;
+    }
+    .chevron{
+      width:26px;
+      height:26px;
+      border:2px solid var(--outline);
+      border-radius:0;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      background:var(--gold);
+      color:var(--ink);
+      flex:0 0 auto;
+      box-shadow:2px 2px 0 var(--shadow);
+      font-weight:900;
+    }
+    details[open] .chevron{transform:rotate(90deg)}
+    .task-code{
+      color:#9c5371;
+      white-space:nowrap;
+      font-variant-numeric:tabular-nums;
+    }
+    .task-editor{
+      padding:0 16px 18px 52px;
+      display:grid;
+      grid-template-columns:repeat(2,minmax(0,1fr));
+      gap:12px;
+      background:#e7d7ed;
+      border-top:3px solid var(--outline);
+    }
+    .field{
+      border:3px solid var(--outline);
+      border-radius:0;
+      padding:11px 12px;
+      background:var(--field);
+      box-shadow:4px 4px 0 rgba(117,100,127,.32);
+    }
+    .field.full{grid-column:1/-1}
+    label{
+      display:block;
+      margin-bottom:8px;
+      color:#7a4c77;
+      font-family:var(--font-pixel);
+      font-size:10px;
+      line-height:1.6;
+      text-transform:uppercase;
+    }
+    .field input,.field textarea,.field select{
+      width:100%;
+      padding:9px 10px;
+      min-height:42px;
+    }
+    textarea{
+      min-height:112px;
+      resize:vertical;
+    }
+    .editor-actions{
+      grid-column:1/-1;
+      display:flex;
+      justify-content:space-between;
+      gap:12px;
+      align-items:center;
+      padding-top:4px;
+    }
+    .editor-actions span:last-child{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      justify-content:flex-end;
+    }
+    .save-note{
+      color:var(--text);
+      font-size:13px;
+    }
+    .empty{
+      padding:28px;
+      text-align:center;
+      color:#7a4c77;
+      background:#fff6e6;
+    }
+    @media(max-width:1100px){
+      .header-inner{grid-template-columns:auto minmax(0,1fr)}
+      .toolbar{grid-column:1/-1;justify-content:flex-start;width:100%}
+      input[type="search"]{width:min(560px,100%)}
+      .summary-strip{grid-template-columns:repeat(3,minmax(0,1fr))}
+    }
+    @media(max-width:900px){
+      .header-inner{align-items:flex-start}
+      main{grid-template-columns:1fr;padding:16px}
+      aside{position:static}
+      .summary-strip{grid-template-columns:repeat(2,minmax(0,1fr))}
+      .task-editor{grid-template-columns:1fr;padding-left:16px}
+      .panel-head{flex-direction:column}
+      .badges{justify-content:flex-start}
+      summary{grid-template-columns:1fr}
+    }
+    @media(max-width:560px){
+      header{position:static}
+      .header-inner{display:flex;flex-direction:column}
+      .brand-mark{width:48px;height:48px}
+      .toolbar{flex-direction:column;align-items:stretch}
+      .toolbar button,.toolbar input{width:100%}
+      .summary-strip{grid-template-columns:1fr}
+      .editor-actions{align-items:stretch;flex-direction:column}
+      .editor-actions span:last-child{justify-content:flex-start}
+      .task-title{align-items:flex-start}
+      .badges{max-width:100%}
+      .badge{white-space:normal}
+    }
+    @media(prefers-reduced-motion:reduce){
+      *,*::before,*::after{transition:none!important;animation:none!important}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-inner">
+      <div class="brand-mark" aria-hidden="true"><div class="pixel-sprite"></div></div>
+      <div>
+        <h1>PROJECTM TASK QUEST</h1>
+        <div class="subtitle">8-bit localhost 任务管理：数据来自 tasks.json，保存会写回 JSON。</div>
+      </div>
+      <div class="toolbar">
+        <input id="search" type="search" aria-label="搜索任务、状态、权限、验收" placeholder="搜索任务、状态、权限、验收..." />
+        <button id="saveAll" class="primary" type="button">SAVE</button>
+        <button id="exportJson" type="button">EXPORT JSON</button>
+        <button id="resetLocal" class="danger" type="button">RESET</button>
+      </div>
+    </div>
+  </header>
+  <main>
+    <aside>
+      <div class="side-title">STAGE SELECT</div>
+      <div id="milestoneNav"></div>
+    </aside>
+    <section>
+      <div id="summary"></div>
+      <div class="panel">
+        <div class="panel-head">
+          <div>
+            <h2 id="activeTitle"></h2>
+            <p id="activeGoal"></p>
+          </div>
+          <div class="badges" id="activeBadges"></div>
+        </div>
+        <div class="task-list" id="taskList"></div>
+      </div>
+    </section>
+  </main>
+  <script>
+    const apiUrl = "/api/tasks";
+    const backupKey = "projectm-task-management-backup";
+    let data = null;
+    let activeMilestoneCode = "01";
+    let dirty = false;
+    let fieldIdCounter = 0;
+    const milestoneNav = document.getElementById("milestoneNav");
+    const taskList = document.getElementById("taskList");
+    const summary = document.getElementById("summary");
+    const activeTitle = document.getElementById("activeTitle");
+    const activeGoal = document.getElementById("activeGoal");
+    const activeBadges = document.getElementById("activeBadges");
+    const search = document.getElementById("search");
+
+    boot();
+
+    async function boot(){
+      showLoading();
+      try{
+        data = await loadData();
+        activeMilestoneCode = (data.milestones[0] && data.milestones[0].code) || "01";
+        dirty = false;
+        render();
+      }catch(error){
+        showFatal(error);
+      }
+    }
+
+    async function loadData(){
+      const response = await fetch(apiUrl,{headers:{"Accept":"application/json"}});
+      if(!response.ok) throw new Error("读取 tasks.json 失败："+response.status+" "+response.statusText);
+      return response.json();
+    }
+
+    async function persist(){
+      if(!data)return;
+      updateSummaries();
+      try{
+        const response = await fetch(apiUrl,{method:"PUT",headers:{"Content-Type":"application/json"},body:JSON.stringify(data,null,2)});
+        if(!response.ok) throw new Error(await response.text() || response.statusText);
+        localStorage.removeItem(backupKey);
+        dirty=false;
+        render();
+        flashSave("SAVED");
+      }catch(error){
+        console.error(error);
+        localStorage.setItem(backupKey,JSON.stringify(data));
+        alert("保存到 JSON 失败，已临时备份到浏览器 localStorage。请确认是用 node server.mjs 启动 localhost。");
+      }
+    }
+
+    function showLoading(){
+      summary.innerHTML='<div class="summary-strip">'+metric("...","Loading")+'</div>';
+      activeTitle.textContent="正在读取 tasks.json";
+      activeGoal.textContent="请使用 localhost 打开此页面。";
+      activeBadges.innerHTML="";
+      taskList.innerHTML='<div class="empty">Loading...</div>';
+    }
+
+    function showFatal(error){
+      console.error(error);
+      summary.innerHTML="";
+      milestoneNav.innerHTML="";
+      activeTitle.textContent="没有加载出来";
+      activeGoal.textContent="请在 docs/projectm-task-management 目录运行 node server.mjs，然后打开 http://localhost:8000/";
+      activeBadges.innerHTML=badge("load failed","pending");
+      taskList.innerHTML='<div class="empty">'+escapeHtml(error.message || error)+'</div>';
+    }
+
+    function flashSave(text){
+      const button=document.getElementById("saveAll");
+      button.textContent=text;
+      setTimeout(()=>{button.textContent=dirty?"SAVE *":"SAVE"},1400);
+    }
+
+    function updateSummaries(){for(const milestone of data.milestones){for(const group of milestone.groups||[]){const children=group.children||[];group.statusSummary={created:children.filter(t=>t.status==="created").length,planned:children.filter(t=>t.status==="planned").length,pending:children.filter(t=>t.status==="pending").length,total:children.length}}const tasks=flattenMilestone(milestone).map(row=>row.task);milestone.statusSummary={created:tasks.filter(t=>t.status==="created").length,planned:tasks.filter(t=>t.status==="planned").length,pending:tasks.filter(t=>t.status==="pending").length,total:tasks.length}}}
+    function render(){updateSummaries();const allTasks=data.milestones.flatMap(m=>flattenMilestone(m).map(row=>row.task));const created=allTasks.filter(t=>t.status==="created").length;const planned=allTasks.filter(t=>t.status==="planned").length;const pending=allTasks.filter(t=>t.status==="pending").length;summary.innerHTML='<div class="summary-strip">'+metric(data.milestones.length,"Milestones")+metric(allTasks.length,"Tasks")+metric(created,"Created")+metric(planned,"Planned")+metric(pending,"Pending")+'</div>';renderMilestones();renderActiveMilestone();document.getElementById("saveAll").textContent=dirty?"SAVE *":"SAVE"}
+    function renderMilestones(){milestoneNav.innerHTML="";const q=normalize(search.value.trim());for(const milestone of data.milestones){const visibleCount=flattenMilestone(milestone).filter(row=>matches(row,q)).length;const button=document.createElement("button");button.type="button";button.className="milestone-button"+(milestone.code===activeMilestoneCode?" active":"");button.innerHTML='<span>'+escapeHtml(milestone.name)+'</span><small>'+visibleCount+'/'+milestone.statusSummary.total+'</small>';button.addEventListener("click",()=>{activeMilestoneCode=milestone.code;render()});milestoneNav.appendChild(button)}}
+    function renderActiveMilestone(){fieldIdCounter=0;const milestone=data.milestones.find(item=>item.code===activeMilestoneCode)||data.milestones[0];if(!milestone)return;const q=normalize(search.value.trim());const rows=flattenMilestone(milestone).filter(row=>matches(row,q));activeTitle.textContent=milestone.name;activeGoal.textContent=milestone.goal;activeBadges.innerHTML=badge(milestone.statusSummary.created+" created","created")+badge(milestone.statusSummary.planned+" planned","planned")+badge(milestone.statusSummary.pending+" pending","pending");taskList.innerHTML="";if(!rows.length){taskList.innerHTML='<div class="empty">当前 milestone 没有匹配搜索条件的任务。</div>';return}for(const row of rows)taskList.appendChild(renderTask(row))}
+    function renderTask(row){const task=row.task;const details=document.createElement("details");details.className="task";details.innerHTML='<summary><span class="task-title"><span class="chevron">›</span><span class="task-code">'+escapeHtml(task.code)+'</span><span>'+escapeHtml(task.title)+'</span></span><span class="badges">'+badge(row.group.code,"")+badge(task.linearId||statusLabel(task.status),task.status)+'</span></summary>'+editorHtml(task);details.querySelectorAll("[data-field]").forEach(input=>{input.addEventListener("input",()=>updateTaskFromEditor(task,details));input.addEventListener("change",()=>updateTaskFromEditor(task,details))});details.querySelector("[data-action='save']").addEventListener("click",persist);details.querySelector("[data-action='duplicate']").addEventListener("click",()=>duplicateTask(row.group,task));return details}
+    function editorHtml(task){return '<div class="task-editor">'+field("状态",'<select data-field="status"><option value="created" '+selected(task.status,"created")+'>created</option><option value="planned" '+selected(task.status,"planned")+'>planned</option><option value="pending" '+selected(task.status,"pending")+'>pending</option></select>')+field("Linear ID",'<input data-field="linearId" type="text" value="'+escapeAttr(task.linearId||"")+'" placeholder="例如 AOA-409" />')+field("任务编号",'<input data-field="code" type="text" value="'+escapeAttr(task.code)+'" />')+field("标题",'<input data-field="title" type="text" value="'+escapeAttr(task.title)+'" />')+field("目标",'<textarea data-field="goal">'+escapeHtml(task.goal||"")+'</textarea>',true)+field("范围",'<textarea data-field="scope">'+escapeHtml(arrayToText(task.scope))+'</textarea>')+field("权限与边界",'<textarea data-field="boundary">'+escapeHtml(task.boundary||"")+'</textarea>')+field("验收标准",'<textarea data-field="acceptance">'+escapeHtml(arrayToText(task.acceptance))+'</textarea>')+field("验证证据",'<textarea data-field="evidence">'+escapeHtml(arrayToText(task.evidence))+'</textarea>')+'<div class="editor-actions"><span class="save-note">修改后点击保存，会写回 tasks.json。</span><span><button type="button" data-action="duplicate">复制任务</button> <button type="button" class="primary" data-action="save">保存</button></span></div></div>'}
+    function updateTaskFromEditor(task,root){for(const input of root.querySelectorAll("[data-field]")){const fieldName=input.dataset.field;if(["scope","acceptance","evidence"].includes(fieldName))task[fieldName]=textToArray(input.value);else task[fieldName]=input.value.trim();if(fieldName==="linearId"&&!task[fieldName])task[fieldName]=null}dirty=true;document.getElementById("saveAll").textContent="SAVE *"}
+    function duplicateTask(group,task){const copy=cloneData(task);copy.linearId=null;copy.status="pending";copy.code=nextCode(group,task.code);copy.title=copy.title+" Copy";group.children.push(copy);dirty=true;render()}
+    function nextCode(group,code){const base=String(code).replace(/\d+$/,'');const nums=(group.children||[]).map(t=>String(t.code).match(/(\d+)$/)).filter(Boolean).map(m=>Number(m[1]));return base+(Math.max(0,...nums)+1)}
+    function flattenMilestone(milestone){const rows=[];for(const group of milestone.groups||[])for(const task of group.children||[])rows.push({milestone,group,task});return rows}
+    function matches(row,q){if(!q)return true;return normalize([row.milestone.name,row.group.code,row.group.title,row.task.linearId,row.task.status,row.task.code,row.task.title,row.task.goal,row.task.boundary,...(row.task.scope||[]),...(row.task.acceptance||[]),...(row.task.evidence||[])].join(" ")).includes(q)}
+    function metric(value,title){return '<div class="metric"><strong>'+escapeHtml(value)+'</strong><span>'+escapeHtml(title)+'</span></div>'}
+    function badge(text,kind){return '<span class="badge '+escapeAttr(kind||"")+'">'+escapeHtml(text)+'</span>'}
+    function field(labelText,html,full){const id="task-field-"+(++fieldIdCounter);const labeledHtml=html.replace(/<(input|textarea|select)\b/,'<$1 id="'+id+'" aria-label="'+escapeAttr(labelText)+'"');return '<div class="field '+(full?"full":"")+'"><label for="'+id+'">'+escapeHtml(labelText)+'</label>'+labeledHtml+'</div>'}
+    function selected(value,target){return value===target?"selected":""}
+    function statusLabel(status){return status==="created"?"已创建":status==="planned"?"规划中":"待拆分"}
+    function arrayToText(value){return Array.isArray(value)?value.join("\n"):(value||"")}
+    function textToArray(value){return value.split("\n").map(item=>item.trim()).filter(Boolean)}
+    function cloneData(value){return JSON.parse(JSON.stringify(value))}
+    function normalize(value){return String(value||"").toLowerCase()}
+    function escapeHtml(value){return String(value??"").replace(/[&<>'"]/g,ch=>({"&":"&amp;","<":"&lt;",">":"&gt;","'":"&#39;",'"':"&quot;"}[ch]))}
+    function escapeAttr(value){return escapeHtml(value)}
+    search.addEventListener("input",()=>{if(data)render()});
+    document.getElementById("saveAll").addEventListener("click",persist);
+    document.getElementById("resetLocal").addEventListener("click",async()=>{if(!confirm("确认丢弃当前页面修改，重新读取 tasks.json？"))return;localStorage.removeItem(backupKey);await boot()});
+    document.getElementById("exportJson").addEventListener("click",()=>{if(!data)return;updateSummaries();const blob=new Blob([JSON.stringify(data,null,2)],{type:"application/json"});const url=URL.createObjectURL(blob);const a=document.createElement("a");a.href=url;a.download="projectm-task-management.json";a.click();URL.revokeObjectURL(url)});
+  </script>
+</body>
+</html>

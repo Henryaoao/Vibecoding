@@ -1,0 +1,6 @@
+{
+  "version": "2.0.0",
+  "released_on": "2026-05-26",
+  "release_id": "adaptive-audit-shared-custom-skills-inbox-only-integration-2026-05-26",
+  "summary": "Integrated adaptive-audit into the shared custom-skills library with runtime inbox overlay and maintainer-only canonical evolution writes."
+}

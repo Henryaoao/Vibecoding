@@ -1,0 +1,4 @@
+interface:
+  display_name: "AI Instruction Architect"
+  short_description: "Build prompts, agents, media, workflows"
+  default_prompt: "Help me design the right AI instruction asset for my goal."

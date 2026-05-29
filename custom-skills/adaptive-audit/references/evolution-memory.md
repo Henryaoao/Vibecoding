@@ -1,0 +1,1409 @@
+# Evolution Memory
+
+Use this as the human-readable memory for generalized lessons in
+`adaptive-audit`. Entries may be `released`, `promoted`, `candidate`,
+`logged`, `no_change`, or `deferred`; use `references/evolution-log.jsonl` for
+machine-readable filtering by status.
+
+## Promoted Principles
+
+### Template
+
+- Date:
+- Target artifact:
+- Principle key:
+- Principle:
+- Why promoted:
+- Evidence sources:
+
+## Entry Template
+
+### Template
+
+- Date:
+- Target artifact:
+- Principle key:
+- Principle:
+- Why it matters:
+- Evidence sources:
+- Status:
+
+- Date: 2026-04-29
+- Source task: source-product-prd-prd-full-audit-2026-04-29
+- Target artifact: adaptive-audit/references/common-checklist.md
+- Target type: checklist
+- Domain key: generic
+- Standard family: cross-domain-quality
+- Standard area: scope
+- Task class: substantial
+- Task type: audit
+- Loop: target
+- Impact: high
+- Confidence: high
+- Failure mode: parent artifact overclaims coverage without traceable child deliverables
+- Pattern key: umbrella-coverage-traceability
+- Principle key: umbrella-artifacts-need-traceable-coverage
+- Principle: Umbrella artifacts that claim downstream coverage must map child artifacts to concrete deliverables and explicit coverage states or exit criteria.
+- Abstraction level: principle
+- Summary: Umbrella artifacts that claim downstream coverage must map child artifacts to concrete deliverables and explicit coverage states or exit criteria.
+- Recommended action: Promote this principle into the adaptive-audit common layer for all future master, umbrella, and index artifacts.
+- Status: promoted
+
+- Date: 2026-04-29
+- Source task: source-product-prd-prd-full-audit-2026-04-29
+- Target artifact: adaptive-audit/references/common-checklist.md
+- Target type: checklist
+- Domain key: generic
+- Standard family: cross-domain-quality
+- Standard area: scope
+- Task class: substantial
+- Task type: audit
+- Loop: target
+- Impact: high
+- Confidence: high
+- Failure mode: declared shared standards remain deferred instead of delivered
+- Pattern key: declared-shared-standards-must-exist
+- Principle key: mandatory-shared-standards-must-be-delivered
+- Principle: If a parent artifact declares shared or mandatory subordinate standards, those standards must exist as actual deliverables or be explicitly out of current scope.
+- Abstraction level: principle
+- Summary: If a parent artifact declares shared or mandatory subordinate standards, those standards must exist as actual deliverables or be explicitly out of current scope.
+- Recommended action: Promote this principle into the adaptive-audit common layer so declared shared standards cannot remain unresolved placeholders.
+- Status: promoted
+
+- Date: 2026-04-29
+- Source task: source-product-prd-prd-full-audit-2026-04-29
+- Target artifact: adaptive-audit/references/domains/prd.md
+- Target type: checklist
+- Domain key: prd
+- Standard family: requirements-quality
+- Standard area: shared-rules
+- Task class: substantial
+- Task type: audit
+- Loop: target
+- Impact: high
+- Confidence: high
+- Failure mode: shared-rule PRD leaves precedence and fallback behavior ambiguous
+- Pattern key: shared-rule-prds-need-precedence-and-fallback
+- Principle key: shared-rule-prds-must-resolve-branching-priority
+- Principle: Global or shared-rule PRDs must define precedence order, fallback behavior, and default branches instead of leaving A-or-B alternatives unresolved.
+- Abstraction level: principle
+- Summary: Global or shared-rule PRDs must define precedence order, fallback behavior, and default branches instead of leaving A-or-B alternatives unresolved.
+- Recommended action: Promote this principle into the PRD standards pack for future global-rule and shared-rule PRDs.
+- Status: promoted
+
+- Date: 2026-04-29
+- Source task: source-product-prd-prd-full-audit-2026-04-29
+- Target artifact: adaptive-audit/references/common-checklist.md
+- Target type: checklist
+- Domain key: generic
+- Standard family: cross-domain-quality
+- Standard area: observability
+- Task class: substantial
+- Task type: audit
+- Loop: target
+- Impact: high
+- Confidence: high
+- Failure mode: artifact omits setup axes and creates nondeterministic downstream verification
+- Pattern key: execution-context-axes-required-for-verification
+- Principle key: verification-artifacts-need-context-axes
+- Principle: Verification-driving artifacts must declare the execution context axes that affect behavior, such as role, login state, language, platform, mode, or environment.
+- Abstraction level: principle
+- Summary: Verification-driving artifacts must declare the execution context axes that affect behavior, such as role, login state, language, platform, mode, or environment.
+- Recommended action: Promote this principle into the adaptive-audit common layer for future verification-ready artifacts.
+- Status: promoted
+
+- Date: 2026-04-29
+- Source task: source-product-prd-prd-full-audit-2026-04-29
+- Target artifact: adaptive-audit/references/domains/prd.md
+- Target type: checklist
+- Domain key: prd
+- Standard family: requirements-quality
+- Standard area: automation-contract
+- Task class: substantial
+- Task type: audit
+- Loop: target
+- Impact: high
+- Confidence: high
+- Failure mode: negative-path automation cannot distinguish local blocking from backend failure
+- Pattern key: prd-automation-needs-failure-stack-contract
+- Principle key: prd-automation-contracts-need-failure-stack-clarity
+- Principle: PRD automation contracts must state whether negative actions are blocked locally or still sent, and what backend failure result must be observed if the request is sent.
+- Abstraction level: principle
+- Summary: PRD automation contracts must state whether negative actions are blocked locally or still sent, and what backend failure result must be observed if the request is sent.
+- Recommended action: Promote this principle into the PRD automation-contract standards so failure-stack assertions stay executable.
+- Status: promoted
+
+- Date: 2026-04-29
+- Source task: audit-84-global-navigation-common-components-2026-04-29
+- Target artifact: adaptive-audit/references/domains/prd.md
+- Target type: checklist
+- Domain key: prd
+- Standard family: requirements-quality
+- Standard area: shared-rules
+- Task class: substantial
+- Task type: audit
+- Loop: both
+- Category: coverage
+- Impact: high
+- Confidence: 0.88
+- Failure mode: page_prds_under_specify_shared_shell
+- Pattern key: shared-shell-clickables-split-across-pages
+- Principle key: dedicated-shared-components-prd-for-cross-page-clickables
+- Principle: When a product has repeated cross-page shell click targets, PRD coverage should include a dedicated shared-components specification rather than distributing those interactions across unrelated page PRDs.
+- Abstraction level: principle
+- Summary: Shared shell click targets across many routes required a dedicated shared-components PRD to close coverage gaps that page PRDs could not safely absorb on their own.
+- Recommended action: Keep this as a PRD shared-rules principle: when repeated cross-page shell interactions materially affect click coverage, require a dedicated shared-components specification instead of scattering those interactions across page PRDs.
+- Status: candidate
+
+- Date: 2026-04-29
+- Source task: audit-20-account-opening-2026-04-29
+- Target artifact: adaptive-audit/references/domains/prd.md
+- Target type: checklist
+- Domain key: prd
+- Standard family: requirements-quality
+- Standard area: interaction-coverage
+- Task class: substantial
+- Task type: prd-audit
+- Loop: target
+- Category: interaction
+- Impact: medium
+- Confidence: 0.88
+- Failure mode: A shared generic rule hid divergent downstream context behavior across neighboring action buttons.
+- Pattern key: entry-context-per-action
+- Principle key: per-action-context-propagation-spec
+- Principle: When one page exposes multiple sibling CTAs into related downstream flows, the PRD must define context propagation separately for each CTA instead of assuming one shared rule covers them all.
+- Abstraction level: principle
+- Summary: The account-opening and account-list PRD needed separate context-propagation rules for sibling CTA entries because deposit and withdraw preserved account context differently.
+- Recommended action: Record a PRD-domain candidate principle about per-action context propagation for sibling CTA entries.
+- Status: candidate
+
+- Date: 2026-04-29
+- Source task: audit-22-share-link-2026-04-29
+- Target artifact: adaptive-audit/references/domains/prd.md
+- Target type: checklist
+- Domain key: prd
+- Standard family: requirements-quality
+- Standard area: interaction-coverage
+- Task class: substantial
+- Task type: prd-audit
+- Loop: target
+- Category: coverage-gap
+- Impact: high
+- Confidence: 0.84
+- Failure mode: secondary clickables omitted from requirement coverage
+- Pattern key: auxiliary-click-path-coverage
+- Principle key: cover-secondary-clickables-and-terminal-actions
+- Principle: When auditing UI requirement documents for test-case generation, clickable coverage must include secondary controls inside modals, empty states, filter recovery paths, and multi-step flow terminal actions, not only the primary CTA that opens the flow.
+- Abstraction level: principle
+- Summary: Extended click-path coverage from primary CTAs to modal internals, empty-state recovery controls, filter reset actions, and terminal actions such as save/download and final confirm.
+- Recommended action: Record a reusable PRD audit principle that clickable coverage must include auxiliary controls inside modals, empty states, and multi-step flow terminal actions, not just primary entry CTAs.
+- Status: candidate
+
+- Date: 2026-04-30
+- Source task: adaptive_audit_wrapper_regression_test_live
+- Target artifact: adaptive-audit/references/domains/prd.md
+- Target type: checklist
+- Domain key: prd
+- Standard family: requirements-quality
+- Standard area: wrapper-regression
+- Task class: standard
+- Task type: audit
+- Loop: both
+- Abstraction level: principle
+- Summary: Live explicit no-change recording path after wrapper fix.
+- Recommended action: no change
+- Status: no_change
+
+- Date: 2026-04-30
+- Source task: adaptive_audit_post_audit_wrapper_fix_2026-04-30
+- Target artifact: adaptive-audit/scripts/run_post_audit_evolution.py
+- Target type: script
+- Domain key: generic
+- Standard family: cross-domain-quality
+- Standard area: post-audit-evolution
+- Task class: substantial
+- Task type: maintenance
+- Loop: meta
+- Impact: high
+- Confidence: high
+- Failure mode: wrapper leaks unsupported local flags into downstream logging script
+- Pattern key: wrapper-local-flag-boundary
+- Principle key: local-wrapper-flags-must-not-leak
+- Principle: Wrapper-only control flags must stay local unless the downstream script contract explicitly accepts them.
+- Abstraction level: principle
+- Summary: Host wrappers that add local control flags must not forward those gate-only flags into shared downstream scripts unless the downstream contract explicitly supports them.
+- Recommended action: Release the wrapper fix and keep local governance in sync so explicit no-change closeouts remain executable.
+- Status: released
+
+- Date: 2026-04-30
+- Source task: credentialed_application_PRD_package_adaptive_audit_2026-04-30_strict
+- Target artifact: adaptive-audit/references/domains/prd.md
+- Target type: checklist
+- Domain key: prd
+- Standard family: requirements-quality
+- Standard area: master-traceability
+- Task class: substantial
+- Task type: audit
+- Loop: both
+- Abstraction level: principle
+- Summary: No new reusable learning from this strict credentialed application PRD package audit; the current bundle continues to satisfy the existing PRD structure, evidence-discipline, and AI-testcase-readiness standards.
+- Recommended action: no change
+- Status: no_change
+
+- Date: 2026-04-30
+- Source task: credentialed_application_Fullsite_Test_Cases_Example_Format_v0.1.xlsx
+- Target artifact: adaptive-audit/references/domains/test-artifact.md
+- Target type: checklist
+- Domain key: test-artifact
+- Standard family: test-quality
+- Standard area: traceability
+- Task class: critical
+- Task type: testcase-audit
+- Loop: target
+- Category: standards-gap
+- Impact: high
+- Confidence: high
+- Failure mode: Test artifacts can look complete while losing the PRD's execution semantics and evidence constraints at schema level.
+- Pattern key: prd-derived-test-artifact-schema-flattening
+- Principle key: preserve-test-artifact-traceability-and-evidence-grade
+- Principle: When auditing PRD-derived test artifacts, verify that the artifact schema preserves RULE, SCN, EV, evidence-grade, assertion-strength, and blocker fields explicitly; reject artifacts that flatten blocked or guarded scenarios into normal executable cases.
+- Abstraction level: principle
+- Summary: PRD-derived credentialed application test workbook flattened RULE/SCN/EV traceability, omitted evidence-grade fields, and upgraded blocked or guarded E2E scenarios into executable cases.
+- Recommended action: Record a candidate test-artifact rule requiring artifact schemas to preserve source rule IDs, scenario IDs, EV links, evidence grade, assertion strength, and blocker reasons, and to reject blocked or guarded E2E downgrades.
+- Status: candidate
+
+- Date: 2026-04-30
+- Source task: adaptive_audit_wrapper_portability_fix_2026-04-30
+- Target artifact: adaptive-audit/scripts/run_post_audit_evolution.py
+- Target type: script
+- Domain key: generic
+- Standard family: cross-domain-quality
+- Standard area: post-audit-evolution
+- Task class: substantial
+- Task type: maintenance
+- Loop: meta
+- Impact: high
+- Confidence: high
+- Failure mode: wrapper depends on a hardcoded machine-specific absolute path to a sibling skill
+- Pattern key: portable-sibling-skill-resolution
+- Principle key: wrapper-dependencies-should-resolve-portably
+- Principle: Reusable host wrappers should resolve sibling skill dependencies portably or accept an explicit override, and they should fail clearly when the dependency is missing.
+- Abstraction level: principle
+- Summary: Reusable host wrappers should resolve sibling evolution skills dynamically or accept an override instead of hardcoding machine-specific absolute paths.
+- Recommended action: Release the portability fix and keep the wrapper's dependency resolution explicit and preflight-validated.
+- Status: released
+
+- Date: 2026-04-30
+- Source task: adaptive_audit_skill_doc_portability_cleanup_2026-04-30
+- Target artifact: adaptive-audit/SKILL.md
+- Target type: skill
+- Domain key: generic
+- Standard family: cross-domain-quality
+- Standard area: post-audit-evolution
+- Task class: standard
+- Task type: maintenance
+- Loop: meta
+- Impact: medium
+- Confidence: high
+- Failure mode: skill instructions hardcode machine-specific absolute paths after the underlying wrapper has become portable
+- Pattern key: portable-skill-doc-paths
+- Principle key: skill-docs-should-use-portable-dependency-paths
+- Principle: Reusable skill instructions should use portable sibling-relative dependency paths when the runtime supports them, so documentation and execution paths do not drift apart.
+- Abstraction level: principle
+- Summary: Reusable skill instructions should not hardcode machine-specific absolute sibling-skill paths when the same dependency can be referenced relative to the host skill.
+- Recommended action: Release the documentation portability cleanup so operator instructions stay aligned with the wrapper's portable dependency resolution.
+- Status: released
+
+- Date: 2026-04-30
+- Source task: adaptive_audit_final_live_verification_2026-04-30
+- Target artifact: adaptive-audit/references/domains/prd.md
+- Target type: checklist
+- Domain key: prd
+- Standard family: requirements-quality
+- Standard area: post-audit-evolution
+- Task class: standard
+- Task type: verification
+- Loop: both
+- Abstraction level: principle
+- Summary: Final live verification after the no-change recording fix and portability cleanup.
+- Recommended action: no change
+- Status: no_change
+
+- Date: 2026-04-30
+- Source task: credentialed_application_PRD_pass01_inventory_scope_2026-04-30
+- Target artifact: adaptive-audit/references/domains/prd.md
+- Target type: checklist
+- Domain key: prd
+- Standard family: requirements-quality
+- Standard area: package-strict-pass
+- Task class: substantial
+- Task type: audit
+- Loop: both
+- Abstraction level: principle
+- Summary: Strict pass 1 on the credentialed application PRD package focused on inventory and scope integrity found no new reusable issue.
+- Recommended action: no change
+- Status: no_change
+
+- Date: 2026-04-30
+- Source task: credentialed_application_PRD_pass02_skeleton_completeness_2026-04-30
+- Target artifact: adaptive-audit/references/domains/prd.md
+- Target type: checklist
+- Domain key: prd
+- Standard family: requirements-quality
+- Standard area: package-strict-pass
+- Task class: substantial
+- Task type: audit
+- Loop: both
+- Abstraction level: principle
+- Summary: Strict pass 2 on the credentialed application PRD package focused on document skeleton completeness found no new reusable issue.
+- Recommended action: no change
+- Status: no_change
+
+- Date: 2026-04-30
+- Source task: credentialed_application_PRD_pass03_master_state_honesty_2026-04-30
+- Target artifact: adaptive-audit/references/domains/prd.md
+- Target type: checklist
+- Domain key: prd
+- Standard family: requirements-quality
+- Standard area: package-strict-pass
+- Task class: substantial
+- Task type: audit
+- Loop: both
+- Abstraction level: principle
+- Summary: Strict pass 3 on the credentialed application PRD package focused on master-state honesty found no new reusable issue.
+- Recommended action: no change
+- Status: no_change
+
+- Date: 2026-04-30
+- Source task: credentialed_application_PRD_pass04_ev_e2e_traceability_2026-04-30
+- Target artifact: adaptive-audit/references/domains/prd.md
+- Target type: checklist
+- Domain key: prd
+- Standard family: requirements-quality
+- Standard area: package-strict-pass
+- Task class: substantial
+- Task type: audit
+- Loop: both
+- Abstraction level: principle
+- Summary: Strict pass 4 on the credentialed application PRD package focused on EV and E2E traceability found no new reusable issue.
+- Recommended action: no change
+- Status: no_change
+
+- Date: 2026-04-30
+- Source task: credentialed_application_PRD_pass05_open_ev_governance_2026-04-30
+- Target artifact: adaptive-audit/references/domains/prd.md
+- Target type: checklist
+- Domain key: prd
+- Standard family: requirements-quality
+- Standard area: package-strict-pass
+- Task class: substantial
+- Task type: audit
+- Loop: both
+- Abstraction level: principle
+- Summary: Strict pass 5 on the credentialed application PRD package focused on OPEN and EV governance found no new reusable issue.
+- Recommended action: no change
+- Status: no_change
+
+- Date: 2026-04-30
+- Source task: credentialed_application_PRD_pass06_ai_gating_safety_2026-04-30
+- Target artifact: adaptive-audit/references/domains/prd.md
+- Target type: checklist
+- Domain key: prd
+- Standard family: requirements-quality
+- Standard area: package-strict-pass
+- Task class: substantial
+- Task type: audit
+- Loop: both
+- Abstraction level: principle
+- Summary: Strict pass 6 on the credentialed application PRD package focused on AI testcase gating safety found no new reusable issue.
+- Recommended action: no change
+- Status: no_change
+
+- Date: 2026-04-30
+- Source task: credentialed_application_PRD_pass07_sensitive_data_discipline_2026-04-30
+- Target artifact: adaptive-audit/references/domains/prd.md
+- Target type: checklist
+- Domain key: prd
+- Standard family: requirements-quality
+- Standard area: package-strict-pass
+- Task class: substantial
+- Task type: audit
+- Loop: both
+- Abstraction level: principle
+- Summary: Strict pass 7 on the credentialed application PRD package focused on sensitive-data discipline found no new reusable issue.
+- Recommended action: no change
+- Status: no_change
+
+- Date: 2026-04-30
+- Source task: credentialed_application_PRD_pass08_cross_document_backflow_2026-04-30
+- Target artifact: adaptive-audit/references/domains/prd.md
+- Target type: checklist
+- Domain key: prd
+- Standard family: requirements-quality
+- Standard area: package-strict-pass
+- Task class: substantial
+- Task type: audit
+- Loop: both
+- Abstraction level: principle
+- Summary: Strict pass 8 on the credentialed application PRD package focused on cross-document backflow integrity found no new reusable issue.
+- Recommended action: no change
+- Status: no_change
+
+- Date: 2026-04-30
+- Source task: credentialed_application_PRD_pass09_precedence_fallback_2026-04-30
+- Target artifact: adaptive-audit/references/domains/prd.md
+- Target type: checklist
+- Domain key: prd
+- Standard family: requirements-quality
+- Standard area: package-strict-pass
+- Task class: substantial
+- Task type: audit
+- Loop: both
+- Abstraction level: principle
+- Summary: Strict pass 9 on the credentialed application PRD package focused on precedence and fallback clarity found no new reusable issue.
+- Recommended action: no change
+- Status: no_change
+
+- Date: 2026-04-30
+- Source task: credentialed_application_PRD_pass10_ai_handoff_readiness_2026-04-30
+- Target artifact: adaptive-audit/references/domains/prd.md
+- Target type: checklist
+- Domain key: prd
+- Standard family: requirements-quality
+- Standard area: package-strict-pass
+- Task class: substantial
+- Task type: audit
+- Loop: both
+- Abstraction level: principle
+- Summary: Strict pass 10 on the credentialed application PRD package focused on AI handoff readiness found no new reusable issue.
+- Recommended action: no change
+- Status: no_change
+
+- Date: 2026-04-30
+- Source task: credentialed_application_PRD_live_round1_2026-04-30
+- Target artifact: adaptive-audit/references/domains/prd.md
+- Target type: checklist
+- Domain key: prd
+- Standard family: requirements-quality
+- Standard area: scenarios
+- Task class: critical
+- Task type: live-prd-audit
+- Loop: target
+- Abstraction level: principle
+- Summary: Round 1 live auth route fidelity audit passed after correcting the forgot-password back-link label and tightening signup runtime evidence boundaries; no adaptive-audit standards change required.
+- Recommended action: no_change
+- Status: no_change
+
+- Date: 2026-04-30
+- Source task: credentialed_application_PRD_live_round2_2026-04-30
+- Target artifact: adaptive-audit/references/domains/prd.md
+- Target type: checklist
+- Domain key: prd
+- Standard family: requirements-quality
+- Standard area: validation
+- Task class: critical
+- Task type: live-prd-audit
+- Loop: target
+- Abstraction level: principle
+- Summary: Round 2 anti-bot and runtime evidence audit passed; signup captcha and Turnstile observations are now explicitly bounded as pending and blocked for AI testcase generation.
+- Recommended action: no_change
+- Status: no_change
+
+- Date: 2026-04-30
+- Source task: credentialed_application_PRD_live_round3_2026-04-30
+- Target artifact: adaptive-audit/references/domains/prd.md
+- Target type: checklist
+- Domain key: prd
+- Standard family: requirements-quality
+- Standard area: master-traceability
+- Task class: critical
+- Task type: live-prd-audit
+- Loop: target
+- Abstraction level: principle
+- Summary: Round 3 cross-document traceability audit passed; the 02 to 83 to 85 to 86 chain is explicit and no unresolved routing gap remains for the live signup findings.
+- Recommended action: no_change
+- Status: no_change
+
+- Date: 2026-04-30
+- Source task: credentialed_application_PRD_live_round4_2026-04-30
+- Target artifact: adaptive-audit/references/domains/prd.md
+- Target type: checklist
+- Domain key: prd
+- Standard family: requirements-quality
+- Standard area: shared-rules
+- Task class: critical
+- Task type: live-prd-audit
+- Loop: target
+- Abstraction level: principle
+- Summary: Round 4 logged-in dashboard and shared-navigation audit passed; live dashboard and sidenav observations remain aligned with the existing shared-shell and IB-home PRDs.
+- Recommended action: no_change
+- Status: no_change
+
+- Date: 2026-04-30
+- Source task: credentialed_application_PRD_live_round5_2026-04-30
+- Target artifact: adaptive-audit/references/domains/prd.md
+- Target type: checklist
+- Domain key: prd
+- Standard family: requirements-quality
+- Standard area: automation-contract
+- Task class: critical
+- Task type: live-prd-audit
+- Loop: target
+- Abstraction level: principle
+- Summary: Round 5 AI handoff safety audit passed; pending evidence boundaries remain explicit and no additional adaptive-audit standards change is required.
+- Recommended action: no_change
+- Status: no_change
+
+- Date: 2026-04-30
+- Source task: credentialed application workbook 10-loop re-audit v0.3
+- Target artifact: adaptive-audit/references/domains/test-artifact.md
+- Target type: checklist
+- Domain key: test-artifact
+- Standard family: test-quality
+- Standard area: traceability
+- Task class: critical
+- Task type: audit
+- Loop: both
+- Principle: Do not synthesize RULE identifiers from scenario identifiers without a verified one-to-one mapping; preserve explicit traceability gaps and blocked semantics instead.
+- Abstraction level: principle
+- Summary: Re-audit found that mechanically deriving RULE IDs from SCN IDs creates false traceability and can hide real coverage gaps; SCN-only and E2E-only cases must remain guarded or blocked unless a verified RULE mapping exists.
+- Recommended action: record_traceability_guardrail
+- Status: candidate
+
+- Date: 2026-05-06
+- Source task: credentialed application testcase coverage audit 2026-05-06
+- Target artifact: adaptive-audit/references/domains/test-artifact.md
+- Target type: checklist
+- Domain key: test-artifact
+- Standard family: test-quality
+- Standard area: coverage
+- Task class: critical
+- Task type: audit
+- Loop: both
+- Principle: Do not claim full functional coverage from RULE/SCN/E2E count closure alone; cross-cutting global requirements must be instantiated against concrete page/action surfaces before coverage can be called complete.
+- Abstraction level: principle
+- Summary: A testcase workbook can be identifier-complete yet still fail functional coverage completeness when cross-cutting global PRDs remain abstract contract rows instead of page-instantiated feature tests.
+- Recommended action: record_cross_cutting_coverage_guardrail
+- Status: candidate
+
+- Date: 2026-05-06
+- Source task: G0 CMX assignment and audit gates
+- Target artifact: adaptive-audit/references/domains/workflow.md
+- Target type: checklist
+- Domain key: workflow
+- Standard family: process-quality
+- Standard area: handoffs
+- Task class: standard
+- Task type: audit-gate
+- Loop: both
+- Abstraction level: principle
+- Summary: CMX gate plan passed workflow audit; no standards change needed.
+- Recommended action: no change
+- Status: no_change
+
+- Date: 2026-05-06
+- Source task: G0 revised CMX assignment includes live evidence lane
+- Target artifact: adaptive-audit/references/domains/workflow.md
+- Target type: checklist
+- Domain key: workflow
+- Standard family: process-quality
+- Standard area: actor-model
+- Task class: standard
+- Task type: audit-gate
+- Loop: both
+- Abstraction level: principle
+- Summary: Revised CMX plan now includes Live-Evidence-Agent and non-destructive evidence gate; no standards change needed.
+- Recommended action: no change
+- Status: no_change
+
+- Date: 2026-05-06
+- Source task: Support script live evidence sampler
+- Target artifact: adaptive-audit/references/domains/code-review.md
+- Target type: checklist
+- Domain key: code-review
+- Standard family: code-quality
+- Standard area: security
+- Task class: standard
+- Task type: support-script
+- Loop: both
+- Abstraction level: principle
+- Summary: Live evidence support script passed code-review audit; credentials are env-only and actions are non-destructive.
+- Recommended action: no change
+- Status: no_change
+
+- Date: 2026-05-06
+- Source task: Support script live evidence sampler revision
+- Target artifact: adaptive-audit/references/domains/code-review.md
+- Target type: checklist
+- Domain key: code-review
+- Standard family: code-quality
+- Standard area: correctness
+- Task class: standard
+- Task type: support-script
+- Loop: both
+- Abstraction level: principle
+- Summary: Revised live evidence script now uses stable userCode selector and fails if dashboard login is not reached; no standards change needed.
+- Recommended action: no change
+- Status: no_change
+
+- Date: 2026-05-06
+- Source task: G1 live evidence sampling log
+- Target artifact: adaptive-audit/references/domains/prd.md
+- Target type: checklist
+- Domain key: prd
+- Standard family: requirements-quality
+- Standard area: automation-contract
+- Task class: substantial
+- Task type: evidence-log
+- Loop: both
+- Abstraction level: principle
+- Summary: Live evidence log passed PRD evidence audit with explicit sampled-account boundaries and no overclaiming.
+- Recommended action: no change
+- Status: no_change
+
+- Date: 2026-05-06
+- Source task: G2 PRD readiness and gap matrix
+- Target artifact: adaptive-audit/references/domains/prd.md
+- Target type: checklist
+- Domain key: prd
+- Standard family: requirements-quality
+- Standard area: automation-contract
+- Task class: substantial
+- Task type: prd-readiness
+- Loop: both
+- Abstraction level: principle
+- Summary: PRD readiness matrix passed audit; next patch is a shared detailed testcase generation contract plus README reading-order update.
+- Recommended action: no change
+- Status: no_change
+
+- Date: 2026-05-06
+- Source task: G3A PRD 88 detailed testcase contract
+- Target artifact: adaptive-audit/references/domains/prd.md
+- Target type: checklist
+- Domain key: prd
+- Standard family: requirements-quality
+- Standard area: automation-contract
+- Task class: substantial
+- Task type: prd-shared-contract
+- Loop: both
+- Abstraction level: principle
+- Summary: PRD 88 passed after revising verified-to-strong wording; no standards change needed.
+- Recommended action: no change
+- Status: no_change
+
+- Date: 2026-05-06
+- Source task: G3B README reading order update for PRD 88
+- Target artifact: adaptive-audit/references/domains/prd.md
+- Target type: checklist
+- Domain key: prd
+- Standard family: requirements-quality
+- Standard area: master-traceability
+- Task class: standard
+- Task type: prd-index
+- Loop: both
+- Abstraction level: principle
+- Summary: README update passed audit; AI reading order now includes PRD 88 detailed testcase contract.
+- Recommended action: no change
+- Status: no_change
+
+- Date: 2026-05-07
+- Source task: credentialed-app-test-cases test-artifact audit 2026-05-07
+- Target artifact: adaptive-audit/references/domains/test-artifact.md
+- Target type: checklist
+- Domain key: test-artifact
+- Standard family: test-quality
+- Standard area: traceability
+- Task class: substantial
+- Task type: audit
+- Loop: both
+- Category: test-quality
+- Impact: high
+- Confidence: 0.86
+- Failure mode: Large generated test case set had broad coverage but lacked traceability, fixture registry, side-effect boundaries, and deterministic assertions.
+- Pattern key: generated-test-suite-executability-gap
+- Principle key: test-artifacts-need-executable-contract
+- Principle: When auditing generated test suites for live applications, verify traceability, fixture ownership, side-effect safety, and deterministic UI/API/state oracles before accepting cases as executable.
+- Abstraction level: principle
+- Summary: Generated application test suites need explicit live-route binding, fixture ownership, side-effect safety, and deterministic multi-layer oracles before they can be treated as executable regression assets.
+- Recommended action: candidate
+- Status: candidate
+
+- Date: 2026-05-08
+- Source task: credentialed application Playwright automation script adaptive audit 2026-05-08
+- Target artifact: adaptive-audit/references/domains/test-artifact.md
+- Target type: checklist
+- Domain key: test-artifact
+- Standard family: test-quality
+- Standard area: assertions
+- Task class: substantial
+- Task type: audit
+- Loop: both
+- Category: test-automation-oracle-fidelity
+- Impact: Prevents overclaiming passed case counts when only route or generic page health was verified.
+- Confidence: 0.86
+- Failure mode: automation report conflates route health with case-specific oracle satisfaction
+- Pattern key: suite-smoke-vs-case-assertion
+- Principle key: separate-automation-evidence-granularity
+- Principle: When auditing automation suites, require explicit evidence granularity labels so suite-level smoke checks, generic UI interactions, and case-specific assertions cannot be reported as equivalent pass signals.
+- Abstraction level: principle
+- Summary: Playwright automation audit found that suite-level smoke results, generic interaction health checks, and case-level assertions need explicit separation in reports and readiness labels.
+- Recommended action: candidate: add a test-artifact standard requiring automation matrices to distinguish suite-smoke coverage from case-level asserted coverage.
+- Status: candidate
+
+- Date: 2026-05-08
+- Source task: app-playwright-scripts independent audit after repair
+- Target artifact: adaptive-audit/references/domains/test-artifact.md
+- Target type: checklist
+- Domain key: test-artifact
+- Standard family: test-quality
+- Standard area: automation-result-truthfulness
+- Task class: substantial
+- Task type: audit
+- Loop: both
+- Category: assertion-granularity
+- Impact: Prevents module-level page smoke from being reported as case-level pass in generated automation reports.
+- Confidence: 0.88
+- Failure mode: classification guards and runner guards shared the same over-broad smoke predicate
+- Pattern key: route-smoke-overclaim-output-sampling
+- Principle key: test-automation-smoke-classifier-output-audit
+- Principle: For test automation artifacts, audit both the classifier code and the generated runnable output: any case text requiring expand, collapse, sort, search, input, select, pagination, or state change must not be eligible for route/page smoke pass unless a dedicated action-level assertion exists and the report labels the assertion granularity explicitly.
+- Abstraction level: principle
+- Summary: Audited repaired application Playwright automation scripts. Remaining P1 risk: route_load_smoke classification still covers interaction/search/sort cases because chooseAction and isPureRouteSmokeCase allow broad page-smoke labels to pass into runnable output.
+- Recommended action: candidate
+- Status: candidate
+
+- Date: 2026-05-08
+- Source task: app-playwright-route-load-smoke-second-round-review
+- Target artifact: adaptive-audit/references/domains/test-artifact.md
+- Target type: checklist
+- Domain key: test-artifact
+- Standard family: test-quality
+- Standard area: assertions
+- Task class: standard
+- Task type: audit
+- Loop: both
+- Category: route-smoke-overclaim
+- Impact: medium
+- Confidence: 0.82
+- Failure mode: lexical guard missed clickability assertions
+- Pattern key: route-smoke-clickability-overclaim
+- Principle key: clickability-is-interaction-assertion
+- Principle: For automation scope audits, route-load smoke eligibility must exclude affirmative clickability assertions, not only explicit click button or click entry phrases.
+- Abstraction level: principle
+- Summary: Route-load smoke classification still allowed affirmative clickability wording such as '可点击' after excluding stronger interaction terms; test-artifact audits should treat clickability assertions as interaction coverage unless a case-level click assertion exists.
+- Recommended action: candidate
+- Status: candidate
+
+- Date: 2026-05-08
+- Source task: 2026-05-08 app-playwright third-round independent audit
+- Target artifact: adaptive-audit/references/domains/test-artifact.md
+- Target type: checklist
+- Domain key: test-artifact
+- Standard family: test-quality
+- Standard area: assertions
+- Task class: substantial
+- Task type: audit
+- Loop: both
+- Category: test-automation-audit
+- Impact: medium
+- Confidence: 0.82
+- Failure mode: classification appears fixed but runtime status semantics or stale reports can mask the real current behavior
+- Pattern key: test-artifact-playwright-classification-runtime-split
+- Principle key: verify-scope-dispatch-status-separately
+- Principle: For automation-suite audits, independently verify scope classification, runner dispatch path, and failure status mapping, and label historical run artifacts as stale unless regenerated after the code under review.
+- Abstraction level: principle
+- Summary: When auditing generated Playwright testcase scopes, verify both current classification artifacts and runner dispatch/status semantics; do not treat stale historical current-playwright reports as current classification evidence.
+- Recommended action: log reusable audit heuristic for separating scope classification, runtime dispatch, and historical execution residues
+- Status: logged
+
+- Date: 2026-05-08
+- Source task: credentialed application Playwright local automation delivery reaudit v8
+- Target artifact: adaptive-audit/references/domains/test-artifact.md
+- Target type: checklist
+- Domain key: test-artifact
+- Standard family: test-quality
+- Standard area: data-isolation
+- Task class: critical
+- Task type: local automation delivery audit
+- Loop: both
+- Category: test-artifact handoff safety
+- Impact: Prevents false passed interactive cases and credential leakage in automation handoff artifacts.
+- Confidence: 0.86
+- Failure mode: count-correct automation scope with unsafe fallback/or dependency-secret propagation
+- Pattern key: test_artifact_handoff_selector_oracle_and_secret_propagation
+- Principle key: test_artifact_handoff_requires_selector_oracle_coupling_and_secret_redaction
+- Principle: For automation-suite handoffs, PASS requires both statistics consistency and per-action selector/oracle safety; sensitive dependency values must be injected at runtime or redacted from generated workbook/report artifacts.
+- Abstraction level: principle
+- Summary: Local automation delivery can have correct scope counts while still failing handoff readiness if generic entry-click fallbacks can satisfy unrelated modal/oracle checks, or if sensitive dependency values are copied into workbook handoff sheets. Future test-artifact audits should inspect executable selector-oracle coupling and secret propagation across companion config/workbook outputs, not only case counts.
+- Recommended action: candidate
+- Status: candidate
+
+- Date: 2026-05-09
+- Source task: audit run_current_playwright_cases.mjs
+- Target artifact: adaptive-audit/references/domains/code-review.md
+- Target type: checklist
+- Domain key: code-review
+- Standard family: code-quality
+- Standard area: tests
+- Task class: substantial
+- Task type: audit
+- Loop: both
+- Category: code-review
+- Impact: high
+- Confidence: 0.88
+- Failure mode: automation false pass from generic helper evidence weaker than testcase oracle
+- Pattern key: automation_false_pass_weak_oracle
+- Principle key: passed_automation_must_satisfy_case_oracle
+- Principle: A Playwright automation pass is only valid when the observed evidence satisfies the case-level oracle; control presence or page health alone should be blocked or failed for state-transition cases.
+- Abstraction level: principle
+- Summary: Automation code review found that generic pagination and entry-click helpers can mark cases passed when evidence proves only control visibility or page health, not the case oracle.
+- Recommended action: Add a code-review audit habit: compare each passed automation result evidence against the case-specific oracle, and require blocked status when missing data prevents exercising pagination or state transition assertions.
+- Status: candidate
+
+- Date: 2026-05-09
+- Source task: source framework rebuild admin agent and plan strict source-parity audit
+- Target artifact: adaptive-audit/references/common-checklist.md
+- Target type: checklist
+- Domain key: workflow
+- Standard family: process-quality
+- Standard area: evidence
+- Task class: critical
+- Task type: workflow plus research source-parity audit
+- Loop: both
+- Meta focus: source completeness evidence
+- Category: source-parity evidence discipline
+- Impact: 0.8
+- Confidence: 0.84
+- Failure mode: sparse checkout treated as complete repository evidence
+- Pattern key: sparse_checkout_false_coverage
+- Principle key: full_source_inventory_before_parity_pass
+- Principle: When an audit judges source parity or framework coverage, it should verify the complete source inventory, not only the materialized worktree, before allowing PASS.
+- Abstraction level: principle
+- Summary: Strict audit found that source-parity planning can falsely pass when it scans only a sparse checkout; future audits should require full HEAD/source inventory evidence such as git ls-tree or equivalent when repository completeness matters.
+- Recommended action: candidate
+- Status: candidate
+
+- Date: 2026-05-09
+- Source task: 2026-05-09 admin-framework-child-audit-gate-artifact-review
+- Target artifact: adaptive-audit/references/domains/workflow.md
+- Target type: checklist
+- Domain key: workflow
+- Standard family: process-quality
+- Standard area: observability
+- Task class: critical
+- Task type: audit
+- Loop: both
+- Category: audit-governance
+- Impact: high
+- Confidence: high
+- Failure mode: gate-scope-drift-and-unit-record-loss
+- Pattern key: workflow.audit_gate_scope_record_alignment
+- Principle key: workflow_nested_gate_scope_and_manifest_alignment
+- Principle: For workflow artifacts that require subordinate gate reviews, auditors must verify the mandatory gate scope and record schema remain identical across operating loop, templates, reports, release definitions, and split-unit handling.
+- Abstraction level: principle
+- Summary: Strict workflow audit found that mandatory child-audit gate rules can still leak if downstream release/report/coverage wording narrows scope to implementation children or omits split-unit audit manifests.
+- Recommended action: Record candidate principle: nested audit-gate workflows must keep scope and evidence-record schemas aligned across operating loop, record templates, reporting, complete-coverage, and release definitions; when large work is split into audit units, every unit needs a manifest and verdict record.
+- Status: candidate
+
+- Date: 2026-05-09
+- Source task: audit run_current_playwright_cases.mjs fail-closed case-specific status paths
+- Target artifact: adaptive-audit/references/domains/test-artifact.md
+- Target type: checklist
+- Domain key: test-artifact
+- Standard family: test-quality
+- Standard area: assertions
+- Task class: critical
+- Task type: audit
+- Loop: both
+- Failure mode: generic page health path can be returned as passed when an automation family lacks an explicit case branch
+- Pattern key: test-runner-generic-health-pass-path
+- Principle key: fail-closed-case-family-branches
+- Principle: When an automation runner maps case families to executable results, every passed status must come from an explicit case-level branch with an observable oracle; unknown branches must block, not pass from page health.
+- Abstraction level: principle
+- Summary: Automation runner review found a reusable fail-closed principle: any unrecognized case family branch must block for missing case assertion instead of returning passed from generic page health evidence.
+- Recommended action: candidate: add fail-closed explicit-branch check to test artifact standards
+- Status: candidate
+
+- Date: 2026-05-09
+- Source task: audit generate_execution_deliverables.mjs metric status semantics
+- Target artifact: adaptive-audit/references/domains/test-artifact.md
+- Target type: checklist
+- Domain key: test-artifact
+- Standard family: test-quality
+- Standard area: assertions
+- Task class: critical
+- Task type: audit
+- Loop: both
+- Failure mode: blockedCount was added to skippedOrBlockedCount even though skippedOrBlockedCount already includes blocked rows
+- Pattern key: test-report-subset-superset-double-count
+- Principle key: mutually-exclusive-status-metrics
+- Principle: Execution reports must define whether counters are mutually exclusive or subset/superset; pass rates and incomplete totals should be derived from raw rows or normalized buckets so legacy warnings and blocked rows cannot be double-counted.
+- Abstraction level: principle
+- Summary: Report review found a reusable metric-contract principle: status counters with subset/superset semantics must be recomputed or made mutually exclusive before they appear in execution reports.
+- Recommended action: candidate: add mutually exclusive status metric check to test artifact standards
+- Status: candidate
+
+- Date: 2026-05-09
+- Source task: audit merge_playwright_chunk_reports.mjs
+- Target artifact: adaptive-audit/references/domains/test-artifact.md
+- Target type: checklist
+- Domain key: test-artifact
+- Standard family: test-quality
+- Standard area: assertions
+- Task class: critical
+- Task type: audit
+- Loop: both
+- Abstraction level: principle
+- Summary: Artifact-level post-audit closeout completed for merge_playwright_chunk_reports.mjs; findings are covered by the recorded batch principles or are artifact-specific and do not require another standards change.
+- Recommended action: no change
+- Status: no_change
+
+- Date: 2026-05-09
+- Source task: audit generate_pdf_execution_report.py
+- Target artifact: adaptive-audit/references/domains/test-artifact.md
+- Target type: checklist
+- Domain key: test-artifact
+- Standard family: test-quality
+- Standard area: assertions
+- Task class: critical
+- Task type: audit
+- Loop: both
+- Abstraction level: principle
+- Summary: Artifact-level post-audit closeout completed for generate_pdf_execution_report.py; findings are covered by the recorded batch principles or are artifact-specific and do not require another standards change.
+- Recommended action: no change
+- Status: no_change
+
+- Date: 2026-05-09
+- Source task: audit generate_azure_html_report.mjs
+- Target artifact: adaptive-audit/references/domains/test-artifact.md
+- Target type: checklist
+- Domain key: test-artifact
+- Standard family: test-quality
+- Standard area: assertions
+- Task class: critical
+- Task type: audit
+- Loop: both
+- Abstraction level: principle
+- Summary: Artifact-level post-audit closeout completed for generate_azure_html_report.mjs; findings are covered by the recorded batch principles or are artifact-specific and do not require another standards change.
+- Recommended action: no change
+- Status: no_change
+
+- Date: 2026-05-09
+- Source task: audit 955-case-oracle-template-xlsx
+- Target artifact: adaptive-audit/references/domains/test-artifact.md
+- Target type: checklist
+- Domain key: test-artifact
+- Standard family: test-quality
+- Standard area: assertions
+- Task class: critical
+- Task type: audit
+- Loop: both
+- Abstraction level: principle
+- Summary: Artifact-level post-audit closeout completed for 955-case-oracle-template-xlsx; findings are covered by the recorded batch principles or are artifact-specific and do not require another standards change.
+- Recommended action: no change
+- Status: no_change
+
+- Date: 2026-05-09
+- Source task: audit worker-oracle-selector-gap-xlsx
+- Target artifact: adaptive-audit/references/domains/test-artifact.md
+- Target type: checklist
+- Domain key: test-artifact
+- Standard family: test-quality
+- Standard area: assertions
+- Task class: critical
+- Task type: audit
+- Loop: both
+- Abstraction level: principle
+- Summary: Artifact-level post-audit closeout completed for worker-oracle-selector-gap-xlsx; findings are covered by the recorded batch principles or are artifact-specific and do not require another standards change.
+- Recommended action: no change
+- Status: no_change
+
+- Date: 2026-05-09
+- Source task: second audit run_current_playwright_cases.mjs
+- Target artifact: adaptive-audit/references/domains/test-artifact.md
+- Target type: checklist
+- Domain key: test-artifact
+- Standard family: test-quality
+- Standard area: assertions
+- Task class: critical
+- Task type: audit
+- Loop: both
+- Abstraction level: principle
+- Summary: Second strict credentialed application case-by-case audit closeout for second audit run_current_playwright_cases.mjs. Findings are covered by existing test-artifact status-normalization and fail-closed principles; no new standards change required.
+- Recommended action: no change
+- Status: no_change
+
+- Date: 2026-05-09
+- Source task: second audit merge_playwright_chunk_reports.mjs
+- Target artifact: adaptive-audit/references/domains/test-artifact.md
+- Target type: checklist
+- Domain key: test-artifact
+- Standard family: test-quality
+- Standard area: assertions
+- Task class: critical
+- Task type: audit
+- Loop: both
+- Abstraction level: principle
+- Summary: Second strict credentialed application case-by-case audit closeout for second audit merge_playwright_chunk_reports.mjs. Findings are covered by existing test-artifact status-normalization and fail-closed principles; no new standards change required.
+- Recommended action: no change
+- Status: no_change
+
+- Date: 2026-05-09
+- Source task: second audit generate_execution_deliverables.mjs
+- Target artifact: adaptive-audit/references/domains/test-artifact.md
+- Target type: checklist
+- Domain key: test-artifact
+- Standard family: test-quality
+- Standard area: assertions
+- Task class: critical
+- Task type: audit
+- Loop: both
+- Abstraction level: principle
+- Summary: Second strict credentialed application case-by-case audit closeout for second audit generate_execution_deliverables.mjs. Findings are covered by existing test-artifact status-normalization and fail-closed principles; no new standards change required.
+- Recommended action: no change
+- Status: no_change
+
+- Date: 2026-05-09
+- Source task: second audit generate_pdf_execution_report.py
+- Target artifact: adaptive-audit/references/domains/test-artifact.md
+- Target type: checklist
+- Domain key: test-artifact
+- Standard family: test-quality
+- Standard area: assertions
+- Task class: critical
+- Task type: audit
+- Loop: both
+- Abstraction level: principle
+- Summary: Second strict credentialed application case-by-case audit closeout for second audit generate_pdf_execution_report.py. Findings are covered by existing test-artifact status-normalization and fail-closed principles; no new standards change required.
+- Recommended action: no change
+- Status: no_change
+
+- Date: 2026-05-09
+- Source task: second audit create_case_oracle_template.mjs
+- Target artifact: adaptive-audit/references/domains/test-artifact.md
+- Target type: checklist
+- Domain key: test-artifact
+- Standard family: test-quality
+- Standard area: assertions
+- Task class: critical
+- Task type: audit
+- Loop: both
+- Abstraction level: principle
+- Summary: Second strict credentialed application case-by-case audit closeout for second audit create_case_oracle_template.mjs. Findings are covered by existing test-artifact status-normalization and fail-closed principles; no new standards change required.
+- Recommended action: no change
+- Status: no_change
+
+- Date: 2026-05-09
+- Source task: second audit 955 case oracle workbook xlsx
+- Target artifact: adaptive-audit/references/domains/test-artifact.md
+- Target type: checklist
+- Domain key: test-artifact
+- Standard family: test-quality
+- Standard area: assertions
+- Task class: critical
+- Task type: audit
+- Loop: both
+- Abstraction level: principle
+- Summary: Second strict credentialed application case-by-case audit closeout for second audit 955 case oracle workbook xlsx. Findings are covered by existing test-artifact status-normalization and fail-closed principles; no new standards change required.
+- Recommended action: no change
+- Status: no_change
+
+- Date: 2026-05-09
+- Source task: third strict credentialed application 955 case-by-case audit after merge normalization fix
+- Target artifact: adaptive-audit/references/domains/test-artifact.md
+- Target type: checklist
+- Domain key: test-artifact
+- Standard family: test-quality
+- Standard area: assertions
+- Task class: critical
+- Task type: audit
+- Loop: both
+- Abstraction level: principle
+- Summary: Third strict audit found the repaired merge output and oracle workbook satisfy the existing case-by-case and legacy-warning normalization standards; no new reusable standards change required.
+- Recommended action: no change
+- Status: no_change
+
+- Date: 2026-05-09
+- Source task: credentialed application testcase extended split audit 2026-05-09
+- Target artifact: adaptive-audit/references/domains/test-artifact.md
+- Target type: checklist
+- Domain key: test-artifact
+- Standard family: test-quality
+- Standard area: assertions
+- Task class: critical
+- Task type: audit
+- Loop: both
+- Category: test-artifact executable eligibility
+- Impact: Prevents executable testcase sets from accepting weaker smoke assertions or unresolved confirmation cases as automation-ready.
+- Confidence: 0.9
+- Failure mode: case intent was downgraded to generic page survival or current-snapshot assertions, and confirmation-needed rows leaked into the executable set
+- Pattern key: test-artifact-executable-split-weak-oracle
+- Principle key: executable-case-oracle-must-match-intent
+- Principle: When auditing split testcase artifacts, executable rows must keep a case-level oracle that matches the title, steps, and risk target; unresolved rule, fixture, safety, session, export, calculation, sorting, or retain-reset dependencies must remain blocked or deferred with row-level reasons.
+- Abstraction level: rule
+- Summary: Strict split-artifact testcase audit found a reusable test-quality gap: executable-case tables can pass generic route/page-health assertions while the row intent requires validation, session, calculation, sorting, retain-reset, or confirmation-boundary oracles. Promoted fail-closed oracle matching and split-boundary checks into the test-artifact standards.
+- Recommended action: promote fail-closed oracle-intent matching and split-artifact classification boundary checks into test-artifact standards
+- Status: promoted
+
+- Date: 2026-05-11
+- Source task: credentialed application Playwright localized dashboard批次 test-artifact audit 2026-05-11 current-playwright-2026-05-11T08-14-19-948Z
+- Target artifact: adaptive-audit/references/domains/test-artifact.md
+- Target type: checklist
+- Domain key: test-artifact
+- Standard family: test-quality
+- Standard area: assertions
+- Task class: substantial
+- Task type: audit
+- Loop: both
+- Abstraction level: principle
+- Summary: Audited one localized dashboard Playwright repair unit. Existing test-artifact standards already cover semantic oracle alignment, dependency blocking, and fail-closed handling; no standards change needed.
+- Recommended action: no_change
+- Status: no_change
+
+- Date: 2026-05-12
+- Source task: credentialed application transaction-flow Playwright third audit current-playwright-2026-05-12T10-57-11-618Z
+- Target artifact: adaptive-audit/references/domains/test-artifact.md
+- Target type: checklist
+- Domain key: test-artifact
+- Standard family: test-quality
+- Standard area: assertions
+- Task class: substantial
+- Task type: audit
+- Loop: both
+- Category: selector-oracle-disambiguation
+- Impact: Prevents false blocked/pass outcomes when duplicated labels appear in summary panels and interactive regions.
+- Confidence: high
+- Failure mode: Selector helper anchored on broad semantic text and smallest DOM block instead of the case-intended interactive region.
+- Pattern key: test-artifact-ui-region-scoped-selector-oracle
+- Principle key: assertion-must-bind-to-case-intended-interactive-region
+- Principle: When a UI test case targets a specific interactive region, the selector and oracle must bind to that region and its expected affordance/state change; generic page text or a visually similar sibling region is insufficient.
+- Abstraction level: principle
+- Summary: UI automation audit found repeated selector ambiguity where visible semantic text existed but helper selected the wrong same-label region; passed or authorized-fix status should require region-scoped, interaction-capable oracle evidence rather than generic text presence.
+- Recommended action: Record domain-specific candidate for test-quality selector/oracle disambiguation.
+- Status: candidate
+
+- Date: 2026-05-12
+- Source task: credentialed application Playwright multi-step-dialog rerun audit 2026-05-12T12-33-59Z
+- Target artifact: adaptive-audit/references/domains/test-artifact.md
+- Target type: checklist
+- Domain key: test-artifact
+- Standard family: test-quality
+- Standard area: assertions
+- Task class: substantial
+- Task type: audit
+- Loop: target
+- Category: test-quality
+- Impact: medium
+- Confidence: high
+- Failure mode: Shared precondition asserted stale modal semantics, causing multiple action-specific false fails before per-case oracle evaluation.
+- Pattern key: test_artifact_dialog_setup_vs_case_oracle
+- Principle key: separate_shared_dialog_shell_from_case_specific_oracle
+- Principle: For automation test artifacts, shared navigation or dialog-opening helpers should assert only the stable shell needed to continue; case-specific fields, options, product rules, and side-effect boundaries must be validated by the individual case oracle or classified as blocked when evidence is missing.
+- Abstraction level: principle
+- Summary: Audited six multi-step-dialog Playwright cases. Reusable learning: shared setup/open-dialog helpers must not require old downstream modal fields that are irrelevant to a case; they should prove the current modal shell and leave case-specific controls/options/rules to per-case fail-closed or blocked assertions.
+- Recommended action: log_only
+- Status: logged
+
+- Date: 2026-05-12
+- Source task: adaptive-audit-testing-subsystem-repair-2026-05-12
+- Target artifact: adaptive-audit/references/domains/test-artifact.md
+- Target type: checklist
+- Domain key: test-artifact
+- Standard family: test-quality
+- Standard area: execution-reporting
+- Task class: substantial
+- Task type: maintenance
+- Loop: both
+- Category: testing-subsystem
+- Impact: high
+- Confidence: high
+- Failure mode: implicit test-artifact subtype and reporting contracts allowed drift
+- Pattern key: test_artifact_subtype_schema_reporting_and_closeout
+- Principle key: keep-test-artifact-top-level-with-explicit-subtypes-and-report-contracts
+- Principle: Keep test-artifact as the top-level domain while requiring explicit subtype, executable schema, execution-report, and region-bound selector/oracle contracts.
+- Abstraction level: rule
+- Summary: Released the approved adaptive-audit testing-subsystem repair: explicit test-artifact subtypes, executable testcase schema, execution-report contract, UI region-bound selector/oracle rule, and clearer read-only closeout usage.
+- Recommended action: Release the approved testing-subsystem repair and keep governance docs in sync.
+- Status: released
+
+- Date: 2026-05-13
+- Source task: credentialed-web-application-login-case-pack-audit
+- Target artifact: adaptive-audit/references/domains/test-artifact.md
+- Target type: checklist
+- Domain key: test-artifact
+- Standard family: test-quality
+- Standard area: execution-readiness
+- Task class: substantial
+- Task type: testcase-pack-audit
+- Loop: both
+- Abstraction level: principle
+- Summary: Audited the credentialed web application login testcase pack as a test-artifact mixed-testing-bundle; warnings were explicit credential and product-confirmation boundaries, not artifact schema gaps.
+- Recommended action: no_change
+- Status: no_change
+
+- Date: 2026-05-18
+- Source task: adaptive-audit-test-artifact-execution-report-hardening-2026-05-18
+- Target artifact: adaptive-audit/references/domains/test-artifact.md
+- Target type: checklist
+- Domain key: test-artifact
+- Standard family: test-quality
+- Standard area: execution-reporting
+- Task class: substantial
+- Task type: skill-upgrade
+- Loop: both
+- Category: audit-governance
+- Impact: high
+- Confidence: high
+- Failure mode: audit reports could confuse independent audits with fallback self-checks or accept stale/contaminated execution evidence
+- Pattern key: test_artifact_execution_report_governance_hardening
+- Principle key: test_artifact_audits_must_disclose_execution_mode_and_fresh_evidence
+- Principle: Test-artifact audits must disclose execution mode, label fallback reviews honestly, preserve approved denominators, prove current-run/archive freshness, and require screenshot and secret-scan safety before accepting execution reports.
+- Abstraction level: rule
+- Summary: Released test-artifact audit hardening for execution-mode disclosure, manager fallback labeling, credentialed runner checks, current-run and report archive hygiene, denominator preservation, screenshot policy, and fresh secret-scan requirements.
+- Recommended action: Release the test-artifact execution-report and automation-spec hardening into adaptive-audit standards.
+- Status: released
+
+- Date: 2026-05-18
+- Source task: adaptive-audit-evolution-release-sync-gate-2026-05-18
+- Target artifact: adaptive-audit/references/common-checklist.md + adaptive-audit/references/domains/generic.md
+- Target type: checklist
+- Domain key: generic
+- Standard family: cross-domain-quality
+- Standard area: governance
+- Task class: substantial
+- Task type: skill-upgrade
+- Loop: both
+- Meta focus: evolution-release-sync
+- Category: governance
+- Impact: high
+- Confidence: high
+- Failure mode: release files could change without a matching evolution-ledger record
+- Pattern key: adaptive_audit_evolution_release_sync_gate
+- Principle key: adaptive_audit_release_updates_require_evolution_record
+- Principle: When adaptive-audit version or release files change, the current release date must have a matching evolution-log entry before handoff or push.
+- Abstraction level: rule
+- Summary: Released adaptive-audit governance hardening: added release-to-evolution sync gate, removed machine-specific self-evolution fallback path, and white-labeled project-specific evolution history for shareable distribution.
+- Recommended action: Release the evolution release-sync gate and require it before handoff or push after adaptive-audit version or release updates.
+- Status: released
+
+- Date: 2026-05-18
+- Source task: adaptive-audit-skill-release-domain-2026-05-18
+- Target artifact: adaptive-audit/references/domains/skill-release.md
+- Target type: checklist
+- Domain key: skill-release
+- Standard family: skill-release-quality
+- Standard area: release-governance
+- Task class: substantial
+- Task type: skill-upgrade
+- Loop: both
+- Category: skill-release-governance
+- Impact: high
+- Confidence: high
+- Failure mode: skill creation could produce usable skills that still carried local paths, project residue, weak release gates, or unsynchronized evolution records
+- Pattern key: skill_release_hardening_gate
+- Principle key: skills_need_release_governance_before_sharing
+- Principle: Before a Codex skill is shared or published, audit it for trigger accuracy, progressive disclosure, portability, project residue, validation gates, release/evolution synchronization, and secret safety.
+- Abstraction level: rule
+- Summary: Released a dedicated skill-release audit domain covering Codex skill hardening, trigger metadata, progressive disclosure, portability, shareability, validation gates, release/evolution synchronization, bundled-resource contracts, install handoff, and secret safety.
+- Recommended action: Release the skill-release standards pack and route future skill publishing or shareability audits through it.
+- Status: released
+
+- Date: 2026-05-18
+- Source task: adaptive-audit-v1.8.0-round1-self-audit-hardening-2026-05-18
+- Target artifact: adaptive-audit/references/domains/skill-release.md
+- Target type: checklist
+- Domain key: skill-release
+- Standard family: skill-release-quality
+- Standard area: release-governance
+- Task class: substantial
+- Task type: skill-self-audit
+- Loop: both
+- Meta focus: release-governance
+- Category: skill-release-self-audit
+- Impact: high
+- Confidence: high
+- Failure mode: Release summaries could claim shareability while raw ledgers, loose release matching, or undefined install/resource contracts still hid package-quality gaps.
+- Pattern key: skill_release_self_audit_raw_ledger_and_release_id_gate
+- Principle key: skill_release_self_audits_must_check_raw_ledgers_and_exact_release_identity
+- Principle: Skill-release self-audits must verify raw governance ledgers, exact release identity, dependency/install handoff, and bundled-resource cleanliness before declaring a shared skill package release-ready.
+- Abstraction level: rule
+- Summary: Round 1 self-audit found that skill-release readiness must validate raw evolution ledgers, exact release identity, install dependencies, and bundled-resource cleanliness before a shareable skill release is accepted.
+- Recommended action: Release the Round 1 self-audit hardening into the skill-release standards, release sync gate, shareability residue scanner, and governance ledgers.
+- Status: released
+
+- Date: 2026-05-18
+- Source task: adaptive-audit-v1.9.0-round3-red-team-hardening-2026-05-18
+- Target artifact: adaptive-audit/references/domains/skill-release.md
+- Target type: checklist
+- Domain key: skill-release
+- Standard family: skill-release-quality
+- Standard area: release-governance
+- Task class: critical
+- Task type: skill-red-team-hardening
+- Loop: both
+- Meta focus: red-team-release-governance
+- Category: skill-release-red-team
+- Impact: high
+- Confidence: high
+- Failure mode: A skill package could pass shareability or release gates through caller-dependent deny patterns, candidate evolution records, or implicit sibling dependencies.
+- Pattern key: skill_release_red_team_default_inventory_and_released_only_gate
+- Principle key: skill_release_gates_require_default_residue_inventory_and_released_record
+- Principle: Skill-release gates must use package-local residue inventories, require released evolution records for current releases, and document standalone dependency handoff inside the shared skill package.
+- Abstraction level: rule
+- Summary: Released Round 3 red-team hardening: package-local shareability deny inventory, released-only release sync, standalone install handoff, and final source-workflow ledger white-labeling.
+- Recommended action: Release red-team skill-release hardening so shareability and release governance gates fail closed without caller-supplied regexes or candidate records.
+- Status: released
+
+- Date: 2026-05-19
+- Source task: credentialed-admin-l5-no-secret-smoke-runner-audit
+- Target artifact: adaptive-audit/references/domains/test-artifact.md
+- Target type: checklist
+- Domain key: test-artifact
+- Standard family: test-quality
+- Standard area: no-secret-smoke-audit
+- Task class: standard
+- Task type: automation-spec
+- Loop: both
+- Abstraction level: principle
+- Summary: Audited L5 no-secret smoke runner as a project-specific automation-spec handoff gate; no adaptive-audit standards change needed.
+- Recommended action: no_change; existing test-artifact standards already cover credential boundaries and readiness-vs-live-monitoring claims
+- Status: no_change
+
+- Date: 2026-05-19
+- Source task: credentialed-admin-l5-no-secret-scheduled-check-audit
+- Target artifact: adaptive-audit/references/domains/test-artifact.md
+- Target type: checklist
+- Domain key: test-artifact
+- Standard family: test-quality
+- Standard area: scheduled-no-secret-check
+- Task class: standard
+- Task type: execution-report
+- Loop: both
+- Abstraction level: principle
+- Summary: Audited Codex app no-secret schedule as project-specific automation-spec/execution boundary; no adaptive-audit standards change needed.
+- Recommended action: no_change; existing test-artifact standards already cover readiness-vs-live-monitoring and credential boundary claims
+- Status: no_change
+
+
+- Date: 2026-05-26
+- Source task: adaptive-audit-shared-custom-skills-inbox-only-integration-2026-05-26
+- Target artifact: adaptive-audit/SKILL.md + adaptive-audit/scripts/run_post_audit_evolution.py + adaptive-audit/references/post-audit-evolution.md
+- Target type: governance
+- Domain key: skill-release
+- Standard family: skill-release-quality
+- Standard area: shared-skill-evolution-governance
+- Task class: substantial
+- Task type: skill-release-integration
+- Loop: both
+- Meta focus: runtime-inbox-overlay-and-canonical-write-boundary
+- Category: shareability-governance
+- Impact: high
+- Confidence: high
+- Failure mode: shared audit skill could write collaborator-local learning directly into canonical history instead of waiting for maintainer consolidation
+- Pattern key: adaptive-audit-inbox-only-shared-skill-integration
+- Principle key: shared-audit-skill-collaborator-learning-enters-inbox-only
+- Principle: Shared audit skills should keep collaborator-local unmerged learning in a sibling inbox overlay and reserve canonical history writes for maintainer merge/release decisions.
+- Abstraction level: rule
+- Summary: Adaptive-audit is now packaged as a shared custom skill whose collaborator-local evolution writes only inbox records, while canonical evolution history is reserved for maintainer merge/release work.
+- Recommended action: released 2.0.0 with runtime inbox overlay, inbox-only collaborator recording, and maintainer-only canonical write support
+- Status: released

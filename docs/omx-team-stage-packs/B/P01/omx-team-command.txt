@@ -1,0 +1,43 @@
+# Paste this whole file into PowerShell / OMX CLI from C:\Project-M.
+# Do not prepend `$team`; this file already launches the real `omx team` runtime.
+$task = @'
+Project-M P01 / B 席位：Web shell 基线。
+
+你是 B 席位。只负责 P01 的 Web shell、模块挂载点、设计系统基础和通用状态组件。不要重新规划整个 P01。
+
+开始条件：
+- 必须等待 D 已 push `codex/p01-d-platform-runtime-baseline`。
+- 必须从 D 回报的 branch + commit SHA 创建自己的分支。
+- 如果 D 没有 push，停止并回报，不要从 main 直接开始。
+
+目标分支：
+- `codex/p01-b-web-shell-baseline`
+
+先读：
+- `docs/omx-team-stage-packs/B/P01/omx-plan.md`
+- `docs/omx-team-stage-packs/B/P01/read-list.md`
+- `docs/omx-team-stage-packs/B/P01/allowed-scope.md`
+- `docs/omx-team-stage-packs/_central/P01/orchestration.md`
+- `docs/omx-team-stage-packs/_central/P01/baseline-gates.md`
+
+执行：
+1. `git fetch --prune`
+2. 从 D 已推送基线创建 `codex/p01-b-web-shell-baseline`
+3. 只在 B 允许范围内做 micro-plan
+4. 建立或校准员工门户 shell、七个 MVP 模块挂载点、通用状态组件
+5. 保留 Admin Console 壳层入口，但不做 Admin 写入
+6. 明确 A/C 可接入目录、类型和 mock 约定
+7. 运行 `npm --prefix ProjectM-source-code/frontend run build`
+8. commit，遵守 Lore Commit Protocol
+9. push 到远端
+10. 按 `docs/omx-team-stage-packs/B/P01/completion-report-template.md` 回报，并明确 A/C 可以开始
+
+硬约束：
+- 前端路由保护不是权限事实来源
+- 不做完整业务模块
+- 不做 Admin 写入
+- 不引入第三种角色
+- 不实现浏览历史、recent_views 或访问轨迹
+- 不提交真实 `.env` 或密钥
+'@
+omx team 3:executor $task

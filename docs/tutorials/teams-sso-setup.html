@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <title>ProjectM Teams SSO 配置教程</title>
+    <style>
+      @page {
+        margin: 22mm 18mm;
+      }
+
+      body {
+        color: #1f2937;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        font-size: 12.5px;
+        line-height: 1.6;
+      }
+
+      h1 {
+        color: #111827;
+        font-size: 28px;
+        line-height: 1.2;
+        margin: 0 0 8px;
+      }
+
+      h2 {
+        border-bottom: 1px solid #d1d5db;
+        color: #111827;
+        font-size: 18px;
+        margin: 28px 0 10px;
+        padding-bottom: 4px;
+      }
+
+      h3 {
+        color: #111827;
+        font-size: 14px;
+        margin: 18px 0 6px;
+      }
+
+      p {
+        margin: 7px 0;
+      }
+
+      ul,
+      ol {
+        margin: 7px 0 7px 22px;
+        padding: 0;
+      }
+
+      li {
+        margin: 4px 0;
+      }
+
+      code {
+        background: #f3f4f6;
+        border-radius: 4px;
+        color: #111827;
+        font-family: "SFMono-Regular", Consolas, monospace;
+        font-size: 11.5px;
+        padding: 1px 4px;
+      }
+
+      pre {
+        background: #111827;
+        border-radius: 8px;
+        color: #f9fafb;
+        font-family: "SFMono-Regular", Consolas, monospace;
+        font-size: 11.5px;
+        line-height: 1.5;
+        overflow-wrap: break-word;
+        padding: 12px 14px;
+        white-space: pre-wrap;
+      }
+
+      a {
+        color: #2563eb;
+        text-decoration: none;
+      }
+
+      .meta {
+        color: #6b7280;
+        font-size: 11px;
+        margin-bottom: 20px;
+      }
+
+      .callout {
+        background: #eff6ff;
+        border-left: 4px solid #2563eb;
+        border-radius: 6px;
+        margin: 14px 0;
+        padding: 10px 12px;
+      }
+
+      .warning {
+        background: #fff7ed;
+        border-left-color: #f97316;
+      }
+
+      .checklist li {
+        list-style-type: square;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>ProjectM Teams SSO 配置教程</h1>
+    <p class="meta">适用范围：ProjectM 本地开发环境，使用 Microsoft Teams / Microsoft Entra ID 的 OAuth 2.0 授权码登录。生成日期：2026-05-28。</p>
+
+    <div class="callout">
+      <strong>目标：</strong>拿到 <code>TEAMS_CLIENT_ID</code>、<code>TEAMS_CLIENT_SECRET</code>、<code>TEAMS_TENANT_ID</code>，并在 Microsoft Entra 中配置 ProjectM 本地回调地址。
+    </div>
+
+    <h2>1. 当前 ProjectM 需要的值</h2>
+    <p>ProjectM 的 <code>.env</code> 中需要补齐这几个 Teams SSO 配置：</p>
+    <pre>TEAMS_CLIENT_ID=
+TEAMS_CLIENT_SECRET=
+TEAMS_TENANT_ID=
+TEAMS_REDIRECT_URI=http://localhost:8080/api/v1/auth/teams/callback</pre>
+
+    <p>下面这些可以先留空，ProjectM 后端会按 <code>TEAMS_TENANT_ID</code> 自动使用默认值：</p>
+    <pre>TEAMS_AUTH_URL=
+TEAMS_TOKEN_URL=
+TEAMS_USERINFO_URL=
+TEAMS_SCOPES=</pre>
+
+    <p>默认端点与 scope 为：</p>
+    <pre>https://login.microsoftonline.com/{tenant}/oauth2/v2.0/authorize
+https://login.microsoftonline.com/{tenant}/oauth2/v2.0/token
+https://graph.microsoft.com/oidc/userinfo
+openid profile email</pre>
+
+    <h2>2. 创建 Microsoft Entra App Registration</h2>
+    <ol>
+      <li>打开 <a href="https://entra.microsoft.com/">Microsoft Entra admin center</a>。</li>
+      <li>进入 <strong>Applications</strong> → <strong>App registrations</strong>。</li>
+      <li>点击 <strong>New registration</strong>。</li>
+      <li>名称建议填写：<code>ProjectM Local</code>。</li>
+      <li><strong>Supported account types</strong> 建议先选择当前组织目录。</li>
+      <li>点击 <strong>Register</strong>。</li>
+    </ol>
+
+    <p>创建完成后，在 app 概览页复制：</p>
+    <pre>Application (client) ID  -> TEAMS_CLIENT_ID
+Directory (tenant) ID    -> TEAMS_TENANT_ID</pre>
+
+    <h2>3. 配置 Redirect URI</h2>
+    <ol>
+      <li>在刚创建的 App Registration 中进入 <strong>Authentication</strong>。</li>
+      <li>点击 <strong>Add a platform</strong>。</li>
+      <li>选择 <strong>Web</strong>。</li>
+      <li>填写 ProjectM 本地回调地址：</li>
+    </ol>
+
+    <pre>http://localhost:8080/api/v1/auth/teams/callback</pre>
+
+    <p>保存后，Microsoft identity platform 才会允许 ProjectM 使用这个地址接收授权码。</p>
+
+    <h2>4. 创建 Client Secret</h2>
+    <ol>
+      <li>进入 <strong>Certificates &amp; secrets</strong>。</li>
+      <li>点击 <strong>New client secret</strong>。</li>
+      <li>描述可写：<code>ProjectM local dev</code>。</li>
+      <li>选择合适的过期时间，例如 6 months。</li>
+      <li>创建后立刻复制 <strong>Value</strong>。</li>
+    </ol>
+
+    <div class="callout warning">
+      注意：这里要复制的是 <strong>Value</strong>，不是 Secret ID。离开页面后 Value 通常不会再次完整显示。
+    </div>
+
+    <p>把复制到的 Value 填到：</p>
+    <pre>TEAMS_CLIENT_SECRET=你的-client-secret-value</pre>
+
+    <h2>5. 填写 ProjectM 本地 .env</h2>
+    <p>最终本地 <code>.env</code> 中 Teams 部分应类似：</p>
+    <pre>TEAMS_CLIENT_ID=xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+TEAMS_CLIENT_SECRET=你的-client-secret-value
+TEAMS_TENANT_ID=xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+TEAMS_REDIRECT_URI=http://localhost:8080/api/v1/auth/teams/callback
+
+TEAMS_AUTH_URL=
+TEAMS_TOKEN_URL=
+TEAMS_USERINFO_URL=
+TEAMS_SCOPES=</pre>
+
+    <p>如果你暂时想允许多租户或不确定 tenant，可先使用：</p>
+    <pre>TEAMS_TENANT_ID=common</pre>
+
+    <h2>6. 重启 ProjectM 并验证</h2>
+    <p>保存 <code>.env</code> 后，在仓库根目录运行：</p>
+    <pre>docker compose up --build -d backend frontend</pre>
+
+    <p>然后打开：</p>
+    <pre>http://localhost:3000/</pre>
+
+    <p>点击 <strong>使用 Teams 登录</strong>。成功时会进入 Microsoft 登录页，登录后回到 ProjectM。</p>
+
+    <h2>7. 快速故障排查</h2>
+    <ul class="checklist">
+      <li>如果看到 <code>TEAMS_AUTH_UNAVAILABLE</code>：通常是 <code>TEAMS_CLIENT_ID</code> 或 <code>TEAMS_CLIENT_SECRET</code> 为空。</li>
+      <li>如果 Microsoft 提示 redirect URI mismatch：确认 Entra 中的 URI 和 <code>TEAMS_REDIRECT_URI</code> 完全一致。</li>
+      <li>如果 token exchange 失败：确认 client secret 复制的是 Value，且没有过期。</li>
+      <li>如果登录后没有用户：确认 scope 至少包含 <code>openid profile email</code>。</li>
+      <li>如果本地服务打不开：确认 Docker 中 <code>projectm_backend</code> 和 <code>projectm_frontend</code> 都在运行。</li>
+    </ul>
+
+    <h2>8. Web OAuth 与 Teams Tab SSO 的区别</h2>
+    <p>ProjectM 当前实现的是浏览器中的 Microsoft Entra OAuth/OIDC 登录，也就是通过网页跳转到 Microsoft 登录页，再回调到 ProjectM。</p>
+    <p>如果未来要把 ProjectM 嵌入 Microsoft Teams 客户端作为 Tab，并使用 Teams 客户端内的无感 SSO，还需要额外配置 Teams app manifest、Expose an API、Application ID URI、scope，以及 Teams client pre-authorization。这属于下一阶段能力，不是当前本地网页登录必须项。</p>
+
+    <h2>9. 官方参考</h2>
+    <ul>
+      <li><a href="https://learn.microsoft.com/en-us/microsoftteams/platform/tabs/how-to/authentication/tab-sso-register-aad">Register tab app with Microsoft Entra ID</a></li>
+      <li><a href="https://learn.microsoft.com/en-us/entra/identity-platform/how-to-add-redirect-uri">Add a redirect URI</a></li>
+      <li><a href="https://learn.microsoft.com/en-us/entra/identity-platform/v2-oauth2-auth-code-flow">OAuth 2.0 authorization code flow</a></li>
+      <li><a href="https://learn.microsoft.com/en-us/entra/identity-platform/userinfo">Microsoft identity platform UserInfo endpoint</a></li>
+    </ul>
+  </body>
+</html>

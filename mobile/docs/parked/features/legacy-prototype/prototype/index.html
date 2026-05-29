@@ -1,0 +1,1002 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ProjectM Mobile Prototype</title>
+  <style>
+    :root {
+      --bg: #f4f6f8;
+      --surface: #ffffff;
+      --ink: #1d2733;
+      --muted: #637083;
+      --line: #d9e0e8;
+      --brand: #2364aa;
+      --brand-soft: #e7f0fb;
+      --ok: #1f7a4d;
+      --warn: #a45b18;
+      --danger: #b42318;
+      --teal: #0f766e;
+      --violet: #6d5bd0;
+      --radius: 8px;
+      --shadow: 0 18px 45px rgba(21, 34, 50, 0.14);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      color: var(--ink);
+      background: var(--bg);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+    }
+
+    button,
+    input,
+    select,
+    textarea {
+      font: inherit;
+    }
+
+    .workspace {
+      display: grid;
+      grid-template-columns: minmax(280px, 340px) minmax(390px, 430px) minmax(260px, 360px);
+      gap: 28px;
+      align-items: start;
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 28px;
+    }
+
+    .panel,
+    .phone,
+    .notes {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+
+    .panel,
+    .notes {
+      padding: 20px;
+    }
+
+    .panel h1,
+    .notes h2 {
+      margin: 0 0 10px;
+      font-size: 20px;
+      letter-spacing: 0;
+    }
+
+    .panel p,
+    .notes p {
+      color: var(--muted);
+      line-height: 1.55;
+      margin: 0 0 14px;
+      font-size: 14px;
+    }
+
+    .flow-list {
+      display: grid;
+      gap: 8px;
+      margin-top: 14px;
+    }
+
+    .flow-list button,
+    .ghost-button,
+    .primary-button,
+    .danger-button {
+      min-height: 40px;
+      border-radius: 7px;
+      border: 1px solid var(--line);
+      background: #fff;
+      color: var(--ink);
+      text-align: left;
+      padding: 9px 11px;
+      cursor: pointer;
+    }
+
+    .flow-list button.active {
+      border-color: var(--brand);
+      background: var(--brand-soft);
+      color: var(--brand);
+      font-weight: 700;
+    }
+
+    .primary-button {
+      border-color: var(--brand);
+      background: var(--brand);
+      color: #fff;
+      text-align: center;
+      font-weight: 700;
+    }
+
+    .danger-button {
+      border-color: var(--danger);
+      background: #fff5f4;
+      color: var(--danger);
+      text-align: center;
+      font-weight: 700;
+    }
+
+    .ghost-button {
+      text-align: center;
+      background: #fff;
+    }
+
+    .phone {
+      overflow: hidden;
+      min-height: 860px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .statusbar {
+      height: 32px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 18px;
+      font-size: 12px;
+      color: var(--muted);
+      background: #fbfcfd;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .appbar {
+      min-height: 58px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 16px;
+      border-bottom: 1px solid var(--line);
+      background: var(--surface);
+    }
+
+    .back {
+      display: none;
+      width: 34px;
+      height: 34px;
+      border-radius: 7px;
+      border: 1px solid var(--line);
+      background: #fff;
+      cursor: pointer;
+    }
+
+    .title-wrap {
+      min-width: 0;
+      flex: 1;
+    }
+
+    .title {
+      font-size: 17px;
+      font-weight: 800;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .subtitle {
+      margin-top: 2px;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .role-badge {
+      border: 1px solid var(--line);
+      background: #f8fafc;
+      color: var(--muted);
+      border-radius: 999px;
+      padding: 5px 8px;
+      font-size: 12px;
+      white-space: nowrap;
+    }
+
+    .screen {
+      display: none;
+      flex: 1;
+      overflow: auto;
+      padding: 16px;
+      background: #f7f9fb;
+    }
+
+    .screen.active {
+      display: block;
+    }
+
+    .tabs {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      border-top: 1px solid var(--line);
+      background: var(--surface);
+    }
+
+    .tabs button {
+      border: 0;
+      background: transparent;
+      padding: 10px 4px 12px;
+      color: var(--muted);
+      font-size: 12px;
+      cursor: pointer;
+    }
+
+    .tabs button.active {
+      color: var(--brand);
+      font-weight: 800;
+    }
+
+    .stack {
+      display: grid;
+      gap: 12px;
+    }
+
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 14px;
+    }
+
+    .card h2,
+    .card h3 {
+      margin: 0 0 8px;
+      letter-spacing: 0;
+    }
+
+    .card h2 {
+      font-size: 18px;
+    }
+
+    .card h3 {
+      font-size: 15px;
+    }
+
+    .card p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.5;
+      font-size: 13px;
+    }
+
+    .brief {
+      border-left: 4px solid var(--brand);
+    }
+
+    .tag-row {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+      margin-top: 10px;
+    }
+
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      min-height: 24px;
+      padding: 3px 8px;
+      border-radius: 999px;
+      background: #edf2f7;
+      color: #435064;
+      font-size: 12px;
+    }
+
+    .tag.important {
+      background: #fff0e5;
+      color: var(--warn);
+    }
+
+    .tag.ok {
+      background: #e8f5ee;
+      color: var(--ok);
+    }
+
+    .tag.info {
+      background: var(--brand-soft);
+      color: var(--brand);
+    }
+
+    .module-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .module {
+      border: 1px solid var(--line);
+      background: var(--surface);
+      border-radius: var(--radius);
+      min-height: 86px;
+      padding: 12px;
+      text-align: left;
+      cursor: pointer;
+    }
+
+    .module strong {
+      display: block;
+      font-size: 14px;
+      margin-bottom: 6px;
+    }
+
+    .module span {
+      display: block;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.4;
+    }
+
+    .list {
+      display: grid;
+      gap: 10px;
+    }
+
+    .list-item {
+      border: 1px solid var(--line);
+      background: var(--surface);
+      border-radius: var(--radius);
+      padding: 12px;
+      text-align: left;
+      cursor: pointer;
+    }
+
+    .list-item strong {
+      display: block;
+      margin-bottom: 5px;
+      font-size: 14px;
+    }
+
+    .list-item span {
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.45;
+    }
+
+    .search {
+      width: 100%;
+      height: 40px;
+      border: 1px solid var(--line);
+      border-radius: 7px;
+      padding: 0 12px;
+      background: #fff;
+    }
+
+    .metric-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .metric {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 12px;
+      background: #fff;
+    }
+
+    .metric strong {
+      display: block;
+      font-size: 20px;
+      margin-bottom: 4px;
+    }
+
+    .metric span {
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .form {
+      display: grid;
+      gap: 12px;
+    }
+
+    .field label {
+      display: block;
+      font-size: 12px;
+      color: var(--muted);
+      margin-bottom: 6px;
+    }
+
+    .field input,
+    .field select,
+    .field textarea {
+      width: 100%;
+      border: 1px solid var(--line);
+      border-radius: 7px;
+      padding: 10px;
+      background: #fff;
+    }
+
+    .field textarea {
+      min-height: 96px;
+      resize: vertical;
+    }
+
+    .actions {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+      margin-top: 12px;
+    }
+
+    .actions.single {
+      grid-template-columns: 1fr;
+    }
+
+    .notice {
+      border: 1px dashed #a9b5c3;
+      background: #fbfcfd;
+      border-radius: var(--radius);
+      padding: 14px;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.5;
+    }
+
+    .notice.danger {
+      border-color: #f1a7a1;
+      background: #fff5f4;
+      color: var(--danger);
+    }
+
+    .preview-box {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: #f2f5f8;
+      min-height: 260px;
+      display: grid;
+      place-items: center;
+      text-align: center;
+      padding: 20px;
+      color: var(--muted);
+    }
+
+    .progress {
+      height: 8px;
+      background: #e3e8ef;
+      border-radius: 999px;
+      overflow: hidden;
+      margin-top: 8px;
+    }
+
+    .bar {
+      height: 100%;
+      width: 60%;
+      background: var(--teal);
+    }
+
+    .screen-note {
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.55;
+      border-left: 3px solid var(--line);
+      padding-left: 10px;
+      margin-top: 12px;
+    }
+
+    .legend {
+      display: grid;
+      gap: 8px;
+      margin-top: 14px;
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .legend strong {
+      color: var(--ink);
+    }
+
+    @media (max-width: 980px) {
+      .workspace {
+        grid-template-columns: 1fr;
+        padding: 16px;
+      }
+
+      .phone {
+        max-width: 430px;
+        margin: 0 auto;
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="workspace">
+    <aside class="panel">
+      <h1>ProjectM Mobile 原型</h1>
+      <p>中低保真可点击原型，用于验证移动端信息架构、核心流程、权限状态、推送和文件预览。</p>
+      <div class="flow-list" id="flowList"></div>
+      <div class="legend">
+        <div><strong>角色切换：</strong>登录页可选择普通用户或超级用户。</div>
+        <div><strong>验证重点：</strong>普通用户无 Admin 入口，超级用户可进入 Admin 工作台。</div>
+        <div><strong>注意：</strong>这不是最终视觉设计，也不是 RN + Expo 工程。</div>
+      </div>
+    </aside>
+
+    <section class="phone" aria-label="ProjectM mobile phone prototype">
+      <div class="statusbar">
+        <span>9:41</span>
+        <span>ProjectM Internal</span>
+        <span>100%</span>
+      </div>
+      <div class="appbar">
+        <button class="back" id="backButton" type="button" aria-label="返回">‹</button>
+        <div class="title-wrap">
+          <div class="title" id="screenTitle">登录</div>
+          <div class="subtitle" id="screenSubtitle">选择角色进入原型流程</div>
+        </div>
+        <span class="role-badge" id="roleBadge">Guest</span>
+      </div>
+
+      <div id="screens">
+        <section class="screen active" data-screen="login">
+          <div class="stack">
+            <div class="card">
+              <h2>登录 ProjectM</h2>
+              <p>输入账号后进入公司内部移动门户。原型中使用角色按钮模拟登录。</p>
+            </div>
+            <div class="field">
+              <label>用户名</label>
+              <input value="chenyu" aria-label="用户名" />
+            </div>
+            <div class="field">
+              <label>密码</label>
+              <input value="password" type="password" aria-label="密码" />
+            </div>
+            <button class="primary-button" type="button" data-go="home" data-role="user">以普通用户登录</button>
+            <button class="ghost-button" type="button" data-go="home" data-role="super_user">以超级用户登录</button>
+            <div class="notice">验收点：登录成功后调用当前用户信息接口，并按角色显示或隐藏 Admin 入口。</div>
+          </div>
+        </section>
+
+        <section class="screen" data-screen="home">
+          <div class="stack">
+            <div class="card brief">
+              <h2>今日公司简报</h2>
+              <p>端午放假安排、15:00 产品分享会、午后雷雨、门户快捷入口热帖、财经一句话。</p>
+              <div class="tag-row">
+                <span class="tag info">置顶</span>
+                <span class="tag">今日 09:00</span>
+                <span class="tag">6 条重点</span>
+              </div>
+              <div class="actions single">
+                <button class="primary-button" type="button" data-go="brief">查看简报</button>
+              </div>
+            </div>
+            <div class="module-grid">
+              <button class="module" type="button" data-go="announcements"><strong>公司公告墙</strong><span>节假日、调休、办公区通知</span></button>
+              <button class="module" type="button" data-go="forum"><strong>员工论坛热帖</strong><span>热门讨论、最新回复</span></button>
+              <button class="module" type="button" data-go="newcomer"><strong>新人专区</strong><span>入职任务、办公生活指南</span></button>
+              <button class="module" type="button" data-go="finance"><strong>财经轻资讯</strong><span>财经早知道、反诈提醒</span></button>
+              <button class="module" type="button" data-go="documents"><strong>文档中心</strong><span>制度、模板、知识文档</span></button>
+              <button class="module" type="button" data-go="training"><strong>培训中心</strong><span>必修课程、学习进度</span></button>
+            </div>
+            <button class="ghost-button admin-only" type="button" data-go="admin-dashboard">进入 Admin Console</button>
+            <button class="ghost-button user-only" type="button" data-go="forbidden">模拟访问 Admin</button>
+          </div>
+        </section>
+
+        <section class="screen" data-screen="brief">
+          <div class="stack">
+            <div class="card">
+              <h2>今日公司简报详情</h2>
+              <p>今日重点覆盖公告、活动、天气、热帖、财经一句话和生日提醒。</p>
+              <div class="tag-row">
+                <span class="tag info">总裁办</span>
+                <span class="tag">阅读 428</span>
+              </div>
+            </div>
+            <div class="list">
+              <div class="list-item"><strong>端午节放假安排已发布</strong><span>请各部门提前安排值班和交付事项。</span></div>
+              <div class="list-item"><strong>15:00 产品分享会</strong><span>18F 培训室，主题为门户体验改版。</span></div>
+              <div class="list-item"><strong>午后有雷雨</strong><span>建议携带雨具，注意通勤安全。</span></div>
+            </div>
+          </div>
+        </section>
+
+        <section class="screen" data-screen="announcements">
+          <div class="stack">
+            <input class="search" value="端午 放假" aria-label="公告搜索" />
+            <div class="list">
+              <button class="list-item" type="button"><strong>关于 2026 年端午节放假安排的通知</strong><span>行政部 · 置顶 · 有效期至 6 月 22 日</span></button>
+              <button class="list-item" type="button"><strong>办公区空调维护与临时工位调整通知</strong><span>行政部 · 办公区通知 · 阅读 356</span></button>
+            </div>
+          </div>
+        </section>
+
+        <section class="screen" data-screen="forum">
+          <div class="stack">
+            <div class="list">
+              <button class="list-item" type="button"><strong>大家最希望新版门户增加什么快捷入口？</strong><span>浏览 932 · 评论 48 · 点赞 126 · 热度 1328</span></button>
+              <button class="list-item" type="button"><strong>新人入职第一周最需要的资料清单</strong><span>最新回复 08:20 · 每周讨论话题</span></button>
+            </div>
+            <div class="notice">MVP 只做热帖聚合，不实现完整发帖和评论。</div>
+          </div>
+        </section>
+
+        <section class="screen" data-screen="newcomer">
+          <div class="stack">
+            <div class="card">
+              <h2>新人专区</h2>
+              <p>完成账号激活、员工手册、信息安全培训和试用期目标确认。</p>
+            </div>
+            <div class="list">
+              <div class="list-item"><strong>激活邮箱和协作账号</strong><span>已完成 · 关联员工手册</span></div>
+              <div class="list-item"><strong>完成信息安全基础培训</strong><span>进行中 · 60%</span></div>
+              <div class="list-item"><strong>与直属主管确认试用期目标</strong><span>待完成</span></div>
+            </div>
+          </div>
+        </section>
+
+        <section class="screen" data-screen="finance">
+          <div class="stack">
+            <div class="card">
+              <h2>财经早知道</h2>
+              <p>本周市场关注宏观数据发布、主要指数波动和金融监管动态。</p>
+              <div class="tag-row">
+                <span class="tag">宏观</span>
+                <span class="tag">指数概览</span>
+              </div>
+            </div>
+            <div class="notice">免责声明：仅供内部资讯阅读，不构成投资建议；不提供股票推荐、买卖建议、个股预测或收益承诺。</div>
+          </div>
+        </section>
+
+        <section class="screen" data-screen="documents">
+          <div class="stack">
+            <input class="search" value="员工手册" aria-label="文档搜索" />
+            <div class="tag-row">
+              <span class="tag info">PDF</span>
+              <span class="tag">制度文件</span>
+              <span class="tag">入职</span>
+            </div>
+            <div class="list">
+              <button class="list-item" type="button" data-go="document-detail"><strong>员工手册 2026 版</strong><span>PDF · 5 MB · 下载 146</span></button>
+              <button class="list-item" type="button"><strong>费用报销模板</strong><span>Excel · 表单模板 · 下载 328</span></button>
+            </div>
+            <div class="notice">空状态样例：没有找到相关文档，请尝试更换关键词。</div>
+          </div>
+        </section>
+
+        <section class="screen" data-screen="document-detail">
+          <div class="stack">
+            <div class="card">
+              <h2>员工手册 2026 版</h2>
+              <p>包含考勤、休假、报销、信息安全、行为准则等基础制度。</p>
+              <div class="tag-row">
+                <span class="tag info">PDF</span>
+                <span class="tag">5 MB</span>
+                <span class="tag ok">有权限</span>
+              </div>
+            </div>
+            <div class="actions">
+              <button class="primary-button" type="button" data-go="preview">预览文档</button>
+              <button class="ghost-button" type="button" data-go="preview-error">模拟失败</button>
+            </div>
+          </div>
+        </section>
+
+        <section class="screen" data-screen="preview">
+          <div class="stack">
+            <div class="preview-box">
+              <div>
+                <strong>PDF 预览区域</strong>
+                <p>通过短期 preview URL 打开。离开页面后不保留受保护文件。</p>
+              </div>
+            </div>
+            <button class="ghost-button" type="button" data-go="documents">返回文档中心</button>
+          </div>
+        </section>
+
+        <section class="screen" data-screen="preview-error">
+          <div class="stack">
+            <div class="notice danger">文件预览失败：当前网络不稳定或预览 URL 已过期。</div>
+            <div class="actions">
+              <button class="primary-button" type="button" data-go="preview">重试预览</button>
+              <button class="ghost-button" type="button">下载文件</button>
+            </div>
+          </div>
+        </section>
+
+        <section class="screen" data-screen="training">
+          <div class="stack">
+            <div class="list">
+              <div class="list-item"><strong>信息安全基础培训</strong><span>必修 · 35 分钟 · 进度 60%</span><div class="progress"><div class="bar"></div></div></div>
+              <div class="list-item"><strong>新人入职导览</strong><span>必修 · 已完成</span></div>
+              <div class="list-item"><strong>高效会议与行动项管理</strong><span>选修 · 未开始</span></div>
+            </div>
+          </div>
+        </section>
+
+        <section class="screen" data-screen="me">
+          <div class="stack">
+            <div class="card">
+              <h2>陈宇</h2>
+              <p>产品运营部 · 普通用户 · 新员工</p>
+            </div>
+            <div class="module-grid">
+              <button class="module" type="button"><strong>我的收藏</strong><span>内容 8 · 文档 4</span></button>
+              <button class="module" type="button"><strong>下载记录</strong><span>最近 30 天 6 次</span></button>
+              <button class="module" type="button"><strong>培训进度</strong><span>必修完成率 78%</span></button>
+              <button class="module" type="button"><strong>新人任务</strong><span>2 / 4 已完成</span></button>
+            </div>
+            <button class="ghost-button" type="button" data-go="notifications">通知偏好</button>
+          </div>
+        </section>
+
+        <section class="screen" data-screen="notifications">
+          <div class="stack">
+            <div class="card">
+              <h2>通知偏好</h2>
+              <p>拒绝系统通知权限时，App 其他功能仍可正常使用。</p>
+            </div>
+            <div class="list">
+              <div class="list-item"><strong>重要公告</strong><span>已开启</span></div>
+              <div class="list-item"><strong>今日公司简报</strong><span>已开启</span></div>
+              <div class="list-item"><strong>必修培训提醒</strong><span>已开启</span></div>
+              <div class="list-item"><strong>Admin 操作结果</strong><span class="super-copy">仅超级用户可见</span><span class="user-copy">普通用户不可见</span></div>
+            </div>
+          </div>
+        </section>
+
+        <section class="screen" data-screen="forbidden">
+          <div class="stack">
+            <div class="notice danger">
+              <strong>403 无权限访问</strong><br />
+              当前账号为普通用户，不能访问 Admin Console。后端 `/api/v1/admin/*` 也必须返回 403。
+            </div>
+            <button class="primary-button" type="button" data-go="home">返回首页</button>
+          </div>
+        </section>
+
+        <section class="screen" data-screen="admin-dashboard">
+          <div class="stack">
+            <div class="metric-grid">
+              <div class="metric"><strong>42</strong><span>已发布内容</span></div>
+              <div class="metric"><strong>6</strong><span>待发布草稿</span></div>
+              <div class="metric"><strong>134</strong><span>今日下载</span></div>
+              <div class="metric"><strong>78%</strong><span>必修完成率</span></div>
+            </div>
+            <div class="module-grid">
+              <button class="module" type="button" data-go="admin-contents"><strong>内容管理</strong><span>简报、公告、热帖、财经</span></button>
+              <button class="module" type="button"><strong>文档管理</strong><span>上传、发布、归档</span></button>
+              <button class="module" type="button"><strong>课程管理</strong><span>必修、选修、进度</span></button>
+              <button class="module" type="button"><strong>用户角色</strong><span>user / super_user</span></button>
+            </div>
+          </div>
+        </section>
+
+        <section class="screen" data-screen="admin-contents">
+          <div class="stack">
+            <input class="search" value="端午" aria-label="内容搜索" />
+            <div class="tag-row">
+              <span class="tag info">announcement</span>
+              <span class="tag">published</span>
+            </div>
+            <div class="list">
+              <button class="list-item" type="button" data-go="admin-content-detail"><strong>关于 2026 年端午节放假安排的通知</strong><span>published · 行政部 · 置顶</span></button>
+              <button class="list-item" type="button"><strong>办公区空调维护与临时工位调整通知</strong><span>draft · 行政部</span></button>
+            </div>
+            <button class="primary-button" type="button" data-go="admin-edit">新建内容</button>
+          </div>
+        </section>
+
+        <section class="screen" data-screen="admin-content-detail">
+          <div class="stack">
+            <div class="card">
+              <h2>端午节放假安排</h2>
+              <p>发布状态：published。该公告已在用户端公告墙和首页公告模块展示。</p>
+              <div class="tag-row">
+                <span class="tag ok">published</span>
+                <span class="tag important">置顶</span>
+                <span class="tag">阅读 681</span>
+              </div>
+            </div>
+            <div class="actions">
+              <button class="primary-button" type="button" data-go="admin-edit">编辑内容</button>
+              <button class="ghost-button" type="button" data-go="admin-confirm">发布确认</button>
+            </div>
+            <button class="danger-button" type="button" data-go="admin-confirm-delete">软删除</button>
+          </div>
+        </section>
+
+        <section class="screen" data-screen="admin-edit">
+          <div class="stack">
+            <div class="form">
+              <div class="field">
+                <label>内容类型</label>
+                <select aria-label="内容类型"><option>公司公告墙</option><option>今日公司简报</option><option>财经轻资讯</option></select>
+              </div>
+              <div class="field">
+                <label>标题</label>
+                <input value="关于 2026 年端午节放假安排的通知" />
+              </div>
+              <div class="field">
+                <label>摘要</label>
+                <textarea>端午节放假时间为 2026 年 6 月 19 日至 6 月 21 日，共 3 天。</textarea>
+              </div>
+            </div>
+            <div class="actions">
+              <button class="ghost-button" type="button">保存草稿</button>
+              <button class="primary-button" type="button" data-go="admin-confirm">发布</button>
+            </div>
+          </div>
+        </section>
+
+        <section class="screen" data-screen="admin-confirm">
+          <div class="stack">
+            <div class="notice">
+              <strong>确认发布内容？</strong><br />
+              发布后普通用户将在公告墙和首页公告模块看到该内容，系统会写入审计日志。
+            </div>
+            <div class="actions">
+              <button class="ghost-button" type="button" data-go="admin-edit">返回编辑</button>
+              <button class="primary-button" type="button" data-go="admin-success">确认发布</button>
+            </div>
+          </div>
+        </section>
+
+        <section class="screen" data-screen="admin-confirm-delete">
+          <div class="stack">
+            <div class="notice danger">
+              <strong>确认软删除？</strong><br />
+              删除后普通用户不可见，后台审计日志会记录操作者、资源 ID 和时间。
+            </div>
+            <div class="actions">
+              <button class="ghost-button" type="button" data-go="admin-content-detail">取消</button>
+              <button class="danger-button" type="button" data-go="admin-success">确认删除</button>
+            </div>
+          </div>
+        </section>
+
+        <section class="screen" data-screen="admin-success">
+          <div class="stack">
+            <div class="notice">
+              <strong>操作成功</strong><br />
+              已刷新内容列表、详情和 Dashboard 指标。审计日志已写入。
+            </div>
+            <button class="primary-button" type="button" data-go="admin-contents">返回内容管理</button>
+          </div>
+        </section>
+      </div>
+
+      <nav class="tabs" aria-label="底部导航">
+        <button type="button" data-go="home">首页</button>
+        <button type="button" data-go="documents">文档</button>
+        <button type="button" data-go="training">培训</button>
+        <button type="button" data-go="me">我的</button>
+      </nav>
+    </section>
+
+    <aside class="notes">
+      <h2 id="noteTitle">评审说明</h2>
+      <p id="noteBody">选择左侧流程或点击手机中的控件，验证主流程和异常状态。</p>
+      <div class="screen-note" id="noteChecklist"></div>
+    </aside>
+  </main>
+
+  <script>
+    const screens = {
+      login: { title: "登录", subtitle: "选择角色进入原型流程", note: "验证登录后按角色显示入口。", checklist: "普通用户进入 User Portal；超级用户可看到 Admin Console 入口。" },
+      home: { title: "门户首页", subtitle: "今日公司简报置顶", note: "首页第一屏突出今日公司简报，并提供 7 个模块入口。", checklist: "检查信息密度、栏目完整性、Admin 入口是否按角色显示。" },
+      brief: { title: "今日公司简报", subtitle: "当天重点摘要", note: "简报详情承接公告、活动、天气、热帖和财经一句话。", checklist: "无当日简报时未来应展示最近一次已发布简报。" },
+      announcements: { title: "公司公告墙", subtitle: "通知、节假日、办公区", note: "公告列表需要搜索、分类、置顶和详情入口。", checklist: "重要公告标记要醒目但不过度打扰。" },
+      forum: { title: "员工论坛热帖", subtitle: "热门讨论聚合", note: "MVP 仅展示热帖聚合和外部跳转。", checklist: "不要加入完整发帖和评论能力。" },
+      newcomer: { title: "新人专区", subtitle: "入职资料与任务", note: "新人任务强调个人状态，只能更新自己的任务。", checklist: "老员工隐藏首页模块的偏好后续在设置中体现。" },
+      finance: { title: "财经轻资讯", subtitle: "内部资讯与合规边界", note: "详情页必须展示免责声明。", checklist: "不得出现股票推荐、买卖建议、个股预测或收益承诺。" },
+      documents: { title: "文档中心", subtitle: "搜索、筛选、预览", note: "验证文档搜索、详情、预览和下载降级。", checklist: "无权限文档不得泄露标题、摘要、文件名或地址。" },
+      "document-detail": { title: "文档详情", subtitle: "员工手册 2026", note: "文档详情展示元信息和操作。", checklist: "预览和下载都必须复用权限校验。" },
+      preview: { title: "文件预览", subtitle: "短期 preview URL", note: "模拟 PDF 或系统预览区域。", checklist: "离开页面后不应保留受保护文件。" },
+      "preview-error": { title: "预览失败", subtitle: "错误与降级", note: "预览失败时提供重试和下载降级。", checklist: "错误信息要具体，但不能泄露敏感 URL。" },
+      training: { title: "培训中心", subtitle: "课程和进度", note: "课程显示必修、选修、进度和完成状态。", checklist: "用户只能更新自己的学习进度。" },
+      me: { title: "个人中心", subtitle: "个人数据汇总", note: "个人中心聚合收藏、下载、培训、新人任务。", checklist: "用户不能修改角色、部门或账号状态。" },
+      notifications: { title: "通知偏好", subtitle: "推送开关", note: "通知权限被拒绝时不阻断主流程。", checklist: "Admin 操作通知只对 super_user 可见。" },
+      forbidden: { title: "403", subtitle: "无权限访问", note: "普通用户访问 Admin 时必须阻断。", checklist: "客户端隐藏不是安全边界，后端仍必须返回 403。" },
+      "admin-dashboard": { title: "Admin Dashboard", subtitle: "移动工作台", note: "移动端后台使用工作台和模块入口，不照搬桌面表格。", checklist: "指标、最近操作和模块入口要可扫描。" },
+      "admin-contents": { title: "内容管理", subtitle: "列表和筛选", note: "Admin 第一版只做单条操作。", checklist: "批量操作不进入移动端 MVP。" },
+      "admin-content-detail": { title: "内容详情", subtitle: "状态和操作", note: "详情页展示元数据和关键操作。", checklist: "发布、归档、删除都需要二次确认。" },
+      "admin-edit": { title: "编辑内容", subtitle: "分段表单", note: "表单适配手机操作，底部放主要命令。", checklist: "保存草稿和发布要清楚区分。" },
+      "admin-confirm": { title: "发布确认", subtitle: "二次确认", note: "发布会影响用户端可见性，必须确认。", checklist: "确认文案应提示审计日志。" },
+      "admin-confirm-delete": { title: "删除确认", subtitle: "软删除", note: "删除为软删除，不做物理删除。", checklist: "危险操作必须明确资源和影响。" },
+      "admin-success": { title: "操作成功", subtitle: "刷新与审计", note: "写操作成功后刷新列表、详情和 Dashboard。", checklist: "需要展示成功反馈和后续去向。" }
+    };
+
+    const flow = [
+      ["login", "登录"],
+      ["home", "首页"],
+      ["brief", "今日公司简报"],
+      ["documents", "文档中心"],
+      ["document-detail", "文档详情"],
+      ["preview", "文件预览"],
+      ["preview-error", "预览失败降级"],
+      ["training", "培训中心"],
+      ["me", "个人中心"],
+      ["notifications", "通知偏好"],
+      ["forbidden", "普通用户 403"],
+      ["admin-dashboard", "Admin Dashboard"],
+      ["admin-contents", "内容管理列表"],
+      ["admin-content-detail", "内容详情"],
+      ["admin-edit", "编辑内容"],
+      ["admin-confirm", "发布确认"],
+      ["admin-success", "操作成功"]
+    ];
+
+    let currentRole = "guest";
+    let currentScreen = "login";
+    const historyStack = [];
+
+    function renderFlow() {
+      const container = document.getElementById("flowList");
+      container.innerHTML = "";
+      flow.forEach(([screen, label]) => {
+        const button = document.createElement("button");
+        button.type = "button";
+        button.textContent = label;
+        button.className = screen === currentScreen ? "active" : "";
+        button.addEventListener("click", () => go(screen));
+        container.appendChild(button);
+      });
+    }
+
+    function setRole(role) {
+      currentRole = role;
+      document.getElementById("roleBadge").textContent = role === "super_user" ? "super_user" : role === "user" ? "user" : "Guest";
+      document.querySelectorAll(".admin-only").forEach((node) => {
+        node.style.display = role === "super_user" ? "block" : "none";
+      });
+      document.querySelectorAll(".user-only").forEach((node) => {
+        node.style.display = role === "user" ? "block" : "none";
+      });
+      document.querySelectorAll(".super-copy").forEach((node) => {
+        node.style.display = role === "super_user" ? "inline" : "none";
+      });
+      document.querySelectorAll(".user-copy").forEach((node) => {
+        node.style.display = role === "user" ? "inline" : "none";
+      });
+    }
+
+    function go(screen, options = {}) {
+      if (screen.startsWith("admin") && currentRole !== "super_user") {
+        screen = "forbidden";
+      }
+      if (!options.skipHistory && currentScreen !== screen) {
+        historyStack.push(currentScreen);
+      }
+      currentScreen = screen;
+      document.querySelectorAll(".screen").forEach((node) => {
+        node.classList.toggle("active", node.dataset.screen === screen);
+      });
+      const meta = screens[screen] || screens.home;
+      document.getElementById("screenTitle").textContent = meta.title;
+      document.getElementById("screenSubtitle").textContent = meta.subtitle;
+      document.getElementById("noteTitle").textContent = meta.title + "评审";
+      document.getElementById("noteBody").textContent = meta.note;
+      document.getElementById("noteChecklist").textContent = meta.checklist;
+      document.getElementById("backButton").style.display = screen === "login" || screen === "home" ? "none" : "inline-grid";
+      document.querySelectorAll(".tabs button").forEach((button) => {
+        button.classList.toggle("active", button.dataset.go === screen);
+      });
+      renderFlow();
+      setRole(currentRole);
+    }
+
+    document.addEventListener("click", (event) => {
+      const target = event.target.closest("[data-go]");
+      if (!target) return;
+      const role = target.dataset.role;
+      if (role) setRole(role);
+      go(target.dataset.go);
+    });
+
+    document.getElementById("backButton").addEventListener("click", () => {
+      const previous = historyStack.pop() || "home";
+      go(previous, { skipHistory: true });
+    });
+
+    renderFlow();
+    setRole("guest");
+  </script>
+</body>
+</html>
