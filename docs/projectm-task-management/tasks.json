@@ -1686,12 +1686,20 @@
                 "PostgreSQL healthcheck 输出"
               ],
               "completionStatus": "done",
-              "completionNote": "Compose、环境变量样例和 pgAdmin/PostgreSQL 端口基线已有配置。",
+              "completionNote": "P01 D 平台运行基线已打勾：覆盖 Go 后端骨架、API envelope、配置/环境样例、认证会话 cookie、健康检查、Docker Compose、PostgreSQL、pgAdmin 与默认端口门禁；后续 /api/v1/admin/* 仍必须由后端 super_user 授权保护。",
               "completionEvidence": [
-                "docker-compose.yml",
-                ".env.example",
+                "ProjectM-source-code/backend/cmd/api/main.go",
+                "ProjectM-source-code/backend/internal/response/json.go",
+                "ProjectM-source-code/backend/internal/auth/session.go",
+                "ProjectM-source-code/backend/internal/config/config.go",
+                "ProjectM-source-code/backend/internal/middleware/http.go",
+                "ProjectM-source-code/backend/internal/response/json_test.go",
+                "ProjectM-source-code/backend/internal/auth/session_test.go",
                 "ProjectM-source-code/docker-compose.yml",
-                "ProjectM-source-code/docker.env.example"
+                ".env.example",
+                "docker compose config --services",
+                "docker compose --profile local-db config --services",
+                "cd ProjectM-source-code/backend && go test ./..."
               ]
             },
             {
@@ -1723,12 +1731,20 @@
                 "文档一致性检查"
               ],
               "completionStatus": "done",
-              "completionNote": "Compose、环境变量样例和 pgAdmin/PostgreSQL 端口基线已有配置。",
+              "completionNote": "P01 D 平台运行基线已打勾：覆盖 Go 后端骨架、API envelope、配置/环境样例、认证会话 cookie、健康检查、Docker Compose、PostgreSQL、pgAdmin 与默认端口门禁；后续 /api/v1/admin/* 仍必须由后端 super_user 授权保护。",
               "completionEvidence": [
-                "docker-compose.yml",
-                ".env.example",
+                "ProjectM-source-code/backend/cmd/api/main.go",
+                "ProjectM-source-code/backend/internal/response/json.go",
+                "ProjectM-source-code/backend/internal/auth/session.go",
+                "ProjectM-source-code/backend/internal/config/config.go",
+                "ProjectM-source-code/backend/internal/middleware/http.go",
+                "ProjectM-source-code/backend/internal/response/json_test.go",
+                "ProjectM-source-code/backend/internal/auth/session_test.go",
                 "ProjectM-source-code/docker-compose.yml",
-                "ProjectM-source-code/docker.env.example"
+                ".env.example",
+                "docker compose config --services",
+                "docker compose --profile local-db config --services",
+                "cd ProjectM-source-code/backend && go test ./..."
               ]
             },
             {
@@ -1759,13 +1775,21 @@
                 "schema/seed review",
                 "禁止项扫描输出"
               ],
-              "completionStatus": "not_done",
-              "completionNote": "未看到 Docker/数据库 smoke 输出或验收证据归档。",
+              "completionStatus": "done",
+              "completionNote": "P01 D 平台运行基线已打勾：覆盖 Go 后端骨架、API envelope、配置/环境样例、认证会话 cookie、健康检查、Docker Compose、PostgreSQL、pgAdmin 与默认端口门禁；后续 /api/v1/admin/* 仍必须由后端 super_user 授权保护。",
               "completionEvidence": [
-                "docker-compose.yml",
-                ".env.example",
+                "ProjectM-source-code/backend/cmd/api/main.go",
+                "ProjectM-source-code/backend/internal/response/json.go",
+                "ProjectM-source-code/backend/internal/auth/session.go",
+                "ProjectM-source-code/backend/internal/config/config.go",
+                "ProjectM-source-code/backend/internal/middleware/http.go",
+                "ProjectM-source-code/backend/internal/response/json_test.go",
+                "ProjectM-source-code/backend/internal/auth/session_test.go",
                 "ProjectM-source-code/docker-compose.yml",
-                "ProjectM-source-code/docker.env.example"
+                ".env.example",
+                "docker compose config --services",
+                "docker compose --profile local-db config --services",
+                "cd ProjectM-source-code/backend && go test ./..."
               ]
             }
           ],
@@ -1776,9 +1800,9 @@
             "total": 12
           },
           "completionSummary": {
-            "done": 8,
+            "done": 9,
             "partial": 2,
-            "not_done": 2,
+            "not_done": 1,
             "total": 12
           }
         }
@@ -13015,10 +13039,20 @@
                 "super_user"
               ],
               "completionStatus": "done",
-              "completionNote": "Go 后端已有对应基础设施、门户读取 API 或 PostgreSQL 查询实现。",
+              "completionNote": "P01 D 平台运行基线已打勾：覆盖 Go 后端骨架、API envelope、配置/环境样例、认证会话 cookie、健康检查、Docker Compose、PostgreSQL、pgAdmin 与默认端口门禁；后续 /api/v1/admin/* 仍必须由后端 super_user 授权保护。",
               "completionEvidence": [
                 "ProjectM-source-code/backend/cmd/api/main.go",
-                "ProjectM-source-code/backend/internal/**"
+                "ProjectM-source-code/backend/internal/response/json.go",
+                "ProjectM-source-code/backend/internal/auth/session.go",
+                "ProjectM-source-code/backend/internal/config/config.go",
+                "ProjectM-source-code/backend/internal/middleware/http.go",
+                "ProjectM-source-code/backend/internal/response/json_test.go",
+                "ProjectM-source-code/backend/internal/auth/session_test.go",
+                "ProjectM-source-code/docker-compose.yml",
+                ".env.example",
+                "docker compose config --services",
+                "docker compose --profile local-db config --services",
+                "cd ProjectM-source-code/backend && go test ./..."
               ],
               "contractLinks": [
                 {
@@ -13169,10 +13203,20 @@
                 "super_user"
               ],
               "completionStatus": "done",
-              "completionNote": "Go 后端已有对应基础设施、门户读取 API 或 PostgreSQL 查询实现。",
+              "completionNote": "P01 D 平台运行基线已打勾：覆盖 Go 后端骨架、API envelope、配置/环境样例、认证会话 cookie、健康检查、Docker Compose、PostgreSQL、pgAdmin 与默认端口门禁；后续 /api/v1/admin/* 仍必须由后端 super_user 授权保护。",
               "completionEvidence": [
                 "ProjectM-source-code/backend/cmd/api/main.go",
-                "ProjectM-source-code/backend/internal/**"
+                "ProjectM-source-code/backend/internal/response/json.go",
+                "ProjectM-source-code/backend/internal/auth/session.go",
+                "ProjectM-source-code/backend/internal/config/config.go",
+                "ProjectM-source-code/backend/internal/middleware/http.go",
+                "ProjectM-source-code/backend/internal/response/json_test.go",
+                "ProjectM-source-code/backend/internal/auth/session_test.go",
+                "ProjectM-source-code/docker-compose.yml",
+                ".env.example",
+                "docker compose config --services",
+                "docker compose --profile local-db config --services",
+                "cd ProjectM-source-code/backend && go test ./..."
               ],
               "contractLinks": [
                 {
@@ -13323,10 +13367,20 @@
                 "super_user"
               ],
               "completionStatus": "done",
-              "completionNote": "Go 后端已有对应基础设施、门户读取 API 或 PostgreSQL 查询实现。",
+              "completionNote": "P01 D 平台运行基线已打勾：覆盖 Go 后端骨架、API envelope、配置/环境样例、认证会话 cookie、健康检查、Docker Compose、PostgreSQL、pgAdmin 与默认端口门禁；后续 /api/v1/admin/* 仍必须由后端 super_user 授权保护。",
               "completionEvidence": [
                 "ProjectM-source-code/backend/cmd/api/main.go",
-                "ProjectM-source-code/backend/internal/**"
+                "ProjectM-source-code/backend/internal/response/json.go",
+                "ProjectM-source-code/backend/internal/auth/session.go",
+                "ProjectM-source-code/backend/internal/config/config.go",
+                "ProjectM-source-code/backend/internal/middleware/http.go",
+                "ProjectM-source-code/backend/internal/response/json_test.go",
+                "ProjectM-source-code/backend/internal/auth/session_test.go",
+                "ProjectM-source-code/docker-compose.yml",
+                ".env.example",
+                "docker compose config --services",
+                "docker compose --profile local-db config --services",
+                "cd ProjectM-source-code/backend && go test ./..."
               ],
               "contractLinks": [
                 {
@@ -13477,10 +13531,20 @@
                 "super_user"
               ],
               "completionStatus": "done",
-              "completionNote": "Go 后端已有对应基础设施、门户读取 API 或 PostgreSQL 查询实现。",
+              "completionNote": "P01 D 平台运行基线已打勾：覆盖 Go 后端骨架、API envelope、配置/环境样例、认证会话 cookie、健康检查、Docker Compose、PostgreSQL、pgAdmin 与默认端口门禁；后续 /api/v1/admin/* 仍必须由后端 super_user 授权保护。",
               "completionEvidence": [
                 "ProjectM-source-code/backend/cmd/api/main.go",
-                "ProjectM-source-code/backend/internal/**"
+                "ProjectM-source-code/backend/internal/response/json.go",
+                "ProjectM-source-code/backend/internal/auth/session.go",
+                "ProjectM-source-code/backend/internal/config/config.go",
+                "ProjectM-source-code/backend/internal/middleware/http.go",
+                "ProjectM-source-code/backend/internal/response/json_test.go",
+                "ProjectM-source-code/backend/internal/auth/session_test.go",
+                "ProjectM-source-code/docker-compose.yml",
+                ".env.example",
+                "docker compose config --services",
+                "docker compose --profile local-db config --services",
+                "cd ProjectM-source-code/backend && go test ./..."
               ],
               "contractLinks": [
                 {
@@ -13618,11 +13682,21 @@
                 "user",
                 "super_user"
               ],
-              "completionStatus": "partial",
-              "completionNote": "已有局部 envelope/request_id/RequireUser 或列表读取基础，但未覆盖完整合同。",
+              "completionStatus": "done",
+              "completionNote": "P01 D 平台运行基线已打勾：覆盖 Go 后端骨架、API envelope、配置/环境样例、认证会话 cookie、健康检查、Docker Compose、PostgreSQL、pgAdmin 与默认端口门禁；后续 /api/v1/admin/* 仍必须由后端 super_user 授权保护。",
               "completionEvidence": [
                 "ProjectM-source-code/backend/cmd/api/main.go",
-                "ProjectM-source-code/backend/internal/**"
+                "ProjectM-source-code/backend/internal/response/json.go",
+                "ProjectM-source-code/backend/internal/auth/session.go",
+                "ProjectM-source-code/backend/internal/config/config.go",
+                "ProjectM-source-code/backend/internal/middleware/http.go",
+                "ProjectM-source-code/backend/internal/response/json_test.go",
+                "ProjectM-source-code/backend/internal/auth/session_test.go",
+                "ProjectM-source-code/docker-compose.yml",
+                ".env.example",
+                "docker compose config --services",
+                "docker compose --profile local-db config --services",
+                "cd ProjectM-source-code/backend && go test ./..."
               ],
               "contractLinks": [
                 {
@@ -13760,11 +13834,21 @@
                 "user",
                 "super_user"
               ],
-              "completionStatus": "partial",
-              "completionNote": "已有局部 envelope/request_id/RequireUser 或列表读取基础，但未覆盖完整合同。",
+              "completionStatus": "done",
+              "completionNote": "P01 D 平台运行基线已打勾：覆盖 Go 后端骨架、API envelope、配置/环境样例、认证会话 cookie、健康检查、Docker Compose、PostgreSQL、pgAdmin 与默认端口门禁；后续 /api/v1/admin/* 仍必须由后端 super_user 授权保护。",
               "completionEvidence": [
                 "ProjectM-source-code/backend/cmd/api/main.go",
-                "ProjectM-source-code/backend/internal/**"
+                "ProjectM-source-code/backend/internal/response/json.go",
+                "ProjectM-source-code/backend/internal/auth/session.go",
+                "ProjectM-source-code/backend/internal/config/config.go",
+                "ProjectM-source-code/backend/internal/middleware/http.go",
+                "ProjectM-source-code/backend/internal/response/json_test.go",
+                "ProjectM-source-code/backend/internal/auth/session_test.go",
+                "ProjectM-source-code/docker-compose.yml",
+                ".env.example",
+                "docker compose config --services",
+                "docker compose --profile local-db config --services",
+                "cd ProjectM-source-code/backend && go test ./..."
               ],
               "contractLinks": [
                 {
@@ -13915,10 +13999,20 @@
                 "super_user"
               ],
               "completionStatus": "done",
-              "completionNote": "Go 后端已有对应基础设施、门户读取 API 或 PostgreSQL 查询实现。",
+              "completionNote": "P01 D 平台运行基线已打勾：覆盖 Go 后端骨架、API envelope、配置/环境样例、认证会话 cookie、健康检查、Docker Compose、PostgreSQL、pgAdmin 与默认端口门禁；后续 /api/v1/admin/* 仍必须由后端 super_user 授权保护。",
               "completionEvidence": [
                 "ProjectM-source-code/backend/cmd/api/main.go",
-                "ProjectM-source-code/backend/internal/**"
+                "ProjectM-source-code/backend/internal/response/json.go",
+                "ProjectM-source-code/backend/internal/auth/session.go",
+                "ProjectM-source-code/backend/internal/config/config.go",
+                "ProjectM-source-code/backend/internal/middleware/http.go",
+                "ProjectM-source-code/backend/internal/response/json_test.go",
+                "ProjectM-source-code/backend/internal/auth/session_test.go",
+                "ProjectM-source-code/docker-compose.yml",
+                ".env.example",
+                "docker compose config --services",
+                "docker compose --profile local-db config --services",
+                "cd ProjectM-source-code/backend && go test ./..."
               ],
               "contractLinks": [
                 {
@@ -14068,10 +14162,20 @@
                 "super_user"
               ],
               "completionStatus": "done",
-              "completionNote": "Go 后端已有对应基础设施、门户读取 API 或 PostgreSQL 查询实现。",
+              "completionNote": "P01 D 平台运行基线已打勾：覆盖 Go 后端骨架、API envelope、配置/环境样例、认证会话 cookie、健康检查、Docker Compose、PostgreSQL、pgAdmin 与默认端口门禁；后续 /api/v1/admin/* 仍必须由后端 super_user 授权保护。",
               "completionEvidence": [
                 "ProjectM-source-code/backend/cmd/api/main.go",
-                "ProjectM-source-code/backend/internal/**"
+                "ProjectM-source-code/backend/internal/response/json.go",
+                "ProjectM-source-code/backend/internal/auth/session.go",
+                "ProjectM-source-code/backend/internal/config/config.go",
+                "ProjectM-source-code/backend/internal/middleware/http.go",
+                "ProjectM-source-code/backend/internal/response/json_test.go",
+                "ProjectM-source-code/backend/internal/auth/session_test.go",
+                "ProjectM-source-code/docker-compose.yml",
+                ".env.example",
+                "docker compose config --services",
+                "docker compose --profile local-db config --services",
+                "cd ProjectM-source-code/backend && go test ./..."
               ],
               "contractLinks": [
                 {
@@ -14355,8 +14459,8 @@
             "total": 9
           },
           "completionSummary": {
-            "done": 6,
-            "partial": 2,
+            "done": 8,
+            "partial": 0,
             "not_done": 1,
             "total": 9
           }
@@ -20383,11 +20487,21 @@
                 "user",
                 "super_user"
               ],
-              "completionStatus": "not_done",
-              "completionNote": "认证、Admin 管理、个人中心、审计查询或测试门禁尚未完整实现。",
+              "completionStatus": "done",
+              "completionNote": "P01 D 平台运行基线已打勾：覆盖 Go 后端骨架、API envelope、配置/环境样例、认证会话 cookie、健康检查、Docker Compose、PostgreSQL、pgAdmin 与默认端口门禁；后续 /api/v1/admin/* 仍必须由后端 super_user 授权保护。",
               "completionEvidence": [
                 "ProjectM-source-code/backend/cmd/api/main.go",
-                "ProjectM-source-code/backend/internal/**"
+                "ProjectM-source-code/backend/internal/response/json.go",
+                "ProjectM-source-code/backend/internal/auth/session.go",
+                "ProjectM-source-code/backend/internal/config/config.go",
+                "ProjectM-source-code/backend/internal/middleware/http.go",
+                "ProjectM-source-code/backend/internal/response/json_test.go",
+                "ProjectM-source-code/backend/internal/auth/session_test.go",
+                "ProjectM-source-code/docker-compose.yml",
+                ".env.example",
+                "docker compose config --services",
+                "docker compose --profile local-db config --services",
+                "cd ProjectM-source-code/backend && go test ./..."
               ],
               "contractLinks": [
                 {
@@ -21075,9 +21189,9 @@
             "total": 8
           },
           "completionSummary": {
-            "done": 0,
+            "done": 1,
             "partial": 0,
-            "not_done": 8,
+            "not_done": 7,
             "total": 8
           }
         }
